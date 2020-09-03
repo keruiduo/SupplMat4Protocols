@@ -67,6 +67,6 @@ The supplementary materials contain:
       - **response_time**: the response time for the trial
   - the full Rmarkdown analysis and plotting script `Four_protocols.Rmd`
   - the resulting HTML output `Four_protocols.html`
-  - a .docx file containing additional details and analyses `Supplementary Information.docx` 
+  - a Word file containing additional details and analyses `Supplementary Information.docx` 
   - a pdf file containing the same additional details and analyses `Supplementary Information.pdf`
 
