@@ -1,0 +1,575 @@
+subject_nr	trial_nb	PW_code_left	PW_code_right	label_left	label_right	chosen_label	chosen_PW_code	chosen_PW	context	contrast	C	V	mode	place	voicing	response_time
+2	6	a_occ_alv_NV	a_frac_alv_NV	a_fish	a_bird	a_fish	a_frac_alv_NV	asas	a_a_	t-s	s	a	fricative	medium	voiceless	618.3040621
+4	10	a_frac_alv_NV	a_occ_alv_NV	a_bird	a_fish	a_bird	a_frac_alv_NV	asas	a_a_	t-s	s	a	fricative	medium	voiceless	559.7247862
+6	10	a_occ_alv_NV	a_frac_alv_NV	a_fish	a_bird	a_fish	a_occ_alv_NV	atat	a_a_	t-s	t	a	plosive	medium	voiceless	471.2427263
+8	8	a_frac_alv_NV	a_occ_alv_NV	a_bird	a_fish	a_bird	a_occ_alv_NV	atat	a_a_	t-s	t	a	plosive	medium	voiceless	593.8212633
+10	7	a_occ_alv_NV	a_frac_alv_NV	a_bird	a_fish	a_bird	a_occ_alv_NV	atat	a_a_	t-s	t	a	plosive	medium	voiceless	410.4591708
+12	7	a_occ_alv_NV	a_frac_alv_NV	a_fish	a_bird	a_fish	a_frac_alv_NV	asas	a_a_	t-s	s	a	fricative	medium	voiceless	1289.593271
+16	12	a_occ_alv_NV	a_frac_alv_NV	a_fish	a_bird	a_fish	a_frac_alv_NV	asas	a_a_	t-s	s	a	fricative	medium	voiceless	966.4881966
+20	4	a_occ_alv_NV	a_frac_alv_NV	a_fish	a_bird	a_fish	a_frac_alv_NV	asas	a_a_	t-s	s	a	fricative	medium	voiceless	773.08766
+22	8	a_occ_alv_NV	a_frac_alv_NV	a_bird	a_fish	a_bird	a_occ_alv_NV	atat	a_a_	t-s	t	a	plosive	medium	voiceless	417.1216704
+24	8	a_occ_alv_NV	a_frac_alv_NV	a_fish	a_bird	a_bird	a_frac_alv_NV	asas	a_a_	t-s	s	a	fricative	medium	voiceless	1665.970863
+26	5	a_frac_alv_NV	a_occ_alv_NV	a_bird	a_fish	a_fish	a_occ_alv_NV	atat	a_a_	t-s	t	a	plosive	medium	voiceless	891.0484001
+28	6	a_occ_alv_NV	a_frac_alv_NV	a_fish	a_bird	a_fish	a_frac_alv_NV	asas	a_a_	t-s	s	a	fricative	medium	voiceless	986.286653
+30	12	a_frac_alv_NV	a_occ_alv_NV	a_bird	a_fish	a_fish	a_occ_alv_NV	atat	a_a_	t-s	t	a	plosive	medium	voiceless	422.8608092
+32	6	a_occ_alv_NV	a_frac_alv_NV	a_bird	a_fish	a_fish	a_frac_alv_NV	asas	a_a_	t-s	s	a	fricative	medium	voiceless	2598.001524
+36	9	a_frac_alv_NV	a_occ_alv_NV	a_bird	a_fish	a_bird	a_occ_alv_NV	atat	a_a_	t-s	t	a	plosive	medium	voiceless	924.6166842
+38	9	a_frac_alv_NV	a_occ_alv_NV	a_fish	a_bird	a_fish	a_frac_alv_NV	asas	a_a_	t-s	s	a	fricative	medium	voiceless	703.5512852
+46	8	a_occ_alv_NV	a_frac_alv_NV	a_fish	a_bird	a_fish	a_occ_alv_NV	atat	a_a_	t-s	t	a	plosive	medium	voiceless	496.6270354
+50	7	a_frac_alv_NV	a_occ_alv_NV	a_bird	a_fish	a_bird	a_frac_alv_NV	asas	a_a_	t-s	s	a	fricative	medium	voiceless	889.8044908
+52	7	a_occ_alv_NV	a_frac_alv_NV	a_bird	a_fish	a_bird	a_occ_alv_NV	atat	a_a_	t-s	t	a	plosive	medium	voiceless	952.4086099
+54	6	a_frac_alv_NV	a_occ_alv_NV	a_fish	a_bird	a_fish	a_occ_alv_NV	atat	a_a_	t-s	t	a	plosive	medium	voiceless	682.5764924
+56	13	a_frac_alv_NV	a_occ_alv_NV	a_bird	a_fish	a_bird	a_occ_alv_NV	atat	a_a_	t-s	t	a	plosive	medium	voiceless	750.0439687
+1	5	i_fric_alv_NV	a_frac_alv_NV	a_fish	a_bird	a_fish	a_frac_alv_NV	asas	_s_s	i-a	s	a	fricative	medium	voiceless	794.7970659
+3	9	i_fric_alv_NV	a_frac_alv_NV	a_fish	a_bird	a_bird	i_fric_alv_NV	isis	_s_s	i-a	s	i	fricative	medium	voiceless	712.1865738
+5	11	i_fric_alv_NV	a_frac_alv_NV	a_fish	a_bird	a_bird	a_frac_alv_NV	asas	_s_s	i-a	s	a	fricative	medium	voiceless	671.5295674
+7	12	a_frac_alv_NV	i_fric_alv_NV	a_bird	a_fish	a_bird	i_fric_alv_NV	isis	_s_s	i-a	s	i	fricative	medium	voiceless	1142.895784
+11	7	a_frac_alv_NV	i_fric_alv_NV	a_bird	a_fish	a_fish	a_frac_alv_NV	asas	_s_s	i-a	s	a	fricative	medium	voiceless	946.3642961
+13	8	i_fric_alv_NV	a_frac_alv_NV	a_bird	a_fish	a_fish	i_fric_alv_NV	isis	_s_s	i-a	s	i	fricative	medium	voiceless	1096.89229
+17	9	i_fric_alv_NV	a_frac_alv_NV	a_fish	a_bird	a_fish	i_fric_alv_NV	isis	_s_s	i-a	s	i	fricative	medium	voiceless	704.4898043
+19	9	i_fric_alv_NV	a_frac_alv_NV	a_fish	a_bird	a_bird	i_fric_alv_NV	isis	_s_s	i-a	s	i	fricative	medium	voiceless	1064.873292
+21	12	i_fric_alv_NV	a_frac_alv_NV	a_fish	a_bird	a_fish	a_frac_alv_NV	asas	_s_s	i-a	s	a	fricative	medium	voiceless	1278.442424
+23	4	a_frac_alv_NV	i_fric_alv_NV	a_fish	a_bird	a_bird	i_fric_alv_NV	isis	_s_s	i-a	s	i	fricative	medium	voiceless	757.8335024
+25	4	i_fric_alv_NV	a_frac_alv_NV	a_bird	a_fish	a_bird	i_fric_alv_NV	isis	_s_s	i-a	s	i	fricative	medium	voiceless	636.2534796
+29	13	a_frac_alv_NV	i_fric_alv_NV	a_bird	a_fish	a_bird	a_frac_alv_NV	asas	_s_s	i-a	s	a	fricative	medium	voiceless	2350.811524
+31	5	a_frac_alv_NV	i_fric_alv_NV	a_bird	a_fish	a_fish	a_frac_alv_NV	asas	_s_s	i-a	s	a	fricative	medium	voiceless	546.9109627
+35	9	i_fric_alv_NV	a_frac_alv_NV	a_bird	a_fish	a_bird	i_fric_alv_NV	isis	_s_s	i-a	s	i	fricative	medium	voiceless	947.8438864
+37	13	a_frac_alv_NV	i_fric_alv_NV	a_fish	a_bird	a_fish	i_fric_alv_NV	isis	_s_s	i-a	s	i	fricative	medium	voiceless	890.7259427
+39	8	a_frac_alv_NV	i_fric_alv_NV	a_bird	a_fish	a_bird	i_fric_alv_NV	isis	_s_s	i-a	s	i	fricative	medium	voiceless	812.9337808
+43	8	i_fric_alv_NV	a_frac_alv_NV	a_fish	a_bird	a_bird	i_fric_alv_NV	isis	_s_s	i-a	s	i	fricative	medium	voiceless	639.5468443
+45	9	a_frac_alv_NV	i_fric_alv_NV	a_bird	a_fish	a_fish	i_fric_alv_NV	isis	_s_s	i-a	s	i	fricative	medium	voiceless	802.6745421
+47	5	a_frac_alv_NV	i_fric_alv_NV	a_bird	a_fish	a_fish	a_frac_alv_NV	asas	_s_s	i-a	s	a	fricative	medium	voiceless	702.7828464
+49	4	a_frac_alv_NV	i_fric_alv_NV	a_fish	a_bird	a_bird	i_fric_alv_NV	isis	_s_s	i-a	s	i	fricative	medium	voiceless	440.7316544
+1	2	a_frac_uvu	a_occ_alv_V	a_repulsive_animal	an_attractive_animal	a_repulsive_animal	a_frac_uvu	aʁaʁ			ʁ	a	ʁ	ʁ	ʁ	724.1756961
+2	1	a_frac_uvu	a_occ_alv_V	an_attractive_animal	a_repulsive_animal	a_repulsive_animal	a_occ_alv_V	adad			d	a	plosive	medium	voiced	2690.018302
+3	0	a_occ_alv_V	a_frac_uvu	a_repulsive_animal	an_attractive_animal	a_repulsive_animal	a_occ_alv_V	adad			d	a	plosive	medium	voiced	1809.405964
+4	3	a_occ_alv_V	a_frac_uvu	an_attractive_animal	a_repulsive_animal	a_repulsive_animal	a_frac_uvu	aʁaʁ			ʁ	a	ʁ	ʁ	ʁ	3008.180466
+5	3	a_occ_alv_V	a_frac_uvu	an_attractive_animal	a_repulsive_animal	a_repulsive_animal	a_frac_uvu	aʁaʁ			ʁ	a	ʁ	ʁ	ʁ	691.3419289
+6	2	a_frac_uvu	a_occ_alv_V	a_repulsive_animal	an_attractive_animal	a_repulsive_animal	a_frac_uvu	aʁaʁ			ʁ	a	ʁ	ʁ	ʁ	739.6314768
+7	1	a_frac_uvu	a_occ_alv_V	an_attractive_animal	a_repulsive_animal	a_repulsive_animal	a_occ_alv_V	adad			d	a	plosive	medium	voiced	3007.846083
+8	2	a_frac_uvu	a_occ_alv_V	a_repulsive_animal	an_attractive_animal	a_repulsive_animal	a_frac_uvu	aʁaʁ			ʁ	a	ʁ	ʁ	ʁ	707.7756972
+10	3	a_frac_uvu	a_occ_alv_V	an_attractive_animal	a_repulsive_animal	an_attractive_animal	a_occ_alv_V	adad			d	a	plosive	medium	voiced	515.5464945
+11	0	a_frac_uvu	a_occ_alv_V	a_repulsive_animal	an_attractive_animal	a_repulsive_animal	a_frac_uvu	aʁaʁ			ʁ	a	ʁ	ʁ	ʁ	624.038897
+12	0	a_frac_uvu	a_occ_alv_V	a_repulsive_animal	an_attractive_animal	an_attractive_animal	a_occ_alv_V	adad			d	a	plosive	medium	voiced	1294.69344
+13	2	a_frac_uvu	a_occ_alv_V	a_repulsive_animal	an_attractive_animal	an_attractive_animal	a_occ_alv_V	adad			d	a	plosive	medium	voiced	1092.324154
+16	2	a_occ_alv_V	a_frac_uvu	an_attractive_animal	a_repulsive_animal	an_attractive_animal	a_occ_alv_V	adad			d	a	plosive	medium	voiced	1060.03765
+17	1	a_occ_alv_V	a_frac_uvu	a_repulsive_animal	an_attractive_animal	an_attractive_animal	a_frac_uvu	aʁaʁ			ʁ	a	ʁ	ʁ	ʁ	3005.944073
+19	1	a_occ_alv_V	a_frac_uvu	an_attractive_animal	a_repulsive_animal	an_attractive_animal	a_frac_uvu	aʁaʁ			ʁ	a	ʁ	ʁ	ʁ	837.1064543
+20	0	a_occ_alv_V	a_frac_uvu	a_repulsive_animal	an_attractive_animal	an_attractive_animal	a_frac_uvu	aʁaʁ			ʁ	a	ʁ	ʁ	ʁ	2047.259251
+21	1	a_frac_uvu	a_occ_alv_V	an_attractive_animal	a_repulsive_animal	an_attractive_animal	a_frac_uvu	aʁaʁ			ʁ	a	ʁ	ʁ	ʁ	1756.250646
+22	3	a_frac_uvu	a_occ_alv_V	a_repulsive_animal	an_attractive_animal	an_attractive_animal	a_occ_alv_V	adad			d	a	plosive	medium	voiced	3006.134108
+23	2	a_occ_alv_V	a_frac_uvu	an_attractive_animal	a_repulsive_animal	an_attractive_animal	a_frac_uvu	aʁaʁ			ʁ	a	ʁ	ʁ	ʁ	731.9280858
+24	3	a_frac_uvu	a_occ_alv_V	a_repulsive_animal	an_attractive_animal	a_repulsive_animal	a_frac_uvu	aʁaʁ			ʁ	a	ʁ	ʁ	ʁ	827.0286126
+25	0	a_frac_uvu	a_occ_alv_V	a_repulsive_animal	an_attractive_animal	an_attractive_animal	a_frac_uvu	aʁaʁ			ʁ	a	ʁ	ʁ	ʁ	576.9213452
+26	1	a_occ_alv_V	a_frac_uvu	a_repulsive_animal	an_attractive_animal	a_repulsive_animal	a_frac_uvu	aʁaʁ			ʁ	a	ʁ	ʁ	ʁ	1676.083136
+28	1	a_occ_alv_V	a_frac_uvu	an_attractive_animal	a_repulsive_animal	a_repulsive_animal	a_frac_uvu	aʁaʁ			ʁ	a	ʁ	ʁ	ʁ	3001.588154
+29	3	a_frac_uvu	a_occ_alv_V	an_attractive_animal	a_repulsive_animal	an_attractive_animal	a_occ_alv_V	adad			d	a	plosive	medium	voiced	1475.764181
+30	2	a_occ_alv_V	a_frac_uvu	an_attractive_animal	a_repulsive_animal	an_attractive_animal	a_frac_uvu	aʁaʁ			ʁ	a	ʁ	ʁ	ʁ	1028.314961
+31	2	a_occ_alv_V	a_frac_uvu	a_repulsive_animal	an_attractive_animal	a_repulsive_animal	a_frac_uvu	aʁaʁ			ʁ	a	ʁ	ʁ	ʁ	1628.210739
+32	1	a_frac_uvu	a_occ_alv_V	a_repulsive_animal	an_attractive_animal	a_repulsive_animal	a_frac_uvu	aʁaʁ			ʁ	a	ʁ	ʁ	ʁ	1355.840088
+35	1	a_occ_alv_V	a_frac_uvu	an_attractive_animal	a_repulsive_animal	a_repulsive_animal	a_frac_uvu	aʁaʁ			ʁ	a	ʁ	ʁ	ʁ	3015.006424
+36	2	a_frac_uvu	a_occ_alv_V	a_repulsive_animal	an_attractive_animal	a_repulsive_animal	a_occ_alv_V	adad			d	a	plosive	medium	voiced	3008.971814
+37	0	a_frac_uvu	a_occ_alv_V	a_repulsive_animal	an_attractive_animal	an_attractive_animal	a_occ_alv_V	adad			d	a	plosive	medium	voiced	3018.523303
+38	2	a_occ_alv_V	a_frac_uvu	an_attractive_animal	a_repulsive_animal	an_attractive_animal	a_occ_alv_V	adad			d	a	plosive	medium	voiced	701.9858478
+39	2	a_frac_uvu	a_occ_alv_V	an_attractive_animal	a_repulsive_animal	a_repulsive_animal	a_frac_uvu	aʁaʁ			ʁ	a	ʁ	ʁ	ʁ	992.9778433
+43	1	a_frac_uvu	a_occ_alv_V	a_repulsive_animal	an_attractive_animal	a_repulsive_animal	a_frac_uvu	aʁaʁ			ʁ	a	ʁ	ʁ	ʁ	1245.703637
+45	1	a_occ_alv_V	a_frac_uvu	a_repulsive_animal	an_attractive_animal	an_attractive_animal	a_frac_uvu	aʁaʁ			ʁ	a	ʁ	ʁ	ʁ	860.8380446
+46	0	a_frac_uvu	a_occ_alv_V	a_repulsive_animal	an_attractive_animal	an_attractive_animal	a_occ_alv_V	adad			d	a	plosive	medium	voiced	3010.802769
+47	2	a_occ_alv_V	a_frac_uvu	an_attractive_animal	a_repulsive_animal	an_attractive_animal	a_frac_uvu	aʁaʁ			ʁ	a	ʁ	ʁ	ʁ	1310.78175
+49	3	a_occ_alv_V	a_frac_uvu	a_repulsive_animal	an_attractive_animal	a_repulsive_animal	a_occ_alv_V	adad			d	a	plosive	medium	voiced	515.0866704
+50	2	a_occ_alv_V	a_frac_uvu	an_attractive_animal	a_repulsive_animal	an_attractive_animal	a_occ_alv_V	adad			d	a	plosive	medium	voiced	763.4780305
+52	2	a_frac_uvu	a_occ_alv_V	a_repulsive_animal	an_attractive_animal	a_repulsive_animal	a_occ_alv_V	adad			d	a	plosive	medium	voiced	1043.639592
+54	1	a_frac_uvu	a_occ_alv_V	a_repulsive_animal	an_attractive_animal	a_repulsive_animal	a_occ_alv_V	adad			d	a	plosive	medium	voiced	1652.817412
+56	3	a_frac_uvu	a_occ_alv_V	a_repulsive_animal	an_attractive_animal	an_attractive_animal	a_frac_uvu	aʁaʁ			ʁ	a	ʁ	ʁ	ʁ	770.8190172
+2	10	i_nas_alv	a_nas_alv	a_repulsive_animal	an_attractive_animal	an_attractive_animal	a_nas_alv	anan	_n_n	i-a	n	a	sonorant	medium	voiced	589.7573505
+4	8	i_nas_alv	a_nas_alv	a_repulsive_animal	an_attractive_animal	a_repulsive_animal	a_nas_alv	anan	_n_n	i-a	n	a	sonorant	medium	voiced	871.1698242
+6	11	a_nas_alv	i_nas_alv	a_repulsive_animal	an_attractive_animal	a_repulsive_animal	a_nas_alv	anan	_n_n	i-a	n	a	sonorant	medium	voiced	517.7669966
+8	13	i_nas_alv	a_nas_alv	a_repulsive_animal	an_attractive_animal	an_attractive_animal	a_nas_alv	anan	_n_n	i-a	n	a	sonorant	medium	voiced	3002.922375
+10	13	i_nas_alv	a_nas_alv	an_attractive_animal	a_repulsive_animal	an_attractive_animal	i_nas_alv	inin	_n_n	i-a	n	i	sonorant	medium	voiced	492.040028
+12	10	i_nas_alv	a_nas_alv	a_repulsive_animal	an_attractive_animal	a_repulsive_animal	a_nas_alv	anan	_n_n	i-a	n	a	sonorant	medium	voiced	2703.094334
+16	7	a_nas_alv	i_nas_alv	a_repulsive_animal	an_attractive_animal	an_attractive_animal	i_nas_alv	inin	_n_n	i-a	n	i	sonorant	medium	voiced	630.8960671
+20	12	i_nas_alv	a_nas_alv	an_attractive_animal	a_repulsive_animal	an_attractive_animal	i_nas_alv	inin	_n_n	i-a	n	i	sonorant	medium	voiced	556.8547202
+22	5	a_nas_alv	i_nas_alv	a_repulsive_animal	an_attractive_animal	a_repulsive_animal	a_nas_alv	anan	_n_n	i-a	n	a	sonorant	medium	voiced	641.015624
+24	11	i_nas_alv	a_nas_alv	an_attractive_animal	a_repulsive_animal	an_attractive_animal	i_nas_alv	inin	_n_n	i-a	n	i	sonorant	medium	voiced	1028.99697
+26	6	a_nas_alv	i_nas_alv	a_repulsive_animal	an_attractive_animal	an_attractive_animal	i_nas_alv	inin	_n_n	i-a	n	i	sonorant	medium	voiced	753.194848
+28	8	i_nas_alv	a_nas_alv	an_attractive_animal	a_repulsive_animal	a_repulsive_animal	a_nas_alv	anan	_n_n	i-a	n	a	sonorant	medium	voiced	2859.329353
+30	11	a_nas_alv	i_nas_alv	a_repulsive_animal	an_attractive_animal	a_repulsive_animal	a_nas_alv	anan	_n_n	i-a	n	a	sonorant	medium	voiced	741.4685971
+32	11	i_nas_alv	a_nas_alv	a_repulsive_animal	an_attractive_animal	a_repulsive_animal	a_nas_alv	anan	_n_n	i-a	n	a	sonorant	medium	voiced	675.5138671
+36	12	a_nas_alv	i_nas_alv	an_attractive_animal	a_repulsive_animal	an_attractive_animal	i_nas_alv	inin	_n_n	i-a	n	i	sonorant	medium	voiced	628.377706
+38	13	a_nas_alv	i_nas_alv	a_repulsive_animal	an_attractive_animal	a_repulsive_animal	a_nas_alv	anan	_n_n	i-a	n	a	sonorant	medium	voiced	667.8648422
+46	11	i_nas_alv	a_nas_alv	an_attractive_animal	a_repulsive_animal	an_attractive_animal	i_nas_alv	inin	_n_n	i-a	n	i	sonorant	medium	voiced	635.5332908
+50	10	a_nas_alv	i_nas_alv	a_repulsive_animal	an_attractive_animal	a_repulsive_animal	a_nas_alv	anan	_n_n	i-a	n	a	sonorant	medium	voiced	1132.021137
+52	12	a_nas_alv	i_nas_alv	an_attractive_animal	a_repulsive_animal	an_attractive_animal	a_nas_alv	anan	_n_n	i-a	n	a	sonorant	medium	voiced	1314.033386
+54	12	i_nas_alv	a_nas_alv	a_repulsive_animal	an_attractive_animal	a_repulsive_animal	a_nas_alv	anan	_n_n	i-a	n	a	sonorant	medium	voiced	551.2817106
+56	6	a_nas_alv	i_nas_alv	a_repulsive_animal	an_attractive_animal	a_repulsive_animal	a_nas_alv	anan	_n_n	i-a	n	a	sonorant	medium	voiced	646.9869814
+1	10	i_occ_alv_NV	a_occ_alv_NV	a_bird	a_fish	a_bird	a_occ_alv_NV	atat	_t_t	i-a	t	a	plosive	medium	voiceless	535.9395568
+3	4	a_occ_alv_NV	i_occ_alv_NV	a_bird	a_fish	a_bird	i_occ_alv_NV	itit	_t_t	i-a	t	i	plosive	medium	voiceless	822.0145222
+5	5	a_occ_alv_NV	i_occ_alv_NV	a_bird	a_fish	a_fish	i_occ_alv_NV	itit	_t_t	i-a	t	i	plosive	medium	voiceless	555.1626095
+7	6	i_occ_alv_NV	a_occ_alv_NV	a_bird	a_fish	a_fish	i_occ_alv_NV	itit	_t_t	i-a	t	i	plosive	medium	voiceless	1034.479528
+11	5	i_occ_alv_NV	a_occ_alv_NV	a_bird	a_fish	a_fish	a_occ_alv_NV	atat	_t_t	i-a	t	a	plosive	medium	voiceless	771.0532205
+13	9	i_occ_alv_NV	a_occ_alv_NV	a_fish	a_bird	a_fish	a_occ_alv_NV	atat	_t_t	i-a	t	a	plosive	medium	voiceless	889.4099232
+17	13	a_occ_alv_NV	i_occ_alv_NV	a_bird	a_fish	a_bird	i_occ_alv_NV	itit	_t_t	i-a	t	i	plosive	medium	voiceless	605.7289418
+19	12	a_occ_alv_NV	i_occ_alv_NV	a_fish	a_bird	a_fish	a_occ_alv_NV	atat	_t_t	i-a	t	a	plosive	medium	voiceless	887.0533503
+21	5	a_occ_alv_NV	i_occ_alv_NV	a_fish	a_bird	a_bird	i_occ_alv_NV	itit	_t_t	i-a	t	i	plosive	medium	voiceless	1650.515413
+23	13	i_occ_alv_NV	a_occ_alv_NV	a_fish	a_bird	a_fish	a_occ_alv_NV	atat	_t_t	i-a	t	a	plosive	medium	voiceless	606.6172089
+25	11	i_occ_alv_NV	a_occ_alv_NV	a_fish	a_bird	a_bird	i_occ_alv_NV	itit	_t_t	i-a	t	i	plosive	medium	voiceless	759.1379274
+29	8	a_occ_alv_NV	i_occ_alv_NV	a_fish	a_bird	a_fish	a_occ_alv_NV	atat	_t_t	i-a	t	a	plosive	medium	voiceless	593.5732901
+31	6	i_occ_alv_NV	a_occ_alv_NV	a_bird	a_fish	a_bird	i_occ_alv_NV	itit	_t_t	i-a	t	i	plosive	medium	voiceless	547.5390069
+35	11	i_occ_alv_NV	a_occ_alv_NV	a_fish	a_bird	a_bird	a_occ_alv_NV	atat	_t_t	i-a	t	a	plosive	medium	voiceless	578.4488156
+37	5	i_occ_alv_NV	a_occ_alv_NV	a_bird	a_fish	a_bird	i_occ_alv_NV	itit	_t_t	i-a	t	i	plosive	medium	voiceless	950.3866069
+39	5	i_occ_alv_NV	a_occ_alv_NV	a_fish	a_bird	a_bird	a_occ_alv_NV	atat	_t_t	i-a	t	a	plosive	medium	voiceless	3017.309509
+43	11	a_occ_alv_NV	i_occ_alv_NV	a_fish	a_bird	a_bird	i_occ_alv_NV	itit	_t_t	i-a	t	i	plosive	medium	voiceless	576.611613
+45	12	a_occ_alv_NV	i_occ_alv_NV	a_bird	a_fish	a_fish	i_occ_alv_NV	itit	_t_t	i-a	t	i	plosive	medium	voiceless	3001.629251
+47	13	a_occ_alv_NV	i_occ_alv_NV	a_fish	a_bird	a_fish	i_occ_alv_NV	itit	_t_t	i-a	t	i	plosive	medium	voiceless	577.2515325
+49	5	i_occ_alv_NV	a_occ_alv_NV	a_bird	a_fish	a_bird	i_occ_alv_NV	itit	_t_t	i-a	t	i	plosive	medium	voiceless	692.1590553
+1	4	a_occ_bi_NV	a_occ_bi_V	a_large_animal	a_small_animal	a_large_animal	a_occ_bi_V	abab	a_a_	p-b	b	a	plosive	anterior	voiced	746.4098517
+3	10	a_occ_bi_NV	a_occ_bi_V	a_small_animal	a_large_animal	a_large_animal	a_occ_bi_V	abab	a_a_	p-b	b	a	plosive	anterior	voiced	630.1418844
+5	7	a_occ_bi_NV	a_occ_bi_V	a_small_animal	a_large_animal	a_large_animal	a_occ_bi_V	abab	a_a_	p-b	b	a	plosive	anterior	voiced	575.5550097
+7	7	a_occ_bi_V	a_occ_bi_NV	a_large_animal	a_small_animal	a_large_animal	a_occ_bi_NV	apap	a_a_	p-b	p	a	plosive	anterior	voiceless	816.6975005
+11	8	a_occ_bi_V	a_occ_bi_NV	a_large_animal	a_small_animal	a_large_animal	a_occ_bi_V	abab	a_a_	p-b	b	a	plosive	anterior	voiced	648.2449194
+13	4	a_occ_bi_V	a_occ_bi_NV	a_small_animal	a_large_animal	a_small_animal	a_occ_bi_NV	apap	a_a_	p-b	p	a	plosive	anterior	voiceless	1242.611459
+17	4	a_occ_bi_V	a_occ_bi_NV	a_small_animal	a_large_animal	a_small_animal	a_occ_bi_V	abab	a_a_	p-b	b	a	plosive	anterior	voiced	601.4302987
+19	6	a_occ_bi_NV	a_occ_bi_V	a_small_animal	a_large_animal	a_small_animal	a_occ_bi_NV	apap	a_a_	p-b	p	a	plosive	anterior	voiceless	848.1344736
+21	11	a_occ_bi_V	a_occ_bi_NV	a_small_animal	a_large_animal	a_large_animal	a_occ_bi_V	abab	a_a_	p-b	b	a	plosive	anterior	voiced	1725.01662
+23	11	a_occ_bi_V	a_occ_bi_NV	a_large_animal	a_small_animal	a_small_animal	a_occ_bi_NV	apap	a_a_	p-b	p	a	plosive	anterior	voiceless	637.2688784
+25	5	a_occ_bi_V	a_occ_bi_NV	a_large_animal	a_small_animal	a_small_animal	a_occ_bi_NV	apap	a_a_	p-b	p	a	plosive	anterior	voiceless	745.0484822
+29	12	a_occ_bi_NV	a_occ_bi_V	a_large_animal	a_small_animal	a_small_animal	a_occ_bi_NV	apap	a_a_	p-b	p	a	plosive	anterior	voiceless	757.19983
+31	13	a_occ_bi_NV	a_occ_bi_V	a_small_animal	a_large_animal	a_large_animal	a_occ_bi_V	abab	a_a_	p-b	b	a	plosive	anterior	voiced	2666.570766
+35	10	a_occ_bi_V	a_occ_bi_NV	a_large_animal	a_small_animal	a_large_animal	a_occ_bi_V	abab	a_a_	p-b	b	a	plosive	anterior	voiced	794.3640677
+37	4	a_occ_bi_V	a_occ_bi_NV	a_large_animal	a_small_animal	a_small_animal	a_occ_bi_NV	apap	a_a_	p-b	p	a	plosive	anterior	voiceless	814.3532953
+39	6	a_occ_bi_V	a_occ_bi_NV	a_small_animal	a_large_animal	a_small_animal	a_occ_bi_NV	apap	a_a_	p-b	p	a	plosive	anterior	voiceless	736.6169145
+43	13	a_occ_bi_NV	a_occ_bi_V	a_large_animal	a_small_animal	a_large_animal	a_occ_bi_V	abab	a_a_	p-b	b	a	plosive	anterior	voiced	586.0011148
+45	5	a_occ_bi_NV	a_occ_bi_V	a_small_animal	a_large_animal	a_small_animal	a_occ_bi_NV	apap	a_a_	p-b	p	a	plosive	anterior	voiceless	1058.295146
+47	12	a_occ_bi_V	a_occ_bi_NV	a_large_animal	a_small_animal	a_small_animal	a_occ_bi_NV	apap	a_a_	p-b	p	a	plosive	anterior	voiceless	522.1894528
+49	7	a_occ_bi_V	a_occ_bi_NV	a_large_animal	a_small_animal	a_small_animal	a_occ_bi_NV	apap	a_a_	p-b	p	a	plosive	anterior	voiceless	638.1466342
+2	12	i_occ_bi_NV	a_occ_bi_NV	a_small_animal	a_large_animal	a_small_animal	i_occ_bi_NV	ipip	_p_p	i-a	p	i	plosive	anterior	voiceless	596.7565506
+4	12	i_occ_bi_NV	a_occ_bi_NV	a_small_animal	a_large_animal	a_small_animal	a_occ_bi_NV	apap	_p_p	i-a	p	a	plosive	anterior	voiceless	796.0402425
+6	9	a_occ_bi_NV	i_occ_bi_NV	a_small_animal	a_large_animal	a_small_animal	a_occ_bi_NV	apap	_p_p	i-a	p	a	plosive	anterior	voiceless	494.2760905
+8	9	a_occ_bi_NV	i_occ_bi_NV	a_small_animal	a_large_animal	a_small_animal	i_occ_bi_NV	ipip	_p_p	i-a	p	i	plosive	anterior	voiceless	439.4766673
+10	11	i_occ_bi_NV	a_occ_bi_NV	a_small_animal	a_large_animal	a_small_animal	i_occ_bi_NV	ipip	_p_p	i-a	p	i	plosive	anterior	voiceless	565.5225248
+12	9	i_occ_bi_NV	a_occ_bi_NV	a_large_animal	a_small_animal	a_large_animal	a_occ_bi_NV	apap	_p_p	i-a	p	a	plosive	anterior	voiceless	1070.965354
+16	9	i_occ_bi_NV	a_occ_bi_NV	a_large_animal	a_small_animal	a_small_animal	i_occ_bi_NV	ipip	_p_p	i-a	p	i	plosive	anterior	voiceless	982.1267292
+20	11	i_occ_bi_NV	a_occ_bi_NV	a_large_animal	a_small_animal	a_large_animal	a_occ_bi_NV	apap	_p_p	i-a	p	a	plosive	anterior	voiceless	549.6727681
+22	4	a_occ_bi_NV	i_occ_bi_NV	a_small_animal	a_large_animal	a_small_animal	i_occ_bi_NV	ipip	_p_p	i-a	p	i	plosive	anterior	voiceless	538.682491
+24	10	i_occ_bi_NV	a_occ_bi_NV	a_large_animal	a_small_animal	a_large_animal	a_occ_bi_NV	apap	_p_p	i-a	p	a	plosive	anterior	voiceless	1004.926687
+26	7	a_occ_bi_NV	i_occ_bi_NV	a_large_animal	a_small_animal	a_small_animal	i_occ_bi_NV	ipip	_p_p	i-a	p	i	plosive	anterior	voiceless	855.3710526
+28	9	a_occ_bi_NV	i_occ_bi_NV	a_large_animal	a_small_animal	a_small_animal	i_occ_bi_NV	ipip	_p_p	i-a	p	i	plosive	anterior	voiceless	710.6619857
+30	13	a_occ_bi_NV	i_occ_bi_NV	a_large_animal	a_small_animal	a_small_animal	i_occ_bi_NV	ipip	_p_p	i-a	p	i	plosive	anterior	voiceless	804.2001822
+32	7	a_occ_bi_NV	i_occ_bi_NV	a_large_animal	a_small_animal	a_small_animal	i_occ_bi_NV	ipip	_p_p	i-a	p	i	plosive	anterior	voiceless	854.4759539
+36	5	i_occ_bi_NV	a_occ_bi_NV	a_large_animal	a_small_animal	a_large_animal	a_occ_bi_NV	apap	_p_p	i-a	p	a	plosive	anterior	voiceless	786.4802064
+38	8	i_occ_bi_NV	a_occ_bi_NV	a_large_animal	a_small_animal	a_small_animal	i_occ_bi_NV	ipip	_p_p	i-a	p	i	plosive	anterior	voiceless	785.4297389
+46	9	i_occ_bi_NV	a_occ_bi_NV	a_small_animal	a_large_animal	a_small_animal	i_occ_bi_NV	ipip	_p_p	i-a	p	i	plosive	anterior	voiceless	431.5618632
+50	4	a_occ_bi_NV	i_occ_bi_NV	a_large_animal	a_small_animal	a_small_animal	i_occ_bi_NV	ipip	_p_p	i-a	p	i	plosive	anterior	voiceless	749.8223768
+52	10	a_occ_bi_NV	i_occ_bi_NV	a_small_animal	a_large_animal	a_small_animal	a_occ_bi_NV	apap	_p_p	i-a	p	a	plosive	anterior	voiceless	795.8211047
+54	10	i_occ_bi_NV	a_occ_bi_NV	a_large_animal	a_small_animal	a_small_animal	i_occ_bi_NV	ipip	_p_p	i-a	p	i	plosive	anterior	voiceless	677.8003722
+56	4	i_occ_bi_NV	a_occ_bi_NV	a_small_animal	a_large_animal	a_small_animal	i_occ_bi_NV	ipip	_p_p	i-a	p	i	plosive	anterior	voiceless	925.3641451
+2	13	a_occ_bi_V	i_occ_bi_V	a_large_animal	a_small_animal	a_large_animal	a_occ_bi_V	abab	_b_b	i-a	b	a	plosive	anterior	voiced	675.9828213
+4	6	i_occ_bi_V	a_occ_bi_V	a_small_animal	a_large_animal	a_large_animal	a_occ_bi_V	abab	_b_b	i-a	b	a	plosive	anterior	voiced	616.1537473
+6	7	a_occ_bi_V	i_occ_bi_V	a_small_animal	a_large_animal	a_small_animal	a_occ_bi_V	abab	_b_b	i-a	b	a	plosive	anterior	voiced	1143.328164
+8	5	a_occ_bi_V	i_occ_bi_V	a_small_animal	a_large_animal	a_small_animal	i_occ_bi_V	ibib	_b_b	i-a	b	i	plosive	anterior	voiced	633.7889771
+10	10	a_occ_bi_V	i_occ_bi_V	a_large_animal	a_small_animal	a_small_animal	i_occ_bi_V	ibib	_b_b	i-a	b	i	plosive	anterior	voiced	510.4843985
+12	13	a_occ_bi_V	i_occ_bi_V	a_large_animal	a_small_animal	a_small_animal	i_occ_bi_V	ibib	_b_b	i-a	b	i	plosive	anterior	voiced	764.2324684
+16	11	a_occ_bi_V	i_occ_bi_V	a_large_animal	a_small_animal	a_small_animal	a_occ_bi_V	abab	_b_b	i-a	b	a	plosive	anterior	voiced	669.3372064
+20	6	a_occ_bi_V	i_occ_bi_V	a_large_animal	a_small_animal	a_small_animal	i_occ_bi_V	ibib	_b_b	i-a	b	i	plosive	anterior	voiced	647.9754265
+22	6	i_occ_bi_V	a_occ_bi_V	a_small_animal	a_large_animal	a_small_animal	i_occ_bi_V	ibib	_b_b	i-a	b	i	plosive	anterior	voiced	608.856251
+24	6	a_occ_bi_V	i_occ_bi_V	a_large_animal	a_small_animal	a_small_animal	i_occ_bi_V	ibib	_b_b	i-a	b	i	plosive	anterior	voiced	1127.850202
+26	10	i_occ_bi_V	a_occ_bi_V	a_small_animal	a_large_animal	a_small_animal	i_occ_bi_V	ibib	_b_b	i-a	b	i	plosive	anterior	voiced	2262.146713
+28	5	a_occ_bi_V	i_occ_bi_V	a_large_animal	a_small_animal	a_small_animal	i_occ_bi_V	ibib	_b_b	i-a	b	i	plosive	anterior	voiced	793.7856399
+30	9	a_occ_bi_V	i_occ_bi_V	a_small_animal	a_large_animal	a_small_animal	i_occ_bi_V	ibib	_b_b	i-a	b	i	plosive	anterior	voiced	1222.220714
+32	13	a_occ_bi_V	i_occ_bi_V	a_large_animal	a_small_animal	a_small_animal	i_occ_bi_V	ibib	_b_b	i-a	b	i	plosive	anterior	voiced	435.1050676
+36	6	i_occ_bi_V	a_occ_bi_V	a_large_animal	a_small_animal	a_large_animal	a_occ_bi_V	abab	_b_b	i-a	b	a	plosive	anterior	voiced	998.0597142
+38	11	i_occ_bi_V	a_occ_bi_V	a_large_animal	a_small_animal	a_small_animal	i_occ_bi_V	ibib	_b_b	i-a	b	i	plosive	anterior	voiced	567.3983793
+46	10	a_occ_bi_V	i_occ_bi_V	a_small_animal	a_large_animal	a_small_animal	i_occ_bi_V	ibib	_b_b	i-a	b	i	plosive	anterior	voiced	566.2890071
+50	12	i_occ_bi_V	a_occ_bi_V	a_large_animal	a_small_animal	a_small_animal	i_occ_bi_V	ibib	_b_b	i-a	b	i	plosive	anterior	voiced	2425.446484
+52	11	i_occ_bi_V	a_occ_bi_V	a_small_animal	a_large_animal	a_large_animal	a_occ_bi_V	abab	_b_b	i-a	b	a	plosive	anterior	voiced	963.0571459
+54	11	a_occ_bi_V	i_occ_bi_V	a_small_animal	a_large_animal	a_small_animal	a_occ_bi_V	abab	_b_b	i-a	b	a	plosive	anterior	voiced	835.3666132
+56	5	a_occ_bi_V	i_occ_bi_V	a_small_animal	a_large_animal	a_large_animal	a_occ_bi_V	abab	_b_b	i-a	b	a	plosive	anterior	voiced	585.5113477
+1	7	a_occ_vel_NV	a_nas_alv	a_repulsive_animal	an_attractive_animal	a_repulsive_animal	a_occ_vel_NV	akak	a_a_	n-k	k	a	plosive	posterior	voiceless	864.0587216
+3	11	a_occ_vel_NV	a_nas_alv	a_repulsive_animal	an_attractive_animal	a_repulsive_animal	a_occ_vel_NV	akak	a_a_	n-k	k	a	plosive	posterior	voiceless	644.4111018
+5	13	a_occ_vel_NV	a_nas_alv	a_repulsive_animal	an_attractive_animal	a_repulsive_animal	a_occ_vel_NV	akak	a_a_	n-k	k	a	plosive	posterior	voiceless	1468.105485
+7	5	a_nas_alv	a_occ_vel_NV	a_repulsive_animal	an_attractive_animal	an_attractive_animal	a_nas_alv	anan	a_a_	n-k	n	a	sonorant	medium	voiced	862.7281419
+11	6	a_occ_vel_NV	a_nas_alv	an_attractive_animal	a_repulsive_animal	an_attractive_animal	a_nas_alv	anan	a_a_	n-k	n	a	sonorant	medium	voiced	592.9886164
+13	5	a_nas_alv	a_occ_vel_NV	a_repulsive_animal	an_attractive_animal	an_attractive_animal	a_nas_alv	anan	a_a_	n-k	n	a	sonorant	medium	voiced	1112.350388
+17	12	a_occ_vel_NV	a_nas_alv	a_repulsive_animal	an_attractive_animal	a_repulsive_animal	a_occ_vel_NV	akak	a_a_	n-k	k	a	plosive	posterior	voiceless	867.7068076
+19	5	a_occ_vel_NV	a_nas_alv	a_repulsive_animal	an_attractive_animal	a_repulsive_animal	a_occ_vel_NV	akak	a_a_	n-k	k	a	plosive	posterior	voiceless	912.0456694
+21	8	a_occ_vel_NV	a_nas_alv	a_repulsive_animal	an_attractive_animal	a_repulsive_animal	a_occ_vel_NV	akak	a_a_	n-k	k	a	plosive	posterior	voiceless	1894.955054
+23	9	a_nas_alv	a_occ_vel_NV	an_attractive_animal	a_repulsive_animal	an_attractive_animal	a_nas_alv	anan	a_a_	n-k	n	a	sonorant	medium	voiced	910.4042128
+25	12	a_nas_alv	a_occ_vel_NV	an_attractive_animal	a_repulsive_animal	a_repulsive_animal	a_occ_vel_NV	akak	a_a_	n-k	k	a	plosive	posterior	voiceless	613.0386878
+29	4	a_occ_vel_NV	a_nas_alv	a_repulsive_animal	an_attractive_animal	a_repulsive_animal	a_occ_vel_NV	akak	a_a_	n-k	k	a	plosive	posterior	voiceless	979.0427904
+31	11	a_nas_alv	a_occ_vel_NV	an_attractive_animal	a_repulsive_animal	a_repulsive_animal	a_occ_vel_NV	akak	a_a_	n-k	k	a	plosive	posterior	voiceless	541.5197809
+35	7	a_occ_vel_NV	a_nas_alv	a_repulsive_animal	an_attractive_animal	an_attractive_animal	a_occ_vel_NV	akak	a_a_	n-k	k	a	plosive	posterior	voiceless	1008.757615
+37	9	a_occ_vel_NV	a_nas_alv	a_repulsive_animal	an_attractive_animal	a_repulsive_animal	a_occ_vel_NV	akak	a_a_	n-k	k	a	plosive	posterior	voiceless	764.6564537
+39	7	a_occ_vel_NV	a_nas_alv	an_attractive_animal	a_repulsive_animal	a_repulsive_animal	a_nas_alv	anan	a_a_	n-k	n	a	sonorant	medium	voiced	3011.926867
+43	12	a_nas_alv	a_occ_vel_NV	an_attractive_animal	a_repulsive_animal	an_attractive_animal	a_occ_vel_NV	akak	a_a_	n-k	k	a	plosive	posterior	voiceless	767.5293977
+45	6	a_occ_vel_NV	a_nas_alv	a_repulsive_animal	an_attractive_animal	an_attractive_animal	a_nas_alv	anan	a_a_	n-k	n	a	sonorant	medium	voiced	794.9009039
+47	11	a_nas_alv	a_occ_vel_NV	an_attractive_animal	a_repulsive_animal	a_repulsive_animal	a_nas_alv	anan	a_a_	n-k	n	a	sonorant	medium	voiced	555.8066444
+49	13	a_nas_alv	a_occ_vel_NV	a_repulsive_animal	an_attractive_animal	a_repulsive_animal	a_nas_alv	anan	a_a_	n-k	n	a	sonorant	medium	voiced	657.2189247
+2	7	i_occ_vel_NV	a_occ_vel_NV	an_attractive_animal	a_repulsive_animal	an_attractive_animal	i_occ_vel_NV	ikik	_k_k	i-a	k	i	plosive	posterior	voiceless	664.9620856
+4	11	a_occ_vel_NV	i_occ_vel_NV	a_repulsive_animal	an_attractive_animal	an_attractive_animal	i_occ_vel_NV	ikik	_k_k	i-a	k	i	plosive	posterior	voiceless	652.7134026
+6	6	a_occ_vel_NV	i_occ_vel_NV	an_attractive_animal	a_repulsive_animal	an_attractive_animal	i_occ_vel_NV	ikik	_k_k	i-a	k	i	plosive	posterior	voiceless	776.1504101
+8	6	a_occ_vel_NV	i_occ_vel_NV	a_repulsive_animal	an_attractive_animal	a_repulsive_animal	i_occ_vel_NV	ikik	_k_k	i-a	k	i	plosive	posterior	voiceless	512.1073151
+10	9	i_occ_vel_NV	a_occ_vel_NV	an_attractive_animal	a_repulsive_animal	an_attractive_animal	i_occ_vel_NV	ikik	_k_k	i-a	k	i	plosive	posterior	voiceless	422.9624485
+12	11	i_occ_vel_NV	a_occ_vel_NV	an_attractive_animal	a_repulsive_animal	a_repulsive_animal	a_occ_vel_NV	akak	_k_k	i-a	k	a	plosive	posterior	voiceless	1045.28308
+16	5	a_occ_vel_NV	i_occ_vel_NV	an_attractive_animal	a_repulsive_animal	an_attractive_animal	i_occ_vel_NV	ikik	_k_k	i-a	k	i	plosive	posterior	voiceless	488.6875896
+20	5	i_occ_vel_NV	a_occ_vel_NV	a_repulsive_animal	an_attractive_animal	an_attractive_animal	i_occ_vel_NV	ikik	_k_k	i-a	k	i	plosive	posterior	voiceless	665.3881757
+22	11	a_occ_vel_NV	i_occ_vel_NV	a_repulsive_animal	an_attractive_animal	a_repulsive_animal	a_occ_vel_NV	akak	_k_k	i-a	k	a	plosive	posterior	voiceless	629.0265017
+24	5	i_occ_vel_NV	a_occ_vel_NV	an_attractive_animal	a_repulsive_animal	an_attractive_animal	i_occ_vel_NV	ikik	_k_k	i-a	k	i	plosive	posterior	voiceless	1120.543435
+26	8	i_occ_vel_NV	a_occ_vel_NV	an_attractive_animal	a_repulsive_animal	an_attractive_animal	i_occ_vel_NV	ikik	_k_k	i-a	k	i	plosive	posterior	voiceless	1511.117078
+28	10	a_occ_vel_NV	i_occ_vel_NV	a_repulsive_animal	an_attractive_animal	an_attractive_animal	i_occ_vel_NV	ikik	_k_k	i-a	k	i	plosive	posterior	voiceless	806.3673817
+30	5	a_occ_vel_NV	i_occ_vel_NV	a_repulsive_animal	an_attractive_animal	a_repulsive_animal	a_occ_vel_NV	akak	_k_k	i-a	k	a	plosive	posterior	voiceless	624.9556363
+32	8	a_occ_vel_NV	i_occ_vel_NV	a_repulsive_animal	an_attractive_animal	a_repulsive_animal	a_occ_vel_NV	akak	_k_k	i-a	k	a	plosive	posterior	voiceless	853.8622596
+36	8	a_occ_vel_NV	i_occ_vel_NV	a_repulsive_animal	an_attractive_animal	a_repulsive_animal	a_occ_vel_NV	akak	_k_k	i-a	k	a	plosive	posterior	voiceless	699.228482
+38	5	i_occ_vel_NV	a_occ_vel_NV	a_repulsive_animal	an_attractive_animal	a_repulsive_animal	a_occ_vel_NV	akak	_k_k	i-a	k	a	plosive	posterior	voiceless	710.7033001
+46	5	i_occ_vel_NV	a_occ_vel_NV	a_repulsive_animal	an_attractive_animal	a_repulsive_animal	a_occ_vel_NV	akak	_k_k	i-a	k	a	plosive	posterior	voiceless	699.8541215
+50	6	a_occ_vel_NV	i_occ_vel_NV	an_attractive_animal	a_repulsive_animal	an_attractive_animal	i_occ_vel_NV	ikik	_k_k	i-a	k	i	plosive	posterior	voiceless	831.3051849
+52	6	a_occ_vel_NV	i_occ_vel_NV	an_attractive_animal	a_repulsive_animal	an_attractive_animal	i_occ_vel_NV	ikik	_k_k	i-a	k	i	plosive	posterior	voiceless	726.0924596
+54	8	a_occ_vel_NV	i_occ_vel_NV	an_attractive_animal	a_repulsive_animal	a_repulsive_animal	a_occ_vel_NV	akak	_k_k	i-a	k	a	plosive	posterior	voiceless	726.1003898
+56	9	i_occ_vel_NV	a_occ_vel_NV	a_repulsive_animal	an_attractive_animal	a_repulsive_animal	a_occ_vel_NV	akak	_k_k	i-a	k	a	plosive	posterior	voiceless	547.8999862
+1	1	a_occ_vel_V	y_fric_alv_V	a_large_animal	a_small_animal	a_large_animal	a_occ_vel_V	agag			g	a	plosive	posterior	voiced	946.501029
+2	2	a_occ_vel_V	y_fric_alv_V	a_small_animal	a_large_animal	a_small_animal	a_occ_vel_V	agag			g	a	plosive	posterior	voiced	715.8783614
+3	2	a_occ_vel_V	y_fric_alv_V	a_large_animal	a_small_animal	a_large_animal	y_fric_alv_V	yzyz			z	y	z	z	z	3004.200977
+4	0	a_occ_vel_V	y_fric_alv_V	a_small_animal	a_large_animal	a_small_animal	a_occ_vel_V	agag			g	a	plosive	posterior	voiced	2608.104055
+5	0	a_occ_vel_V	y_fric_alv_V	a_small_animal	a_large_animal	a_small_animal	a_occ_vel_V	agag			g	a	plosive	posterior	voiced	824.5783463
+6	0	a_occ_vel_V	y_fric_alv_V	a_small_animal	a_large_animal	a_small_animal	y_fric_alv_V	yzyz			z	y	z	z	z	1840.471142
+7	2	a_occ_vel_V	y_fric_alv_V	a_large_animal	a_small_animal	a_large_animal	a_occ_vel_V	agag			g	a	plosive	posterior	voiced	931.8696184
+8	0	y_fric_alv_V	a_occ_vel_V	a_large_animal	a_small_animal	a_small_animal	a_occ_vel_V	agag			g	a	plosive	posterior	voiced	3010.906185
+10	2	a_occ_vel_V	y_fric_alv_V	a_small_animal	a_large_animal	a_large_animal	y_fric_alv_V	yzyz			z	y	z	z	z	492.4561859
+11	1	y_fric_alv_V	a_occ_vel_V	a_large_animal	a_small_animal	a_small_animal	y_fric_alv_V	yzyz			z	y	z	z	z	2502.021859
+12	1	a_occ_vel_V	y_fric_alv_V	a_small_animal	a_large_animal	a_small_animal	y_fric_alv_V	yzyz			z	y	z	z	z	2573.16533
+13	1	a_occ_vel_V	y_fric_alv_V	a_large_animal	a_small_animal	a_large_animal	a_occ_vel_V	agag			g	a	plosive	posterior	voiced	1077.394779
+16	3	a_occ_vel_V	y_fric_alv_V	a_small_animal	a_large_animal	a_small_animal	a_occ_vel_V	agag			g	a	plosive	posterior	voiced	1187.012165
+17	3	y_fric_alv_V	a_occ_vel_V	a_small_animal	a_large_animal	a_small_animal	y_fric_alv_V	yzyz			z	y	z	z	z	1219.166572
+19	3	a_occ_vel_V	y_fric_alv_V	a_large_animal	a_small_animal	a_large_animal	a_occ_vel_V	agag			g	a	plosive	posterior	voiced	1002.820405
+20	2	y_fric_alv_V	a_occ_vel_V	a_small_animal	a_large_animal	a_small_animal	y_fric_alv_V	yzyz			z	y	z	z	z	644.0025585
+21	0	a_occ_vel_V	y_fric_alv_V	a_large_animal	a_small_animal	a_small_animal	y_fric_alv_V	yzyz			z	y	z	z	z	1766.89429
+22	1	y_fric_alv_V	a_occ_vel_V	a_small_animal	a_large_animal	a_large_animal	a_occ_vel_V	agag			g	a	plosive	posterior	voiced	3007.741464
+23	1	a_occ_vel_V	y_fric_alv_V	a_small_animal	a_large_animal	a_small_animal	y_fric_alv_V	yzyz			z	y	z	z	z	756.1466889
+24	0	a_occ_vel_V	y_fric_alv_V	a_large_animal	a_small_animal	a_small_animal	y_fric_alv_V	yzyz			z	y	z	z	z	3011.190576
+25	2	a_occ_vel_V	y_fric_alv_V	a_small_animal	a_large_animal	a_small_animal	a_occ_vel_V	agag			g	a	plosive	posterior	voiced	660.0930048
+26	2	a_occ_vel_V	y_fric_alv_V	a_large_animal	a_small_animal	a_small_animal	y_fric_alv_V	yzyz			z	y	z	z	z	1955.409854
+28	2	y_fric_alv_V	a_occ_vel_V	a_large_animal	a_small_animal	a_small_animal	a_occ_vel_V	agag			g	a	plosive	posterior	voiced	3019.116116
+29	0	y_fric_alv_V	a_occ_vel_V	a_small_animal	a_large_animal	a_large_animal	a_occ_vel_V	agag			g	a	plosive	posterior	voiced	3011.310093
+30	1	a_occ_vel_V	y_fric_alv_V	a_small_animal	a_large_animal	a_large_animal	y_fric_alv_V	yzyz			z	y	z	z	z	2990.301567
+31	3	a_occ_vel_V	y_fric_alv_V	a_small_animal	a_large_animal	a_large_animal	a_occ_vel_V	agag			g	a	plosive	posterior	voiced	443.3634565
+32	3	a_occ_vel_V	y_fric_alv_V	a_small_animal	a_large_animal	a_small_animal	a_occ_vel_V	agag			g	a	plosive	posterior	voiced	889.4870203
+35	3	a_occ_vel_V	y_fric_alv_V	a_large_animal	a_small_animal	a_large_animal	y_fric_alv_V	yzyz			z	y	z	z	z	968.4873134
+36	1	a_occ_vel_V	y_fric_alv_V	a_large_animal	a_small_animal	a_small_animal	y_fric_alv_V	yzyz			z	y	z	z	z	3018.016812
+37	2	a_occ_vel_V	y_fric_alv_V	a_large_animal	a_small_animal	a_small_animal	y_fric_alv_V	yzyz			z	y	z	z	z	1396.248037
+38	0	a_occ_vel_V	y_fric_alv_V	a_large_animal	a_small_animal	a_small_animal	y_fric_alv_V	yzyz			z	y	z	z	z	3012.56277
+39	3	y_fric_alv_V	a_occ_vel_V	a_large_animal	a_small_animal	a_large_animal	a_occ_vel_V	agag			g	a	plosive	posterior	voiced	846.9369768
+43	2	y_fric_alv_V	a_occ_vel_V	a_large_animal	a_small_animal	a_small_animal	a_occ_vel_V	agag			g	a	plosive	posterior	voiced	586.887363
+45	2	y_fric_alv_V	a_occ_vel_V	a_large_animal	a_small_animal	a_small_animal	a_occ_vel_V	agag			g	a	plosive	posterior	voiced	3010.53502
+46	1	a_occ_vel_V	y_fric_alv_V	a_large_animal	a_small_animal	a_small_animal	y_fric_alv_V	yzyz			z	y	z	z	z	3004.134933
+47	1	y_fric_alv_V	a_occ_vel_V	a_small_animal	a_large_animal	a_small_animal	y_fric_alv_V	yzyz			z	y	z	z	z	493.4707242
+49	2	y_fric_alv_V	a_occ_vel_V	a_large_animal	a_small_animal	a_large_animal	a_occ_vel_V	agag			g	a	plosive	posterior	voiced	540.0397745
+50	0	a_occ_vel_V	y_fric_alv_V	a_small_animal	a_large_animal	a_small_animal	a_occ_vel_V	agag			g	a	plosive	posterior	voiced	2642.357345
+52	3	a_occ_vel_V	y_fric_alv_V	a_small_animal	a_large_animal	a_small_animal	a_occ_vel_V	agag			g	a	plosive	posterior	voiced	954.4108664
+54	3	y_fric_alv_V	a_occ_vel_V	a_large_animal	a_small_animal	a_large_animal	y_fric_alv_V	yzyz			z	y	z	z	z	1043.113836
+56	0	y_fric_alv_V	a_occ_vel_V	a_large_animal	a_small_animal	a_small_animal	a_occ_vel_V	agag			g	a	plosive	posterior	voiced	3004.020842
+2	11	i_occ_alv_NV	i_fric_alv_NV	a_bird	a_fish	a_bird	i_occ_alv_NV	itit	i	t-s	t	i	plosive	medium	voiceless	535.2827093
+4	13	i_fric_alv_NV	i_occ_alv_NV	a_bird	a_fish	a_bird	i_occ_alv_NV	itit	i	t-s	t	i	plosive	medium	voiceless	605.9444699
+6	13	i_fric_alv_NV	i_occ_alv_NV	a_bird	a_fish	a_fish	i_fric_alv_NV	isis	i	t-s	s	i	fricative	medium	voiceless	717.9896096
+8	4	i_fric_alv_NV	i_occ_alv_NV	a_bird	a_fish	a_bird	i_fric_alv_NV	isis	i	t-s	s	i	fricative	medium	voiceless	421.3640312
+10	6	i_occ_alv_NV	i_fric_alv_NV	a_bird	a_fish	a_bird	i_occ_alv_NV	itit	i	t-s	t	i	plosive	medium	voiceless	538.4378286
+12	5	i_occ_alv_NV	i_fric_alv_NV	a_bird	a_fish	a_fish	i_fric_alv_NV	isis	i	t-s	s	i	fricative	medium	voiceless	954.5262223
+16	10	i_fric_alv_NV	i_occ_alv_NV	a_fish	a_bird	a_bird	i_fric_alv_NV	isis	i	t-s	s	i	fricative	medium	voiceless	567.3139572
+20	10	i_occ_alv_NV	i_fric_alv_NV	a_fish	a_bird	a_bird	i_occ_alv_NV	itit	i	t-s	t	i	plosive	medium	voiceless	663.6576606
+22	12	i_occ_alv_NV	i_fric_alv_NV	a_bird	a_fish	a_bird	i_fric_alv_NV	isis	i	t-s	s	i	fricative	medium	voiceless	431.0922606
+24	12	i_occ_alv_NV	i_fric_alv_NV	a_fish	a_bird	a_fish	i_fric_alv_NV	isis	i	t-s	s	i	fricative	medium	voiceless	1654.20687
+26	12	i_fric_alv_NV	i_occ_alv_NV	a_bird	a_fish	a_fish	i_occ_alv_NV	itit	i	t-s	t	i	plosive	medium	voiceless	790.9347761
+28	4	i_fric_alv_NV	i_occ_alv_NV	a_fish	a_bird	a_bird	i_occ_alv_NV	itit	i	t-s	t	i	plosive	medium	voiceless	716.8722405
+30	10	i_occ_alv_NV	i_fric_alv_NV	a_bird	a_fish	a_bird	i_fric_alv_NV	isis	i	t-s	s	i	fricative	medium	voiceless	560.0210959
+32	12	i_occ_alv_NV	i_fric_alv_NV	a_bird	a_fish	a_fish	i_fric_alv_NV	isis	i	t-s	s	i	fricative	medium	voiceless	596.7828892
+36	10	i_fric_alv_NV	i_occ_alv_NV	a_bird	a_fish	a_bird	i_fric_alv_NV	isis	i	t-s	s	i	fricative	medium	voiceless	1760.2386
+38	7	i_occ_alv_NV	i_fric_alv_NV	a_bird	a_fish	a_bird	i_occ_alv_NV	itit	i	t-s	t	i	plosive	medium	voiceless	1127.472492
+46	13	i_fric_alv_NV	i_occ_alv_NV	a_bird	a_fish	a_bird	i_fric_alv_NV	isis	i	t-s	s	i	fricative	medium	voiceless	550.2932518
+50	5	i_fric_alv_NV	i_occ_alv_NV	a_bird	a_fish	a_bird	i_fric_alv_NV	isis	i	t-s	s	i	fricative	medium	voiceless	1986.942878
+52	5	i_occ_alv_NV	i_fric_alv_NV	a_fish	a_bird	a_bird	i_fric_alv_NV	isis	i	t-s	s	i	fricative	medium	voiceless	915.4223702
+54	7	i_fric_alv_NV	i_occ_alv_NV	a_fish	a_bird	a_fish	i_occ_alv_NV	itit	i	t-s	t	i	plosive	medium	voiceless	554.162404
+56	12	i_fric_alv_NV	i_occ_alv_NV	a_fish	a_bird	a_fish	i_fric_alv_NV	isis	i	t-s	s	i	fricative	medium	voiceless	1293.852204
+1	3	i_fric_ld_NV	y_occ_bi_NV	a_dangerous_animal	a_harmless_animal	a_harmless_animal	i_fric_ld_NV	ifif			f	i	f	f	f	706.2530955
+2	3	i_fric_ld_NV	y_occ_bi_NV	a_harmless_animal	a_dangerous_animal	a_dangerous_animal	y_occ_bi_NV	ypyp			p	y	plosive	anterior	voiceless	2626.986765
+3	1	i_fric_ld_NV	y_occ_bi_NV	a_dangerous_animal	a_harmless_animal	a_harmless_animal	y_occ_bi_NV	ypyp			p	y	plosive	anterior	voiceless	3007.114082
+4	2	y_occ_bi_NV	i_fric_ld_NV	a_harmless_animal	a_dangerous_animal	a_dangerous_animal	i_fric_ld_NV	ifif			f	i	f	f	f	3001.04354
+5	1	i_fric_ld_NV	y_occ_bi_NV	a_dangerous_animal	a_harmless_animal	a_harmless_animal	y_occ_bi_NV	ypyp			p	y	plosive	anterior	voiceless	796.816276
+6	1	i_fric_ld_NV	y_occ_bi_NV	a_dangerous_animal	a_harmless_animal	a_dangerous_animal	y_occ_bi_NV	ypyp			p	y	plosive	anterior	voiceless	612.0726187
+7	0	i_fric_ld_NV	y_occ_bi_NV	a_dangerous_animal	a_harmless_animal	a_harmless_animal	y_occ_bi_NV	ypyp			p	y	plosive	anterior	voiceless	3002.766771
+8	3	i_fric_ld_NV	y_occ_bi_NV	a_harmless_animal	a_dangerous_animal	a_harmless_animal	y_occ_bi_NV	ypyp			p	y	plosive	anterior	voiceless	506.9339789
+10	1	y_occ_bi_NV	i_fric_ld_NV	a_dangerous_animal	a_harmless_animal	a_harmless_animal	y_occ_bi_NV	ypyp			p	y	plosive	anterior	voiceless	373.1430153
+11	3	i_fric_ld_NV	y_occ_bi_NV	a_harmless_animal	a_dangerous_animal	a_dangerous_animal	i_fric_ld_NV	ifif			f	i	f	f	f	876.281581
+12	3	y_occ_bi_NV	i_fric_ld_NV	a_harmless_animal	a_dangerous_animal	a_harmless_animal	i_fric_ld_NV	ifif			f	i	f	f	f	1051.912141
+13	3	y_occ_bi_NV	i_fric_ld_NV	a_dangerous_animal	a_harmless_animal	a_dangerous_animal	i_fric_ld_NV	ifif			f	i	f	f	f	1002.745583
+16	1	y_occ_bi_NV	i_fric_ld_NV	a_harmless_animal	a_dangerous_animal	a_harmless_animal	i_fric_ld_NV	ifif			f	i	f	f	f	732.867338
+17	2	i_fric_ld_NV	y_occ_bi_NV	a_harmless_animal	a_dangerous_animal	a_dangerous_animal	y_occ_bi_NV	ypyp			p	y	plosive	anterior	voiceless	880.1087771
+19	0	y_occ_bi_NV	i_fric_ld_NV	a_dangerous_animal	a_harmless_animal	a_harmless_animal	i_fric_ld_NV	ifif			f	i	f	f	f	3004.31917
+20	3	i_fric_ld_NV	y_occ_bi_NV	a_dangerous_animal	a_harmless_animal	a_harmless_animal	i_fric_ld_NV	ifif			f	i	f	f	f	666.6336698
+21	3	y_occ_bi_NV	i_fric_ld_NV	a_dangerous_animal	a_harmless_animal	a_harmless_animal	i_fric_ld_NV	ifif			f	i	f	f	f	1571.397403
+22	2	i_fric_ld_NV	y_occ_bi_NV	a_harmless_animal	a_dangerous_animal	a_harmless_animal	y_occ_bi_NV	ypyp			p	y	plosive	anterior	voiceless	940.5380852
+23	0	i_fric_ld_NV	y_occ_bi_NV	a_dangerous_animal	a_harmless_animal	a_dangerous_animal	y_occ_bi_NV	ypyp			p	y	plosive	anterior	voiceless	2722.022071
+24	2	y_occ_bi_NV	i_fric_ld_NV	a_dangerous_animal	a_harmless_animal	a_harmless_animal	i_fric_ld_NV	ifif			f	i	f	f	f	2616.293791
+25	3	y_occ_bi_NV	i_fric_ld_NV	a_dangerous_animal	a_harmless_animal	a_harmless_animal	i_fric_ld_NV	ifif			f	i	f	f	f	691.2018853
+26	0	i_fric_ld_NV	y_occ_bi_NV	a_harmless_animal	a_dangerous_animal	a_dangerous_animal	y_occ_bi_NV	ypyp			p	y	plosive	anterior	voiceless	3007.444823
+28	3	y_occ_bi_NV	i_fric_ld_NV	a_harmless_animal	a_dangerous_animal	a_dangerous_animal	i_fric_ld_NV	ifif			f	i	f	f	f	3005.204457
+29	2	y_occ_bi_NV	i_fric_ld_NV	a_harmless_animal	a_dangerous_animal	a_harmless_animal	i_fric_ld_NV	ifif			f	i	f	f	f	2745.244808
+30	3	i_fric_ld_NV	y_occ_bi_NV	a_dangerous_animal	a_harmless_animal	a_harmless_animal	i_fric_ld_NV	ifif			f	i	f	f	f	459.4942936
+31	1	i_fric_ld_NV	y_occ_bi_NV	a_harmless_animal	a_dangerous_animal	a_dangerous_animal	i_fric_ld_NV	ifif			f	i	f	f	f	725.1338194
+32	2	y_occ_bi_NV	i_fric_ld_NV	a_dangerous_animal	a_harmless_animal	a_harmless_animal	y_occ_bi_NV	ypyp			p	y	plosive	anterior	voiceless	1154.899412
+35	2	y_occ_bi_NV	i_fric_ld_NV	a_harmless_animal	a_dangerous_animal	a_dangerous_animal	i_fric_ld_NV	ifif			f	i	f	f	f	3008.131975
+36	0	i_fric_ld_NV	y_occ_bi_NV	a_dangerous_animal	a_harmless_animal	a_harmless_animal	y_occ_bi_NV	ypyp			p	y	plosive	anterior	voiceless	3019.574217
+37	1	i_fric_ld_NV	y_occ_bi_NV	a_dangerous_animal	a_harmless_animal	a_harmless_animal	y_occ_bi_NV	ypyp			p	y	plosive	anterior	voiceless	1052.233761
+38	1	y_occ_bi_NV	i_fric_ld_NV	a_harmless_animal	a_dangerous_animal	a_harmless_animal	i_fric_ld_NV	ifif			f	i	f	f	f	577.0828509
+39	1	y_occ_bi_NV	i_fric_ld_NV	a_dangerous_animal	a_harmless_animal	a_dangerous_animal	i_fric_ld_NV	ifif			f	i	f	f	f	1127.212776
+43	3	i_fric_ld_NV	y_occ_bi_NV	a_harmless_animal	a_dangerous_animal	a_dangerous_animal	y_occ_bi_NV	ypyp			p	y	plosive	anterior	voiceless	568.0557025
+45	3	y_occ_bi_NV	i_fric_ld_NV	a_harmless_animal	a_dangerous_animal	a_harmless_animal	i_fric_ld_NV	ifif			f	i	f	f	f	932.5201805
+46	3	i_fric_ld_NV	y_occ_bi_NV	a_harmless_animal	a_dangerous_animal	a_dangerous_animal	y_occ_bi_NV	ypyp			p	y	plosive	anterior	voiceless	859.315893
+47	3	i_fric_ld_NV	y_occ_bi_NV	a_harmless_animal	a_dangerous_animal	a_harmless_animal	i_fric_ld_NV	ifif			f	i	f	f	f	654.7023148
+49	1	i_fric_ld_NV	y_occ_bi_NV	a_dangerous_animal	a_harmless_animal	a_dangerous_animal	y_occ_bi_NV	ypyp			p	y	plosive	anterior	voiceless	3012.308842
+50	1	i_fric_ld_NV	y_occ_bi_NV	a_harmless_animal	a_dangerous_animal	a_dangerous_animal	y_occ_bi_NV	ypyp			p	y	plosive	anterior	voiceless	1132.183948
+52	1	y_occ_bi_NV	i_fric_ld_NV	a_dangerous_animal	a_harmless_animal	a_harmless_animal	y_occ_bi_NV	ypyp			p	y	plosive	anterior	voiceless	804.7874095
+54	2	i_fric_ld_NV	y_occ_bi_NV	a_harmless_animal	a_dangerous_animal	a_dangerous_animal	i_fric_ld_NV	ifif			f	i	f	f	f	787.7285723
+56	2	i_fric_ld_NV	y_occ_bi_NV	a_harmless_animal	a_dangerous_animal	a_harmless_animal	i_fric_ld_NV	ifif			f	i	f	f	f	2732.094565
+1	12	i_occ_alv_V	i_app_alv	a_harmless_animal	a_dangerous_animal	a_harmless_animal	i_app_alv	ilil	i_i_	l-d	l	i	sonorant	medium	voiced	1196.696362
+2	8	i_app_alv	i_occ_alv_V	a_harmless_animal	a_dangerous_animal	a_harmless_animal	i_app_alv	ilil	i_i_	l-d	l	i	sonorant	medium	voiced	1550.86198
+3	13	i_app_alv	i_occ_alv_V	a_harmless_animal	a_dangerous_animal	a_harmless_animal	i_app_alv	ilil	i_i_	l-d	l	i	sonorant	medium	voiced	1386.743136
+4	9	i_app_alv	i_occ_alv_V	a_dangerous_animal	a_harmless_animal	a_dangerous_animal	i_occ_alv_V	idid	i_i_	l-d	d	i	plosive	medium	voiced	622.583172
+5	10	i_occ_alv_V	i_app_alv	a_harmless_animal	a_dangerous_animal	a_harmless_animal	i_app_alv	ilil	i_i_	l-d	l	i	sonorant	medium	voiced	933.4279759
+6	4	i_occ_alv_V	i_app_alv	a_harmless_animal	a_dangerous_animal	a_dangerous_animal	i_occ_alv_V	idid	i_i_	l-d	d	i	plosive	medium	voiced	771.6968251
+7	13	i_occ_alv_V	i_app_alv	a_harmless_animal	a_dangerous_animal	a_harmless_animal	i_occ_alv_V	idid	i_i_	l-d	d	i	plosive	medium	voiced	1396.162143
+8	7	i_app_alv	i_occ_alv_V	a_dangerous_animal	a_harmless_animal	a_harmless_animal	i_occ_alv_V	idid	i_i_	l-d	d	i	plosive	medium	voiced	504.2698398
+10	8	i_app_alv	i_occ_alv_V	a_dangerous_animal	a_harmless_animal	a_harmless_animal	i_app_alv	ilil	i_i_	l-d	l	i	sonorant	medium	voiced	447.5962162
+11	13	i_app_alv	i_occ_alv_V	a_harmless_animal	a_dangerous_animal	a_harmless_animal	i_app_alv	ilil	i_i_	l-d	l	i	sonorant	medium	voiced	532.3666242
+12	6	i_app_alv	i_occ_alv_V	a_harmless_animal	a_dangerous_animal	a_harmless_animal	i_app_alv	ilil	i_i_	l-d	l	i	sonorant	medium	voiced	976.6703261
+13	7	i_occ_alv_V	i_app_alv	a_dangerous_animal	a_harmless_animal	a_dangerous_animal	i_occ_alv_V	idid	i_i_	l-d	d	i	plosive	medium	voiced	935.6574169
+16	8	i_app_alv	i_occ_alv_V	a_harmless_animal	a_dangerous_animal	a_harmless_animal	i_app_alv	ilil	i_i_	l-d	l	i	sonorant	medium	voiced	806.6180034
+17	11	i_app_alv	i_occ_alv_V	a_harmless_animal	a_dangerous_animal	a_harmless_animal	i_app_alv	ilil	i_i_	l-d	l	i	sonorant	medium	voiced	1292.743755
+19	13	i_occ_alv_V	i_app_alv	a_dangerous_animal	a_harmless_animal	a_harmless_animal	i_app_alv	ilil	i_i_	l-d	l	i	sonorant	medium	voiced	884.8861508
+20	9	i_app_alv	i_occ_alv_V	a_harmless_animal	a_dangerous_animal	a_dangerous_animal	i_occ_alv_V	idid	i_i_	l-d	d	i	plosive	medium	voiced	694.6129235
+21	13	i_app_alv	i_occ_alv_V	a_dangerous_animal	a_harmless_animal	a_dangerous_animal	i_app_alv	ilil	i_i_	l-d	l	i	sonorant	medium	voiced	1996.183398
+22	13	i_occ_alv_V	i_app_alv	a_harmless_animal	a_dangerous_animal	a_dangerous_animal	i_occ_alv_V	idid	i_i_	l-d	d	i	plosive	medium	voiced	635.5347215
+23	6	i_occ_alv_V	i_app_alv	a_dangerous_animal	a_harmless_animal	a_dangerous_animal	i_app_alv	ilil	i_i_	l-d	l	i	sonorant	medium	voiced	720.2031592
+24	13	i_app_alv	i_occ_alv_V	a_harmless_animal	a_dangerous_animal	a_harmless_animal	i_occ_alv_V	idid	i_i_	l-d	d	i	plosive	medium	voiced	2675.989112
+25	8	i_app_alv	i_occ_alv_V	a_harmless_animal	a_dangerous_animal	a_harmless_animal	i_occ_alv_V	idid	i_i_	l-d	d	i	plosive	medium	voiced	2626.946705
+26	4	i_occ_alv_V	i_app_alv	a_harmless_animal	a_dangerous_animal	a_harmless_animal	i_occ_alv_V	idid	i_i_	l-d	d	i	plosive	medium	voiced	2347.553111
+28	12	i_occ_alv_V	i_app_alv	a_dangerous_animal	a_harmless_animal	a_harmless_animal	i_app_alv	ilil	i_i_	l-d	l	i	sonorant	medium	voiced	828.3277404
+29	5	i_occ_alv_V	i_app_alv	a_dangerous_animal	a_harmless_animal	a_harmless_animal	i_occ_alv_V	idid	i_i_	l-d	d	i	plosive	medium	voiced	961.04305
+30	7	i_app_alv	i_occ_alv_V	a_dangerous_animal	a_harmless_animal	a_harmless_animal	i_app_alv	ilil	i_i_	l-d	l	i	sonorant	medium	voiced	991.8764782
+31	8	i_occ_alv_V	i_app_alv	a_harmless_animal	a_dangerous_animal	a_dangerous_animal	i_occ_alv_V	idid	i_i_	l-d	d	i	plosive	medium	voiced	655.1769118
+32	10	i_occ_alv_V	i_app_alv	a_harmless_animal	a_dangerous_animal	a_harmless_animal	i_app_alv	ilil	i_i_	l-d	l	i	sonorant	medium	voiced	677.1973759
+35	8	i_occ_alv_V	i_app_alv	a_harmless_animal	a_dangerous_animal	a_harmless_animal	i_app_alv	ilil	i_i_	l-d	l	i	sonorant	medium	voiced	797.0303989
+36	13	i_occ_alv_V	i_app_alv	a_harmless_animal	a_dangerous_animal	a_harmless_animal	i_app_alv	ilil	i_i_	l-d	l	i	sonorant	medium	voiced	726.1497242
+37	10	i_occ_alv_V	i_app_alv	a_dangerous_animal	a_harmless_animal	a_harmless_animal	i_app_alv	ilil	i_i_	l-d	l	i	sonorant	medium	voiced	959.4896173
+38	6	i_app_alv	i_occ_alv_V	a_harmless_animal	a_dangerous_animal	a_harmless_animal	i_app_alv	ilil	i_i_	l-d	l	i	sonorant	medium	voiced	1314.303539
+39	11	i_app_alv	i_occ_alv_V	a_harmless_animal	a_dangerous_animal	a_harmless_animal	i_occ_alv_V	idid	i_i_	l-d	d	i	plosive	medium	voiced	1076.676988
+43	6	i_app_alv	i_occ_alv_V	a_dangerous_animal	a_harmless_animal	a_dangerous_animal	i_occ_alv_V	idid	i_i_	l-d	d	i	plosive	medium	voiced	653.0257614
+45	7	i_occ_alv_V	i_app_alv	a_dangerous_animal	a_harmless_animal	a_harmless_animal	i_app_alv	ilil	i_i_	l-d	l	i	sonorant	medium	voiced	984.0033522
+46	7	i_occ_alv_V	i_app_alv	a_harmless_animal	a_dangerous_animal	a_harmless_animal	i_occ_alv_V	idid	i_i_	l-d	d	i	plosive	medium	voiced	467.5620183
+47	7	i_app_alv	i_occ_alv_V	a_dangerous_animal	a_harmless_animal	a_harmless_animal	i_app_alv	ilil	i_i_	l-d	l	i	sonorant	medium	voiced	588.2774252
+49	10	i_app_alv	i_occ_alv_V	a_harmless_animal	a_dangerous_animal	a_dangerous_animal	i_occ_alv_V	idid	i_i_	l-d	d	i	plosive	medium	voiced	546.768235
+50	9	i_app_alv	i_occ_alv_V	a_dangerous_animal	a_harmless_animal	a_harmless_animal	i_app_alv	ilil	i_i_	l-d	l	i	sonorant	medium	voiced	3006.406103
+52	8	i_occ_alv_V	i_app_alv	a_dangerous_animal	a_harmless_animal	a_dangerous_animal	i_occ_alv_V	idid	i_i_	l-d	d	i	plosive	medium	voiced	973.9445345
+54	13	i_occ_alv_V	i_app_alv	a_dangerous_animal	a_harmless_animal	a_harmless_animal	i_app_alv	ilil	i_i_	l-d	l	i	sonorant	medium	voiced	553.6688375
+56	11	i_occ_alv_V	i_app_alv	a_dangerous_animal	a_harmless_animal	a_harmless_animal	i_app_alv	ilil	i_i_	l-d	l	i	sonorant	medium	voiced	586.8217712
+1	11	i_occ_bi_NV	i_occ_bi_V	a_small_animal	a_large_animal	a_small_animal	i_occ_bi_V	ibib	i_i_	p-b	b	i	plosive	anterior	voiced	1197.989199
+3	7	i_occ_bi_NV	i_occ_bi_V	a_small_animal	a_large_animal	a_small_animal	i_occ_bi_V	ibib	i_i_	p-b	b	i	plosive	anterior	voiced	656.4624657
+5	9	i_occ_bi_NV	i_occ_bi_V	a_small_animal	a_large_animal	a_large_animal	i_occ_bi_V	ibib	i_i_	p-b	b	i	plosive	anterior	voiced	598.1265279
+7	8	i_occ_bi_V	i_occ_bi_NV	a_large_animal	a_small_animal	a_small_animal	i_occ_bi_NV	ipip	i_i_	p-b	p	i	plosive	anterior	voiceless	767.6471484
+11	12	i_occ_bi_NV	i_occ_bi_V	a_small_animal	a_large_animal	a_small_animal	i_occ_bi_NV	ipip	i_i_	p-b	p	i	plosive	anterior	voiceless	468.9805091
+13	10	i_occ_bi_NV	i_occ_bi_V	a_small_animal	a_large_animal	a_small_animal	i_occ_bi_NV	ipip	i_i_	p-b	p	i	plosive	anterior	voiceless	1390.121729
+17	10	i_occ_bi_V	i_occ_bi_NV	a_large_animal	a_small_animal	a_small_animal	i_occ_bi_V	ibib	i_i_	p-b	b	i	plosive	anterior	voiced	677.3829262
+19	8	i_occ_bi_NV	i_occ_bi_V	a_large_animal	a_small_animal	a_large_animal	i_occ_bi_V	ibib	i_i_	p-b	b	i	plosive	anterior	voiced	1558.982191
+21	10	i_occ_bi_V	i_occ_bi_NV	a_large_animal	a_small_animal	a_small_animal	i_occ_bi_NV	ipip	i_i_	p-b	p	i	plosive	anterior	voiceless	1150.430328
+23	5	i_occ_bi_V	i_occ_bi_NV	a_large_animal	a_small_animal	a_small_animal	i_occ_bi_V	ibib	i_i_	p-b	b	i	plosive	anterior	voiced	681.6196588
+25	13	i_occ_bi_V	i_occ_bi_NV	a_large_animal	a_small_animal	a_small_animal	i_occ_bi_NV	ipip	i_i_	p-b	p	i	plosive	anterior	voiceless	684.1712333
+29	9	i_occ_bi_V	i_occ_bi_NV	a_small_animal	a_large_animal	a_small_animal	i_occ_bi_NV	ipip	i_i_	p-b	p	i	plosive	anterior	voiceless	775.2244008
+31	12	i_occ_bi_NV	i_occ_bi_V	a_small_animal	a_large_animal	a_small_animal	i_occ_bi_V	ibib	i_i_	p-b	b	i	plosive	anterior	voiced	525.2055297
+35	13	i_occ_bi_V	i_occ_bi_NV	a_small_animal	a_large_animal	a_small_animal	i_occ_bi_V	ibib	i_i_	p-b	b	i	plosive	anterior	voiced	928.6257752
+37	7	i_occ_bi_NV	i_occ_bi_V	a_large_animal	a_small_animal	a_large_animal	i_occ_bi_V	ibib	i_i_	p-b	b	i	plosive	anterior	voiced	1257.746975
+39	12	i_occ_bi_V	i_occ_bi_NV	a_small_animal	a_large_animal	a_large_animal	i_occ_bi_V	ibib	i_i_	p-b	b	i	plosive	anterior	voiced	792.5732749
+43	10	i_occ_bi_NV	i_occ_bi_V	a_large_animal	a_small_animal	a_small_animal	i_occ_bi_NV	ipip	i_i_	p-b	p	i	plosive	anterior	voiceless	679.9715472
+45	13	i_occ_bi_NV	i_occ_bi_V	a_large_animal	a_small_animal	a_small_animal	i_occ_bi_V	ibib	i_i_	p-b	b	i	plosive	anterior	voiced	759.3644002
+47	4	i_occ_bi_V	i_occ_bi_NV	a_small_animal	a_large_animal	a_small_animal	i_occ_bi_NV	ipip	i_i_	p-b	p	i	plosive	anterior	voiceless	911.6848669
+49	9	i_occ_bi_NV	i_occ_bi_V	a_large_animal	a_small_animal	a_small_animal	i_occ_bi_NV	ipip	i_i_	p-b	p	i	plosive	anterior	voiceless	628.9638695
+1	6	i_nas_alv	i_occ_vel_NV	a_repulsive_animal	an_attractive_animal	an_attractive_animal	i_nas_alv	inin	i_i_	n-k	n	i	sonorant	medium	voiced	1108.748321
+3	6	i_nas_alv	i_occ_vel_NV	a_repulsive_animal	an_attractive_animal	a_repulsive_animal	i_occ_vel_NV	ikik	i_i_	n-k	k	i	plosive	posterior	voiceless	896.6832512
+5	12	i_occ_vel_NV	i_nas_alv	a_repulsive_animal	an_attractive_animal	a_repulsive_animal	i_occ_vel_NV	ikik	i_i_	n-k	k	i	plosive	posterior	voiceless	613.0247828
+7	11	i_nas_alv	i_occ_vel_NV	a_repulsive_animal	an_attractive_animal	an_attractive_animal	i_nas_alv	inin	i_i_	n-k	n	i	sonorant	medium	voiced	837.260403
+11	4	i_occ_vel_NV	i_nas_alv	an_attractive_animal	a_repulsive_animal	an_attractive_animal	i_occ_vel_NV	ikik	i_i_	n-k	k	i	plosive	posterior	voiceless	1066.11382
+13	13	i_occ_vel_NV	i_nas_alv	a_repulsive_animal	an_attractive_animal	a_repulsive_animal	i_nas_alv	inin	i_i_	n-k	n	i	sonorant	medium	voiced	1155.885407
+17	7	i_nas_alv	i_occ_vel_NV	an_attractive_animal	a_repulsive_animal	an_attractive_animal	i_occ_vel_NV	ikik	i_i_	n-k	k	i	plosive	posterior	voiceless	622.8380977
+19	11	i_nas_alv	i_occ_vel_NV	a_repulsive_animal	an_attractive_animal	a_repulsive_animal	i_occ_vel_NV	ikik	i_i_	n-k	k	i	plosive	posterior	voiceless	869.4141476
+21	7	i_occ_vel_NV	i_nas_alv	a_repulsive_animal	an_attractive_animal	an_attractive_animal	i_occ_vel_NV	ikik	i_i_	n-k	k	i	plosive	posterior	voiceless	1967.418179
+23	7	i_occ_vel_NV	i_nas_alv	an_attractive_animal	a_repulsive_animal	a_repulsive_animal	i_occ_vel_NV	ikik	i_i_	n-k	k	i	plosive	posterior	voiceless	583.8698912
+25	9	i_occ_vel_NV	i_nas_alv	a_repulsive_animal	an_attractive_animal	an_attractive_animal	i_nas_alv	inin	i_i_	n-k	n	i	sonorant	medium	voiced	781.6505147
+29	7	i_occ_vel_NV	i_nas_alv	a_repulsive_animal	an_attractive_animal	an_attractive_animal	i_nas_alv	inin	i_i_	n-k	n	i	sonorant	medium	voiced	3007.319347
+31	7	i_occ_vel_NV	i_nas_alv	a_repulsive_animal	an_attractive_animal	an_attractive_animal	i_nas_alv	inin	i_i_	n-k	n	i	sonorant	medium	voiced	600.4142377
+35	12	i_occ_vel_NV	i_nas_alv	an_attractive_animal	a_repulsive_animal	an_attractive_animal	i_occ_vel_NV	ikik	i_i_	n-k	k	i	plosive	posterior	voiceless	1380.852931
+37	11	i_occ_vel_NV	i_nas_alv	a_repulsive_animal	an_attractive_animal	an_attractive_animal	i_nas_alv	inin	i_i_	n-k	n	i	sonorant	medium	voiced	910.5148049
+39	10	i_occ_vel_NV	i_nas_alv	an_attractive_animal	a_repulsive_animal	an_attractive_animal	i_nas_alv	inin	i_i_	n-k	n	i	sonorant	medium	voiced	792.1064997
+43	7	i_nas_alv	i_occ_vel_NV	a_repulsive_animal	an_attractive_animal	an_attractive_animal	i_occ_vel_NV	ikik	i_i_	n-k	k	i	plosive	posterior	voiceless	518.3615385
+45	4	i_occ_vel_NV	i_nas_alv	an_attractive_animal	a_repulsive_animal	an_attractive_animal	i_nas_alv	inin	i_i_	n-k	n	i	sonorant	medium	voiced	984.687004
+47	6	i_occ_vel_NV	i_nas_alv	a_repulsive_animal	an_attractive_animal	an_attractive_animal	i_occ_vel_NV	ikik	i_i_	n-k	k	i	plosive	posterior	voiceless	700.9822362
+49	6	i_nas_alv	i_occ_vel_NV	an_attractive_animal	a_repulsive_animal	a_repulsive_animal	i_occ_vel_NV	ikik	i_i_	n-k	k	i	plosive	posterior	voiceless	656.0353916
+1	8	i_nas_bi	u_nas_bi	a_harmless_animal	a_dangerous_animal	a_harmless_animal	u_nas_bi	umum	_m_m	i-u	m	u	sonorant	anterior	voiced	575.0289357
+3	5	u_nas_bi	i_nas_bi	a_harmless_animal	a_dangerous_animal	a_dangerous_animal	i_nas_bi	imim	_m_m	i-u	m	i	sonorant	anterior	voiced	720.8696078
+5	6	i_nas_bi	u_nas_bi	a_harmless_animal	a_dangerous_animal	a_harmless_animal	i_nas_bi	imim	_m_m	i-u	m	i	sonorant	anterior	voiced	576.7667344
+7	9	u_nas_bi	i_nas_bi	a_harmless_animal	a_dangerous_animal	a_harmless_animal	i_nas_bi	imim	_m_m	i-u	m	i	sonorant	anterior	voiced	902.3190955
+11	9	u_nas_bi	i_nas_bi	a_dangerous_animal	a_harmless_animal	a_harmless_animal	i_nas_bi	imim	_m_m	i-u	m	i	sonorant	anterior	voiced	599.2664099
+13	6	i_nas_bi	u_nas_bi	a_dangerous_animal	a_harmless_animal	a_harmless_animal	i_nas_bi	imim	_m_m	i-u	m	i	sonorant	anterior	voiced	879.6697752
+17	5	i_nas_bi	u_nas_bi	a_dangerous_animal	a_harmless_animal	a_dangerous_animal	u_nas_bi	umum	_m_m	i-u	m	u	sonorant	anterior	voiced	600.4089405
+19	7	u_nas_bi	i_nas_bi	a_harmless_animal	a_dangerous_animal	a_harmless_animal	i_nas_bi	imim	_m_m	i-u	m	i	sonorant	anterior	voiced	1055.815153
+21	4	i_nas_bi	u_nas_bi	a_dangerous_animal	a_harmless_animal	a_dangerous_animal	u_nas_bi	umum	_m_m	i-u	m	u	sonorant	anterior	voiced	1419.738797
+23	10	i_nas_bi	u_nas_bi	a_dangerous_animal	a_harmless_animal	a_dangerous_animal	i_nas_bi	imim	_m_m	i-u	m	i	sonorant	anterior	voiced	821.5596288
+25	6	u_nas_bi	i_nas_bi	a_dangerous_animal	a_harmless_animal	a_harmless_animal	i_nas_bi	imim	_m_m	i-u	m	i	sonorant	anterior	voiced	776.1792134
+29	11	i_nas_bi	u_nas_bi	a_dangerous_animal	a_harmless_animal	a_harmless_animal	u_nas_bi	umum	_m_m	i-u	m	u	sonorant	anterior	voiced	533.6157601
+31	10	u_nas_bi	i_nas_bi	a_dangerous_animal	a_harmless_animal	a_harmless_animal	u_nas_bi	umum	_m_m	i-u	m	u	sonorant	anterior	voiced	645.3566444
+35	4	i_nas_bi	u_nas_bi	a_harmless_animal	a_dangerous_animal	a_harmless_animal	u_nas_bi	umum	_m_m	i-u	m	u	sonorant	anterior	voiced	682.5968236
+37	12	i_nas_bi	u_nas_bi	a_harmless_animal	a_dangerous_animal	a_harmless_animal	u_nas_bi	umum	_m_m	i-u	m	u	sonorant	anterior	voiced	1401.293316
+39	4	u_nas_bi	i_nas_bi	a_dangerous_animal	a_harmless_animal	a_harmless_animal	i_nas_bi	imim	_m_m	i-u	m	i	sonorant	anterior	voiced	806.2579125
+43	9	u_nas_bi	i_nas_bi	a_dangerous_animal	a_harmless_animal	a_harmless_animal	i_nas_bi	imim	_m_m	i-u	m	i	sonorant	anterior	voiced	566.8320907
+45	8	i_nas_bi	u_nas_bi	a_dangerous_animal	a_harmless_animal	a_harmless_animal	u_nas_bi	umum	_m_m	i-u	m	u	sonorant	anterior	voiced	797.8921036
+47	9	u_nas_bi	i_nas_bi	a_dangerous_animal	a_harmless_animal	a_harmless_animal	u_nas_bi	umum	_m_m	i-u	m	u	sonorant	anterior	voiced	1265.486252
+49	8	i_nas_bi	u_nas_bi	a_harmless_animal	a_dangerous_animal	a_harmless_animal	i_nas_bi	imim	_m_m	i-u	m	i	sonorant	anterior	voiced	1541.694016
+1	0	u_fric_alv_NV	u_occ_alv_V	a_bird	a_fish	a_fish	u_occ_alv_V	udud			d	u	plosive	medium	voiced	3017.336934
+2	0	u_fric_alv_NV	u_occ_alv_V	a_fish	a_bird	a_bird	u_occ_alv_V	udud			d	u	plosive	medium	voiced	3002.487346
+3	3	u_occ_alv_V	u_fric_alv_NV	a_fish	a_bird	a_bird	u_fric_alv_NV	usus			s	u	fricative	medium	voiceless	685.2339754
+4	1	u_fric_alv_NV	u_occ_alv_V	a_bird	a_fish	a_bird	u_occ_alv_V	udud			d	u	plosive	medium	voiced	3019.96631
+5	2	u_fric_alv_NV	u_occ_alv_V	a_fish	a_bird	a_bird	u_occ_alv_V	udud			d	u	plosive	medium	voiced	660.9441918
+6	3	u_fric_alv_NV	u_occ_alv_V	a_bird	a_fish	a_bird	u_fric_alv_NV	usus			s	u	fricative	medium	voiceless	693.2320208
+7	3	u_occ_alv_V	u_fric_alv_NV	a_bird	a_fish	a_bird	u_fric_alv_NV	usus			s	u	fricative	medium	voiceless	964.4911683
+8	1	u_occ_alv_V	u_fric_alv_NV	a_fish	a_bird	a_fish	u_occ_alv_V	udud			d	u	plosive	medium	voiced	479.0444458
+10	0	u_occ_alv_V	u_fric_alv_NV	a_bird	a_fish	a_fish	u_occ_alv_V	udud			d	u	plosive	medium	voiced	449.6203925
+11	2	u_fric_alv_NV	u_occ_alv_V	a_fish	a_bird	a_bird	u_occ_alv_V	udud			d	u	plosive	medium	voiced	2575.03953
+12	2	u_occ_alv_V	u_fric_alv_NV	a_bird	a_fish	a_bird	u_fric_alv_NV	usus			s	u	fricative	medium	voiceless	1958.038569
+13	0	u_occ_alv_V	u_fric_alv_NV	a_fish	a_bird	a_fish	u_fric_alv_NV	usus			s	u	fricative	medium	voiceless	1145.72579
+16	0	u_fric_alv_NV	u_occ_alv_V	a_fish	a_bird	a_fish	u_occ_alv_V	udud			d	u	plosive	medium	voiced	2598.511565
+17	0	u_occ_alv_V	u_fric_alv_NV	a_fish	a_bird	a_bird	u_fric_alv_NV	usus			s	u	fricative	medium	voiceless	3004.198659
+19	2	u_fric_alv_NV	u_occ_alv_V	a_fish	a_bird	a_bird	u_occ_alv_V	udud			d	u	plosive	medium	voiced	3005.294178
+20	1	u_occ_alv_V	u_fric_alv_NV	a_fish	a_bird	a_bird	u_fric_alv_NV	usus			s	u	fricative	medium	voiceless	622.1663519
+21	2	u_occ_alv_V	u_fric_alv_NV	a_fish	a_bird	a_fish	u_occ_alv_V	udud			d	u	plosive	medium	voiced	1358.691377
+22	0	u_occ_alv_V	u_fric_alv_NV	a_fish	a_bird	a_bird	u_fric_alv_NV	usus			s	u	fricative	medium	voiceless	3005.455741
+23	3	u_occ_alv_V	u_fric_alv_NV	a_fish	a_bird	a_fish	u_occ_alv_V	udud			d	u	plosive	medium	voiced	733.5029969
+24	1	u_fric_alv_NV	u_occ_alv_V	a_fish	a_bird	a_bird	u_fric_alv_NV	usus			s	u	fricative	medium	voiceless	1053.951878
+25	1	u_fric_alv_NV	u_occ_alv_V	a_fish	a_bird	a_bird	u_occ_alv_V	udud			d	u	plosive	medium	voiced	702.3881571
+26	3	u_fric_alv_NV	u_occ_alv_V	a_bird	a_fish	a_fish	u_fric_alv_NV	usus			s	u	fricative	medium	voiceless	1181.437238
+28	0	u_fric_alv_NV	u_occ_alv_V	a_fish	a_bird	a_bird	u_occ_alv_V	udud			d	u	plosive	medium	voiced	3004.505232
+29	1	u_occ_alv_V	u_fric_alv_NV	a_fish	a_bird	a_fish	u_fric_alv_NV	usus			s	u	fricative	medium	voiceless	3015.718983
+30	0	u_fric_alv_NV	u_occ_alv_V	a_bird	a_fish	a_fish	u_occ_alv_V	udud			d	u	plosive	medium	voiced	3005.324305
+31	0	u_occ_alv_V	u_fric_alv_NV	a_fish	a_bird	a_bird	u_fric_alv_NV	usus			s	u	fricative	medium	voiceless	3006.275476
+32	0	u_occ_alv_V	u_fric_alv_NV	a_fish	a_bird	a_fish	u_fric_alv_NV	usus			s	u	fricative	medium	voiceless	1321.177074
+35	0	u_fric_alv_NV	u_occ_alv_V	a_bird	a_fish	a_fish	u_occ_alv_V	udud			d	u	plosive	medium	voiced	3019.528253
+36	3	u_occ_alv_V	u_fric_alv_NV	a_bird	a_fish	a_bird	u_fric_alv_NV	usus			s	u	fricative	medium	voiceless	496.8233844
+37	3	u_fric_alv_NV	u_occ_alv_V	a_fish	a_bird	a_bird	u_occ_alv_V	udud			d	u	plosive	medium	voiced	921.6236997
+38	3	u_fric_alv_NV	u_occ_alv_V	a_bird	a_fish	a_bird	u_fric_alv_NV	usus			s	u	fricative	medium	voiceless	616.9542065
+39	0	u_occ_alv_V	u_fric_alv_NV	a_bird	a_fish	a_fish	u_fric_alv_NV	usus			s	u	fricative	medium	voiceless	3016.276891
+43	0	u_fric_alv_NV	u_occ_alv_V	a_bird	a_fish	a_fish	u_occ_alv_V	udud			d	u	plosive	medium	voiced	3020.015556
+45	0	u_occ_alv_V	u_fric_alv_NV	a_fish	a_bird	a_fish	u_fric_alv_NV	usus			s	u	fricative	medium	voiceless	958.4297787
+46	2	u_occ_alv_V	u_fric_alv_NV	a_fish	a_bird	a_bird	u_fric_alv_NV	usus			s	u	fricative	medium	voiceless	660.1367214
+47	0	u_fric_alv_NV	u_occ_alv_V	a_fish	a_bird	a_fish	u_occ_alv_V	udud			d	u	plosive	medium	voiced	848.0856188
+49	0	u_occ_alv_V	u_fric_alv_NV	a_fish	a_bird	a_bird	u_fric_alv_NV	usus			s	u	fricative	medium	voiceless	3013.484912
+50	3	u_fric_alv_NV	u_occ_alv_V	a_bird	a_fish	a_fish	u_fric_alv_NV	usus			s	u	fricative	medium	voiceless	957.684827
+52	0	u_fric_alv_NV	u_occ_alv_V	a_bird	a_fish	a_bird	u_occ_alv_V	udud			d	u	plosive	medium	voiced	1549.947028
+54	0	u_occ_alv_V	u_fric_alv_NV	a_bird	a_fish	a_fish	u_fric_alv_NV	usus			s	u	fricative	medium	voiceless	3000.352681
+56	1	u_occ_alv_V	u_fric_alv_NV	a_bird	a_fish	a_fish	u_fric_alv_NV	usus			s	u	fricative	medium	voiceless	3012.671786
+2	9	u_occ_bi_V	u_nas_bi	a_dangerous_animal	a_harmless_animal	a_dangerous_animal	u_occ_bi_V	ubub	u_u_	b-m	b	u	plosive	anterior	voiced	2110.231857
+4	4	u_nas_bi	u_occ_bi_V	a_harmless_animal	a_dangerous_animal	a_dangerous_animal	u_nas_bi	umum	u_u_	b-m	m	u	sonorant	anterior	voiced	970.5057593
+6	5	u_occ_bi_V	u_nas_bi	a_harmless_animal	a_dangerous_animal	a_dangerous_animal	u_occ_bi_V	ubub	u_u_	b-m	b	u	plosive	anterior	voiced	960.3425009
+8	10	u_nas_bi	u_occ_bi_V	a_harmless_animal	a_dangerous_animal	a_harmless_animal	u_nas_bi	umum	u_u_	b-m	m	u	sonorant	anterior	voiced	710.507375
+10	4	u_nas_bi	u_occ_bi_V	a_dangerous_animal	a_harmless_animal	a_harmless_animal	u_nas_bi	umum	u_u_	b-m	m	u	sonorant	anterior	voiced	499.2842216
+12	4	u_nas_bi	u_occ_bi_V	a_dangerous_animal	a_harmless_animal	a_dangerous_animal	u_occ_bi_V	ubub	u_u_	b-m	b	u	plosive	anterior	voiced	1299.13312
+16	6	u_nas_bi	u_occ_bi_V	a_dangerous_animal	a_harmless_animal	a_harmless_animal	u_nas_bi	umum	u_u_	b-m	m	u	sonorant	anterior	voiced	952.1822302
+20	8	u_nas_bi	u_occ_bi_V	a_harmless_animal	a_dangerous_animal	a_dangerous_animal	u_occ_bi_V	ubub	u_u_	b-m	b	u	plosive	anterior	voiced	615.2340284
+22	10	u_nas_bi	u_occ_bi_V	a_harmless_animal	a_dangerous_animal	a_harmless_animal	u_nas_bi	umum	u_u_	b-m	m	u	sonorant	anterior	voiced	501.9867651
+24	7	u_occ_bi_V	u_nas_bi	a_dangerous_animal	a_harmless_animal	a_harmless_animal	u_nas_bi	umum	u_u_	b-m	m	u	sonorant	anterior	voiced	1223.022902
+26	13	u_nas_bi	u_occ_bi_V	a_dangerous_animal	a_harmless_animal	a_dangerous_animal	u_occ_bi_V	ubub	u_u_	b-m	b	u	plosive	anterior	voiced	772.7688374
+28	13	u_nas_bi	u_occ_bi_V	a_dangerous_animal	a_harmless_animal	a_dangerous_animal	u_occ_bi_V	ubub	u_u_	b-m	b	u	plosive	anterior	voiced	596.6290878
+30	4	u_nas_bi	u_occ_bi_V	a_dangerous_animal	a_harmless_animal	a_harmless_animal	u_occ_bi_V	ubub	u_u_	b-m	b	u	plosive	anterior	voiced	3010.557234
+32	5	u_occ_bi_V	u_nas_bi	a_harmless_animal	a_dangerous_animal	a_harmless_animal	u_nas_bi	umum	u_u_	b-m	m	u	sonorant	anterior	voiced	2536.365541
+36	7	u_occ_bi_V	u_nas_bi	a_dangerous_animal	a_harmless_animal	a_dangerous_animal	u_occ_bi_V	ubub	u_u_	b-m	b	u	plosive	anterior	voiced	1464.598932
+38	12	u_occ_bi_V	u_nas_bi	a_harmless_animal	a_dangerous_animal	a_harmless_animal	u_nas_bi	umum	u_u_	b-m	m	u	sonorant	anterior	voiced	691.0496509
+46	4	u_nas_bi	u_occ_bi_V	a_dangerous_animal	a_harmless_animal	a_harmless_animal	u_nas_bi	umum	u_u_	b-m	m	u	sonorant	anterior	voiced	623.9348621
+50	11	u_occ_bi_V	u_nas_bi	a_dangerous_animal	a_harmless_animal	a_harmless_animal	u_nas_bi	umum	u_u_	b-m	m	u	sonorant	anterior	voiced	978.0848031
+52	9	u_nas_bi	u_occ_bi_V	a_dangerous_animal	a_harmless_animal	a_harmless_animal	u_occ_bi_V	ubub	u_u_	b-m	b	u	plosive	anterior	voiced	868.7238786
+54	4	u_occ_bi_V	u_nas_bi	a_harmless_animal	a_dangerous_animal	a_dangerous_animal	u_occ_bi_V	ubub	u_u_	b-m	b	u	plosive	anterior	voiced	1149.100034
+56	7	u_occ_bi_V	u_nas_bi	a_dangerous_animal	a_harmless_animal	a_harmless_animal	u_occ_bi_V	ubub	u_u_	b-m	b	u	plosive	anterior	voiced	646.3814522
+1	13	u_occ_bi_NV	u_occ_bi_V	a_dangerous_animal	a_harmless_animal	a_harmless_animal	u_occ_bi_NV	upup	u_u_	p-b	p	u	plosive	anterior	voiceless	660.2327174
+3	8	u_occ_bi_V	u_occ_bi_NV	a_harmless_animal	a_dangerous_animal	a_dangerous_animal	u_occ_bi_NV	upup	u_u_	p-b	p	u	plosive	anterior	voiceless	951.7376
+5	8	u_occ_bi_NV	u_occ_bi_V	a_dangerous_animal	a_harmless_animal	a_harmless_animal	u_occ_bi_NV	upup	u_u_	p-b	p	u	plosive	anterior	voiceless	766.9462683
+7	4	u_occ_bi_V	u_occ_bi_NV	a_dangerous_animal	a_harmless_animal	a_dangerous_animal	u_occ_bi_NV	upup	u_u_	p-b	p	u	plosive	anterior	voiceless	923.2643864
+11	10	u_occ_bi_NV	u_occ_bi_V	a_dangerous_animal	a_harmless_animal	a_harmless_animal	u_occ_bi_NV	upup	u_u_	p-b	p	u	plosive	anterior	voiceless	694.6688747
+13	12	u_occ_bi_V	u_occ_bi_NV	a_harmless_animal	a_dangerous_animal	a_dangerous_animal	u_occ_bi_V	ubub	u_u_	p-b	b	u	plosive	anterior	voiced	1179.796775
+17	6	u_occ_bi_V	u_occ_bi_NV	a_harmless_animal	a_dangerous_animal	a_harmless_animal	u_occ_bi_V	ubub	u_u_	p-b	b	u	plosive	anterior	voiced	991.3623229
+19	4	u_occ_bi_V	u_occ_bi_NV	a_dangerous_animal	a_harmless_animal	a_dangerous_animal	u_occ_bi_V	ubub	u_u_	p-b	b	u	plosive	anterior	voiced	690.3785084
+21	6	u_occ_bi_NV	u_occ_bi_V	a_harmless_animal	a_dangerous_animal	a_harmless_animal	u_occ_bi_NV	upup	u_u_	p-b	p	u	plosive	anterior	voiceless	1247.549403
+23	12	u_occ_bi_NV	u_occ_bi_V	a_harmless_animal	a_dangerous_animal	a_dangerous_animal	u_occ_bi_V	ubub	u_u_	p-b	b	u	plosive	anterior	voiced	652.6481814
+25	10	u_occ_bi_NV	u_occ_bi_V	a_dangerous_animal	a_harmless_animal	a_harmless_animal	u_occ_bi_V	ubub	u_u_	p-b	b	u	plosive	anterior	voiced	637.6449766
+29	6	u_occ_bi_V	u_occ_bi_NV	a_dangerous_animal	a_harmless_animal	a_dangerous_animal	u_occ_bi_NV	upup	u_u_	p-b	p	u	plosive	anterior	voiceless	616.8625732
+31	4	u_occ_bi_V	u_occ_bi_NV	a_harmless_animal	a_dangerous_animal	a_dangerous_animal	u_occ_bi_V	ubub	u_u_	p-b	b	u	plosive	anterior	voiced	506.8667712
+35	6	u_occ_bi_NV	u_occ_bi_V	a_dangerous_animal	a_harmless_animal	a_harmless_animal	u_occ_bi_NV	upup	u_u_	p-b	p	u	plosive	anterior	voiceless	915.4324566
+37	8	u_occ_bi_V	u_occ_bi_NV	a_dangerous_animal	a_harmless_animal	a_dangerous_animal	u_occ_bi_V	ubub	u_u_	p-b	b	u	plosive	anterior	voiced	1170.03026
+39	13	u_occ_bi_V	u_occ_bi_NV	a_harmless_animal	a_dangerous_animal	a_harmless_animal	u_occ_bi_NV	upup	u_u_	p-b	p	u	plosive	anterior	voiceless	632.2908537
+43	4	u_occ_bi_V	u_occ_bi_NV	a_harmless_animal	a_dangerous_animal	a_harmless_animal	u_occ_bi_NV	upup	u_u_	p-b	p	u	plosive	anterior	voiceless	679.9492349
+45	10	u_occ_bi_V	u_occ_bi_NV	a_dangerous_animal	a_harmless_animal	a_harmless_animal	u_occ_bi_NV	upup	u_u_	p-b	p	u	plosive	anterior	voiceless	1908.420564
+47	10	u_occ_bi_V	u_occ_bi_NV	a_dangerous_animal	a_harmless_animal	a_dangerous_animal	u_occ_bi_NV	upup	u_u_	p-b	p	u	plosive	anterior	voiceless	696.2493311
+49	11	u_occ_bi_V	u_occ_bi_NV	a_harmless_animal	a_dangerous_animal	a_dangerous_animal	u_occ_bi_V	ubub	u_u_	p-b	b	u	plosive	anterior	voiced	659.0551045
+2	4	u_occ_bi_NV	u_occ_vel_NV	a_harmless_animal	a_dangerous_animal	a_harmless_animal	u_occ_vel_NV	ukuk	u_u_	p-k	k	u	plosive	posterior	voiceless	666.8842915
+4	7	u_occ_bi_NV	u_occ_vel_NV	a_harmless_animal	a_dangerous_animal	a_harmless_animal	u_occ_vel_NV	ukuk	u_u_	p-k	k	u	plosive	posterior	voiceless	1288.168336
+6	8	u_occ_vel_NV	u_occ_bi_NV	a_harmless_animal	a_dangerous_animal	a_harmless_animal	u_occ_vel_NV	ukuk	u_u_	p-k	k	u	plosive	posterior	voiceless	630.3064273
+8	11	u_occ_vel_NV	u_occ_bi_NV	a_dangerous_animal	a_harmless_animal	a_dangerous_animal	u_occ_bi_NV	upup	u_u_	p-k	p	u	plosive	anterior	voiceless	397.538411
+10	12	u_occ_vel_NV	u_occ_bi_NV	a_harmless_animal	a_dangerous_animal	a_dangerous_animal	u_occ_vel_NV	ukuk	u_u_	p-k	k	u	plosive	posterior	voiceless	508.3327595
+12	12	u_occ_vel_NV	u_occ_bi_NV	a_harmless_animal	a_dangerous_animal	a_harmless_animal	u_occ_vel_NV	ukuk	u_u_	p-k	k	u	plosive	posterior	voiceless	892.4809501
+16	13	u_occ_bi_NV	u_occ_vel_NV	a_dangerous_animal	a_harmless_animal	a_dangerous_animal	u_occ_vel_NV	ukuk	u_u_	p-k	k	u	plosive	posterior	voiceless	516.5675215
+20	13	u_occ_vel_NV	u_occ_bi_NV	a_harmless_animal	a_dangerous_animal	a_dangerous_animal	u_occ_vel_NV	ukuk	u_u_	p-k	k	u	plosive	posterior	voiceless	764.2162459
+22	9	u_occ_bi_NV	u_occ_vel_NV	a_dangerous_animal	a_harmless_animal	a_harmless_animal	u_occ_bi_NV	upup	u_u_	p-k	p	u	plosive	anterior	voiceless	447.2489214
+24	9	u_occ_bi_NV	u_occ_vel_NV	a_harmless_animal	a_dangerous_animal	a_dangerous_animal	u_occ_vel_NV	ukuk	u_u_	p-k	k	u	plosive	posterior	voiceless	1389.791318
+26	11	u_occ_vel_NV	u_occ_bi_NV	a_dangerous_animal	a_harmless_animal	a_dangerous_animal	u_occ_bi_NV	upup	u_u_	p-k	p	u	plosive	anterior	voiceless	2601.355145
+28	7	u_occ_vel_NV	u_occ_bi_NV	a_harmless_animal	a_dangerous_animal	a_dangerous_animal	u_occ_vel_NV	ukuk	u_u_	p-k	k	u	plosive	posterior	voiceless	880.6348511
+30	6	u_occ_bi_NV	u_occ_vel_NV	a_dangerous_animal	a_harmless_animal	a_dangerous_animal	u_occ_bi_NV	upup	u_u_	p-k	p	u	plosive	anterior	voiceless	416.2062554
+32	9	u_occ_vel_NV	u_occ_bi_NV	a_harmless_animal	a_dangerous_animal	a_harmless_animal	u_occ_bi_NV	upup	u_u_	p-k	p	u	plosive	anterior	voiceless	588.8567837
+36	11	u_occ_bi_NV	u_occ_vel_NV	a_harmless_animal	a_dangerous_animal	a_harmless_animal	u_occ_bi_NV	upup	u_u_	p-k	p	u	plosive	anterior	voiceless	522.9489667
+38	10	u_occ_vel_NV	u_occ_bi_NV	a_dangerous_animal	a_harmless_animal	a_harmless_animal	u_occ_bi_NV	upup	u_u_	p-k	p	u	plosive	anterior	voiceless	596.6619767
+46	6	u_occ_bi_NV	u_occ_vel_NV	a_dangerous_animal	a_harmless_animal	a_harmless_animal	u_occ_bi_NV	upup	u_u_	p-k	p	u	plosive	anterior	voiceless	953.2867719
+50	8	u_occ_vel_NV	u_occ_bi_NV	a_dangerous_animal	a_harmless_animal	a_dangerous_animal	u_occ_vel_NV	ukuk	u_u_	p-k	k	u	plosive	posterior	voiceless	1422.528003
+52	4	u_occ_vel_NV	u_occ_bi_NV	a_dangerous_animal	a_harmless_animal	a_harmless_animal	u_occ_vel_NV	ukuk	u_u_	p-k	k	u	plosive	posterior	voiceless	866.4468476
+54	9	u_occ_vel_NV	u_occ_bi_NV	a_dangerous_animal	a_harmless_animal	a_dangerous_animal	u_occ_bi_NV	upup	u_u_	p-k	p	u	plosive	anterior	voiceless	677.0782163
+56	8	u_occ_vel_NV	u_occ_bi_NV	a_dangerous_animal	a_harmless_animal	a_dangerous_animal	u_occ_vel_NV	ukuk	u_u_	p-k	k	u	plosive	posterior	voiceless	1093.141336
+1	9	u_occ_vel_V	u_occ_vel_NV	a_dangerous_animal	a_harmless_animal	a_dangerous_animal	u_occ_vel_NV	ukuk	u_u_	k-g	k	u	plosive	posterior	voiceless	806.3309637
+3	12	u_occ_vel_NV	u_occ_vel_V	a_harmless_animal	a_dangerous_animal	a_dangerous_animal	u_occ_vel_V	ugug	u_u_	k-g	g	u	plosive	posterior	voiced	629.3817423
+5	4	u_occ_vel_NV	u_occ_vel_V	a_dangerous_animal	a_harmless_animal	a_dangerous_animal	u_occ_vel_V	ugug	u_u_	k-g	g	u	plosive	posterior	voiced	906.3995619
+7	10	u_occ_vel_NV	u_occ_vel_V	a_harmless_animal	a_dangerous_animal	a_dangerous_animal	u_occ_vel_V	ugug	u_u_	k-g	g	u	plosive	posterior	voiced	829.7046702
+11	11	u_occ_vel_V	u_occ_vel_NV	a_harmless_animal	a_dangerous_animal	a_harmless_animal	u_occ_vel_NV	ukuk	u_u_	k-g	k	u	plosive	posterior	voiceless	525.9252809
+13	11	u_occ_vel_NV	u_occ_vel_V	a_dangerous_animal	a_harmless_animal	a_dangerous_animal	u_occ_vel_V	ugug	u_u_	k-g	g	u	plosive	posterior	voiced	1117.352891
+17	8	u_occ_vel_V	u_occ_vel_NV	a_harmless_animal	a_dangerous_animal	a_harmless_animal	u_occ_vel_NV	ukuk	u_u_	k-g	k	u	plosive	posterior	voiceless	798.2388938
+19	10	u_occ_vel_NV	u_occ_vel_V	a_harmless_animal	a_dangerous_animal	a_harmless_animal	u_occ_vel_NV	ukuk	u_u_	k-g	k	u	plosive	posterior	voiceless	1086.473113
+21	9	u_occ_vel_NV	u_occ_vel_V	a_dangerous_animal	a_harmless_animal	a_dangerous_animal	u_occ_vel_V	ugug	u_u_	k-g	g	u	plosive	posterior	voiced	2333.942727
+23	8	u_occ_vel_V	u_occ_vel_NV	a_harmless_animal	a_dangerous_animal	a_dangerous_animal	u_occ_vel_V	ugug	u_u_	k-g	g	u	plosive	posterior	voiced	918.9044949
+25	7	u_occ_vel_NV	u_occ_vel_V	a_dangerous_animal	a_harmless_animal	a_dangerous_animal	u_occ_vel_NV	ukuk	u_u_	k-g	k	u	plosive	posterior	voiceless	623.4581962
+29	10	u_occ_vel_V	u_occ_vel_NV	a_harmless_animal	a_dangerous_animal	a_dangerous_animal	u_occ_vel_NV	ukuk	u_u_	k-g	k	u	plosive	posterior	voiceless	837.8334892
+31	9	u_occ_vel_NV	u_occ_vel_V	a_dangerous_animal	a_harmless_animal	a_harmless_animal	u_occ_vel_NV	ukuk	u_u_	k-g	k	u	plosive	posterior	voiceless	422.3701601
+35	5	u_occ_vel_V	u_occ_vel_NV	a_harmless_animal	a_dangerous_animal	a_dangerous_animal	u_occ_vel_NV	ukuk	u_u_	k-g	k	u	plosive	posterior	voiceless	767.7520755
+37	6	u_occ_vel_V	u_occ_vel_NV	a_dangerous_animal	a_harmless_animal	a_dangerous_animal	u_occ_vel_NV	ukuk	u_u_	k-g	k	u	plosive	posterior	voiceless	1455.213447
+39	9	u_occ_vel_V	u_occ_vel_NV	a_dangerous_animal	a_harmless_animal	a_dangerous_animal	u_occ_vel_NV	ukuk	u_u_	k-g	k	u	plosive	posterior	voiceless	883.6114127
+43	5	u_occ_vel_NV	u_occ_vel_V	a_harmless_animal	a_dangerous_animal	a_dangerous_animal	u_occ_vel_V	ugug	u_u_	k-g	g	u	plosive	posterior	voiced	808.9179961
+45	11	u_occ_vel_V	u_occ_vel_NV	a_dangerous_animal	a_harmless_animal	a_harmless_animal	u_occ_vel_V	ugug	u_u_	k-g	g	u	plosive	posterior	voiced	850.6760879
+47	8	u_occ_vel_V	u_occ_vel_NV	a_dangerous_animal	a_harmless_animal	a_dangerous_animal	u_occ_vel_NV	ukuk	u_u_	k-g	k	u	plosive	posterior	voiceless	655.2552158
+49	12	u_occ_vel_V	u_occ_vel_NV	a_harmless_animal	a_dangerous_animal	a_dangerous_animal	u_occ_vel_NV	ukuk	u_u_	k-g	k	u	plosive	posterior	voiceless	585.6382381
+2	5	i_occ_vel_V	u_occ_vel_V	a_harmless_animal	a_dangerous_animal	a_dangerous_animal	u_occ_vel_V	ugug	_g_g	i-u	g	u	plosive	posterior	voiced	608.6370812
+4	5	i_occ_vel_V	u_occ_vel_V	a_harmless_animal	a_dangerous_animal	a_dangerous_animal	u_occ_vel_V	ugug	_g_g	i-u	g	u	plosive	posterior	voiced	1600.53839
+6	12	u_occ_vel_V	i_occ_vel_V	a_dangerous_animal	a_harmless_animal	a_dangerous_animal	i_occ_vel_V	igig	_g_g	i-u	g	i	plosive	posterior	voiced	644.5239974
+8	12	u_occ_vel_V	i_occ_vel_V	a_dangerous_animal	a_harmless_animal	a_dangerous_animal	i_occ_vel_V	igig	_g_g	i-u	g	i	plosive	posterior	voiced	789.0198537
+10	5	i_occ_vel_V	u_occ_vel_V	a_dangerous_animal	a_harmless_animal	a_harmless_animal	i_occ_vel_V	igig	_g_g	i-u	g	i	plosive	posterior	voiced	449.0393605
+12	8	i_occ_vel_V	u_occ_vel_V	a_harmless_animal	a_dangerous_animal	a_dangerous_animal	u_occ_vel_V	ugug	_g_g	i-u	g	u	plosive	posterior	voiced	974.8716101
+16	4	u_occ_vel_V	i_occ_vel_V	a_harmless_animal	a_dangerous_animal	a_harmless_animal	u_occ_vel_V	ugug	_g_g	i-u	g	u	plosive	posterior	voiced	523.174401
+20	7	i_occ_vel_V	u_occ_vel_V	a_harmless_animal	a_dangerous_animal	a_dangerous_animal	u_occ_vel_V	ugug	_g_g	i-u	g	u	plosive	posterior	voiced	631.5515903
+22	7	i_occ_vel_V	u_occ_vel_V	a_dangerous_animal	a_harmless_animal	a_harmless_animal	u_occ_vel_V	ugug	_g_g	i-u	g	u	plosive	posterior	voiced	431.5878759
+24	4	u_occ_vel_V	i_occ_vel_V	a_dangerous_animal	a_harmless_animal	a_dangerous_animal	u_occ_vel_V	ugug	_g_g	i-u	g	u	plosive	posterior	voiced	1506.882994
+26	9	i_occ_vel_V	u_occ_vel_V	a_harmless_animal	a_dangerous_animal	a_dangerous_animal	u_occ_vel_V	ugug	_g_g	i-u	g	u	plosive	posterior	voiced	614.6725297
+28	11	u_occ_vel_V	i_occ_vel_V	a_harmless_animal	a_dangerous_animal	a_dangerous_animal	u_occ_vel_V	ugug	_g_g	i-u	g	u	plosive	posterior	voiced	781.2118439
+30	8	i_occ_vel_V	u_occ_vel_V	a_harmless_animal	a_dangerous_animal	a_harmless_animal	i_occ_vel_V	igig	_g_g	i-u	g	i	plosive	posterior	voiced	623.0287953
+32	4	u_occ_vel_V	i_occ_vel_V	a_harmless_animal	a_dangerous_animal	a_harmless_animal	i_occ_vel_V	igig	_g_g	i-u	g	i	plosive	posterior	voiced	844.0328865
+36	4	i_occ_vel_V	u_occ_vel_V	a_harmless_animal	a_dangerous_animal	a_dangerous_animal	u_occ_vel_V	ugug	_g_g	i-u	g	u	plosive	posterior	voiced	516.6916788
+38	4	u_occ_vel_V	i_occ_vel_V	a_harmless_animal	a_dangerous_animal	a_harmless_animal	i_occ_vel_V	igig	_g_g	i-u	g	i	plosive	posterior	voiced	667.7684527
+46	12	u_occ_vel_V	i_occ_vel_V	a_dangerous_animal	a_harmless_animal	a_harmless_animal	i_occ_vel_V	igig	_g_g	i-u	g	i	plosive	posterior	voiced	472.4127329
+50	13	i_occ_vel_V	u_occ_vel_V	a_harmless_animal	a_dangerous_animal	a_dangerous_animal	u_occ_vel_V	ugug	_g_g	i-u	g	u	plosive	posterior	voiced	2809.0597
+52	13	u_occ_vel_V	i_occ_vel_V	a_harmless_animal	a_dangerous_animal	a_dangerous_animal	i_occ_vel_V	igig	_g_g	i-u	g	i	plosive	posterior	voiced	714.0010102
+54	5	u_occ_vel_V	i_occ_vel_V	a_harmless_animal	a_dangerous_animal	a_harmless_animal	i_occ_vel_V	igig	_g_g	i-u	g	i	plosive	posterior	voiced	912.4371787
+56	10	i_occ_vel_V	u_occ_vel_V	a_dangerous_animal	a_harmless_animal	a_harmless_animal	u_occ_vel_V	ugug	_g_g	i-u	g	u	plosive	posterior	voiced	571.6686235

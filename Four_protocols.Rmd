@@ -1,0 +1,1559 @@
+---
+title: "Analysis of sound symbolic associations across experimental protocols"
+author: "Léa de Carolis & Christophe Coupé"
+date: '`r date()`'
+output:
+  rmarkdown::html_vignette: 
+    css: 
+    - !expr system.file("rmarkdown/templates/html_vignette/resources/vignette.css", package = "rmarkdown")
+    fig_caption: yes
+    toc: yes
+    toc_depth: 3
+    word_document: default  
+---
+
+
+# 0. Preparatory steps & Introduction
+
+## 0.1. Seeting document options
+
+```{r setup_knitr, echo=F}
+library(knitr)
+opts_chunk$set(results = 'asis',      # Can also be set at the chunk-level
+                comment = NA,
+                prompt  = FALSE,
+                cache   = FALSE,
+                fig.width=10,
+                fig.height=10)
+options(width = 1000)
+#knitr::opts_chunk$set(echo = TRUE, fig.align="center", warning=FALSE, message=FALSE,
+#fig.width=9, fig.height=6, fig.align = "center", 
+#fig.path = "figures/", dpi=300, cache=TRUE, autodep=TRUE)
+
+options(knitr.kable.NA = '')
+```
+
+```{r setup_st, echo=F}
+library(summarytools)
+st_options(plain.ascii = FALSE,        # Always use this option in Rmd documents
+            style        = "rmarkdown", # Always use this option in Rmd documents
+            footnote     = NA,          # Makes html-rendered results more concise
+            subtitle.emphasis = FALSE) # Improves layout with some rmardown themes
+
+st_css()
+```
+
+## 0.2. Loading libraries
+
+```{r message=FALSE, warning=FALSE}
+library(lme4) # For glm
+library(MASS) # For polr
+library(lsr) # For etaSquared
+library(Epi) # For twoby2
+library(car) # For Anova
+library(emmeans) # For emmeans
+library(questionr) # For Cramer's V
+library(rsq) # For rsq.partial
+library(scales) # To display percentages on the y-axis of a ggplot
+library(tidyverse) # For tidy
+library(kableExtra) # To format tables of results
+library(PerformanceAnalytics) # For correlation charts
+```
+
+
+Setting the working directory
+```{r}
+my_path <- "D:/Dropbox/shared folders/Phonosymbolisme/Expe quatre protocoles/Final analysis"
+setwd(my_path)
+```
+
+Setting the right contrasts for the regression models and the post-hoc tests
+```{r}
+options(contrasts=c("contr.sum","contr.poly")) # sum contrasts to get correct results with ANOVA (treatment contrasts lead to incorrect results)
+emm_options(emmeans = list(type = "response"), contrast = list(infer = c(TRUE, TRUE))) # To get odd ratios with emmeans
+```
+
+This `Rmarkdown` script and the resulting `HTML` document contain the full analysis upon which the paper is based.
+
+
+## 0.3. Hypotheses tested across protocols
+
+| Hypothesis   | Concept            | Association 1          | Association 2          |
+|--------------|--------------------|-----------|-------------------------------------|
+| 1            | Size               | Voiced C – large       | Voiceless C – small    |
+| 2            | Size               | [i] – small            | [a] – large            |
+| 3            | Biological class   | Fricatives – fish      | Plosives – bird        |
+| 4            | Biological class   | [a] or [u] – fish      | [i] – bird             |
+| 5            | Repulsiveness      | Plosives – repulsive   | Sonorants – attractive |
+| 6            | Repulsiveness      | [a] – repulsive        | [i] – attractive       |
+| 7            | Dangerousness      | Back V – dangerous     | Front V – harmless     |
+| 8            | Dangerousness      | Voiced C - dangerous   | Voiceless C - harmless |
+| 9            | Dangerousness      | Plosives – dangerous   | Sonorants – harmless   |
+| 10           | Dangerousness      | Back C – dangerous     | Front C - harmless     |
+ 
+
+## 0.4. A word of cautious regarding the statistical analyses
+
+The odds ratio in fisher.test is conditional MLE, not unconditional MLE (= sample odds ratio)
+In glm, MLE are unconditional.
+
+The partial R² computed for glm and polr models is Mckelvey Zavoina pseudo-R²
+
+McKelvey, R. D., & Zavoina, W. (1975). A statistical model for the analysis of ordinal level dependent variables. The Journal of Mathematical Sociology, 4(1), 103–120
+
+
+
+## 0.5. Generic functions for the analyses
+
+### 0.5.2. Computations of Mckelvey Zavoina pseudo-R² for glm and polr models
+
+For glm models:
+```{r}
+rsq.mz.glm <- function(model) {
+  predicted.v <- predict(model)
+  mean.predicted.v <- mean(predicted.v)
+  ess <- sum((predicted.v - mean.predicted.v)^2) / length(predicted.v)
+  pi.var <- (pi^2)/3
+  return (ess / (ess + pi.var))
+}
+```
+
+For ordered logistic models:
+```{r}
+rsq.mz.polr <- function(model) {
+  ess <- var(model$lp)
+  pi.var <- (pi^2)/3
+  return (ess / (ess + pi.var))
+}
+```
+
+
+### 0.5.2. Logistic regressions
+
+Display and analysis - contingency table
+```{r}
+analyze_contingency_table <- function(hyp, variable) {
+  contingency_table <- hyp %>% 
+                        group_by(.dots = c(variable, "label")) %>% 
+                        summarise(n = n()) %>% 
+                        spread(key = label, value = n) %>% 
+                        replace(., is.na(.), 0)
+  mat <- as.matrix(contingency_table[,-1])
+  rownames(mat) <- contingency_table %>% pull(variable)
+  twb <- twoby2(mat, print=F)
+
+  twb$table[,1:2] %>% kable(digits=4) %>% print()
+  twb$measures %>% kable(digits=4) %>% print()
+  cat(" \n\n")
+  cat(paste0("Cramer's V (effect size): ", round(cramer.v(mat), 3)), "\n\n")
+  cat(" \n\n")
+
+  return(cramer.v(mat))
+}
+```
+
+
+Analysis - binomial regression model
+```{r}
+analyze_binomial <- function(hyp, predictors) {
+ 
+  # Assessing whether there is a single predictor
+  if (length(predictors) == 1) {
+    f.text <- paste("label", predictors[1], sep = " ~ ")
+    cat(paste0("We run the binomial glm model '", f.text, "'\n\n"))
+  
+    model.simple <- glm(as.formula(f.text), data=hyp, family=binomial())
+    anova.model.simple <- Anova(model.simple, type="III") # ANOVA
+
+    R2 <- rsq.mz.glm(model.simple)
+    cat(paste0("R2 = Effect size: ", round(R2, 4), "\n\n"))
+        
+    return(list(test.interaction = F, p.value.interaction = NA,
+                p.value.target = anova.model.simple$'Pr(>Chisq)'[1], p.value.context = NA, 
+                effect.size.target = R2, effect.size.context = NA))
+  }
+  
+  # There must be two predictors
+  f.text <- paste("label", paste(predictors, collapse = " * "), sep = " ~ ")
+  cat(paste0("We run the binomial glm model '", f.text, "'\n\n"))
+  
+  model.interaction <- glm(as.formula(f.text), data=hyp, family=binomial())
+  anova.model.interaction <- Anova(model.interaction, type="III") # ANOVA
+  anova.model.interaction %>% kable(digits=4) %>% print()
+  
+  p.value.interaction <- rev(anova.model.interaction$'Pr(>Chisq)')[1]
+  test.interaction <- p.value.interaction < 0.05
+
+  if(test.interaction) {
+    cat(" \n\n")
+    cat(paste0("There is an interaction since the p-value for it is equal to ", round(p.value.interaction, digits=4), "\n\n"))
+  
+    f.text.emm <- paste("pairwise", paste(predictors, collapse = " * "), sep = " ~ ")
+    emm <- model.interaction %>% emmeans(as.formula(f.text.emm), adjust="none")
+    emm$contrasts %>% kable(digits=3) %>% print()
+  }
+  else {
+     cat(" \n\n")
+     cat(paste0("There is no interaction since the p-value for the interaction is equal to ", round(p.value.interaction, digits=4), "\n\n"))
+  }
+  
+  cat("We compute the model without interaction\n\n")
+
+  f.text <- paste0(". ~ . - ", paste(predictors, collapse = ":"))
+  model.no.interaction <- update(model.interaction, as.formula(f.text))
+  anova.model.no.interaction <- Anova(model.no.interaction, type="III") # ANOVA
+  R2.no.interaction <- rsq.mz.glm(model.no.interaction)
+  
+  cat("We compute the R² of the model without interaction and of two models without one predictor\n\n")
+
+  f.text <- paste0(". ~ . - ", predictors[1])
+  model.no.first.predictor <- update(model.no.interaction, as.formula(f.text))
+  anova.model.no.interaction %>% kable(digits=4) %>% print()
+  cat(" \n\n")
+  
+  R2.no.first.predictor <- rsq.mz.glm(model.no.first.predictor)
+
+  f.text <- paste0(". ~ . - ", predictors[2])
+  model.no.second.predictor <- update(model.no.interaction, as.formula(f.text))
+  R2.no.second.predictor <- rsq.mz.glm(model.no.second.predictor)
+
+  cat(paste0("R² model without interaction: ", round(R2.no.interaction, 4), "\n\n"))
+  cat(paste0("R² model without first predictor: ", round(R2.no.first.predictor, 4), "\n\n"))
+  cat(paste0("R² model without second predictor: ", round(R2.no.second.predictor, 4), "\n\n"))
+
+  cat(paste0("Effect size first predictor: ", round(R2.no.interaction - R2.no.first.predictor, 4), "\n\n"))
+  cat(paste0("Effect size second predictor: ", round(R2.no.interaction - R2.no.second.predictor, 4), "\n\n"))
+
+  return(list(test.interaction = test.interaction, p.value.interaction = p.value.interaction,
+              p.value.target = anova.model.no.interaction$'Pr(>Chisq)'[1], p.value.context = anova.model.no.interaction$'Pr(>Chisq)'[2], 
+              effect.size.target = R2.no.interaction - R2.no.first.predictor, effect.size.context = R2.no.interaction - R2.no.second.predictor))
+}
+```
+
+
+### 0.5.3. Ordered logistic regressions
+
+Display - 2x2 table of mean values
+```{r}
+analyze_means_table <- function(hyp, variable) {
+  means_table <- hyp %>% 
+                  group_by(.dots = c(variable, "label")) %>% 
+                  summarise(m = mean(judgment)) %>% 
+                  spread(key = label, value = m) %>% 
+                  replace(., is.na(.), 0)
+
+  means_table %>% kable(digits=4) %>% print()
+
+  f.text <- paste0("judgment ~ label * ", variable)
+  model.lm <- lm(as.formula(f.text), data=hyp)
+  etasq <- etaSquared(model.lm, type=3)
+  return(etasq[3,1])
+}
+```
+
+Analysis - Ordered logistic regression model
+```{r}
+analyze_ordered_logistic <- function(hyp, predictors) {
+  
+  # Assessing whether there is a single predictor
+  if (length(predictors) == 1) {
+    f.text <- paste("response ~ label * ", predictors[1])
+    cat(paste0("We run the ordered logistic regression model '", f.text, "'\n\n"))
+  
+    model.simple <- polr(as.formula(f.text), data=hyp)
+    anova.model.simple <- Anova(model.simple, type="III") # ANOVA
+
+    anova.model.simple %>% kable(digits=4) %>% print()
+
+    R2.simple <- rsq.mz.polr(model.simple)
+  
+    f.text <- paste0(". ~ . - label:", predictors[1])
+    model.reduced <- update(model.simple, as.formula(f.text))
+    R2.reduced <- rsq.mz.polr(model.reduced)
+    
+    cat(paste0("R² initial model: ", round(R2.simple, 4), "\n\n"))
+    cat(paste0("R² model without the interaction: ", round(R2.reduced, 4), "\n\n"))
+    cat(paste0("Effect size of the predictor: ", round(R2.simple - R2.reduced, 4), "\n\n"))
+    
+    return(list(test.interaction = F, p.value.interaction = NA,
+                p.value.target = anova.model.simple$'Pr(>Chisq)'[3], p.value.context = NA, 
+                effect.size.target = R2.simple - R2.reduced, effect.size.context = NA))
+  }
+  
+  # There must be three predictors
+
+  f.text <- paste0("response ~ label * ", paste(predictors, collapse = " * "))
+  cat(paste0("We run the polr model '", f.text, "'\n\n"))
+  model.interaction <- polr(as.formula(f.text), data=hyp)
+  anova.model.interaction <- Anova(model.interaction, type="III") # ANOVA
+  
+  anova.model.interaction %>% kable(digits=4) %>% print()
+
+  p.value.interaction <- anova.model.interaction$'Pr(>Chisq)'[7]
+  test.interaction <- p.value.interaction < 0.05
+  
+  if(test.interaction) {
+    cat(" \n\n")
+    cat(paste0("There is an triple interaction since the p-value for it is equal to ", round(p.value.interaction, digits=4), "\n"))
+
+    assign("f.text",  paste0("response ~ label * ", paste(predictors, collapse = " * ")), envir = .GlobalEnv) # A trick for emmeans to work with a polr model in a function
+    f.text.emm <- paste0("pairwise ~ label * ", paste(predictors, collapse = " * "))
+    
+    emm <- model.interaction %>% emmeans(as.formula(f.text.emm), adjust="none")
+    emm$contrasts %>% kable(digits=3) %>% print()
+  }
+  else {
+    cat(" \n\n")
+    cat(paste0("There is no triple interaction since the p-value for it is equal to ", round(p.value.interaction, digits=4), "\n\n"))
+  }
+
+  cat("We compute the model without interaction\n\n")
+
+  f.text <- paste0(". ~ . - label:", paste(predictors, collapse = ":"))
+
+  model.no.interaction <- update(model.interaction, as.formula(f.text))
+  anova.model.no.interaction <- Anova(model.no.interaction, type="III") # ANOVA
+  anova.model.no.interaction %>% kable(digits=4) %>% print()
+  cat(" \n\n")
+  
+  R2.no.interaction <- rsq.mz.polr(model.no.interaction)
+  
+  cat("We compute the effect sizes of the full (without triple interaction) and two reduced models\n\n")
+
+  f.text <- paste0(". ~ . - label:", predictors[1])
+  model.no.first.predictor <- update(model.no.interaction, as.formula(f.text))
+  R2.no.first.predictor <- rsq.mz.polr(model.no.first.predictor)
+  
+  f.text <- paste0(". ~ . - label:", predictors[2])
+  model.no.second.predictor <- update(model.no.interaction, as.formula(f.text))
+  R2.no.second.predictor <- rsq.mz.polr(model.no.second.predictor)
+  
+  cat(paste0("R² initial model: ", round(R2.no.interaction, 4), "\n\n"))
+  cat(paste0("R² model without interaction including first predictor: ", round(R2.no.first.predictor, 4), "\n\n"))
+  cat(paste0("R² model without interaction including second predictor: ", round(R2.no.second.predictor, 4), "\n\n"))
+
+  cat(paste0("Effect size first predictor: ", round(R2.no.interaction - R2.no.first.predictor, 4), "\n\n"))
+  cat(paste0("Effect size second predictor: ", round(R2.no.interaction - R2.no.second.predictor, 4), "\n\n"))
+
+  return(list(test.interaction = test.interaction, p.value.interaction = p.value.interaction,
+              p.value.target = anova.model.no.interaction$'Pr(>Chisq)'[4], p.value.context = anova.model.no.interaction$'Pr(>Chisq)'[5], 
+              effect.size.target = R2.no.interaction - R2.no.first.predictor, effect.size.context = R2.no.interaction - R2.no.second.predictor))
+}
+```
+
+## 0.6 Storing the main results
+
+```{r}
+results <- tibble(protocol = rep("", 40), hypothesis = rep(0, 40), concept = rep("", 40), 
+                  label = rep("", 40), contrast = rep("", 40), context = rep("", 40),
+                  preliminary.effect.size = rep(0.0, 40), 
+                  interaction = rep(F, 40), p.value.interaction = rep(0.0,40),
+                  p.value.target = rep(0.0, 40), p.value.context = rep(0.0, 40),
+                  effect.size.target = rep(0.0, 40), effect.size.context = rep(0.0, 40))
+```
+
+# 1. 2x2 data
+
+## 1.1. Preparation of the data
+
+Reading data:
+```{r}
+expe22 <- read.table("2x2.txt", sep = "\t", header = TRUE, dec = ".", stringsAsFactors = T)
+expe22 <- as_tibble(expe22) # Turning the data frame into a tibble
+```
+
+Discarding training and trials without response (response time larger than 3000ms):
+```{r}
+expe22 <- expe22 %>% 
+            filter(trial_nb > 3) %>% 
+            filter(response_time < 3000) %>% 
+            droplevels()
+```
+
+Turning the variable subject_nr into a categorical variable:
+```{r}
+expe22 <- expe22 %>% mutate(subject_nr = as.factor(subject_nr))
+```
+
+Renaming variables to homogenize variable names across protocols for analysis:
+```{r}
+expe22 <- expe22 %>% rename(label = chosen_label) %>%
+            rename(PW = chosen_PW)
+```
+
+## 1.2. Statistical analyses
+
+### Hyp. 1: Voiced C - large & Voiceless C - small
+```{r echo=F, message=F}
+hyp <- expe22 %>% 
+          filter(label %in% c("a_large_animal", "a_small_animal")) %>% 
+          filter(contrast == "p-b") %>% 
+          droplevels()
+
+hyp %>%
+  select(context, contrast, C, V, mode, place, voicing) %>%
+  dfSummary(style = 'grid', graph.magnif = 0.75, valid.col = FALSE, tmp.img.dir = "/tmp") %>%
+  print(method='render')
+
+preliminary.effect.size <- hyp %>% analyze_contingency_table("C") # contingency table
+model.results <- hyp %>% analyze_binomial(c("C", "V"))
+
+results[1,] <- list("2x2", 1, "size", "large-small", "p-b", "i_i_, a_a_", 
+                    preliminary.effect.size, model.results$test.interaction, model.results$p.value.interaction,
+                    model.results$p.value.target, model.results$p.value.context, model.results$effect.size.target, model.results$effect.size.context)
+```
+
+### Hyp. 2: [i] - small & [a] - large
+```{r echo=F, message=F}
+hyp <- expe22 %>% 
+          filter(label %in% c("a_large_animal", "a_small_animal")) %>% 
+          filter(contrast == "i-a") %>% 
+          droplevels()
+
+hyp %>%
+  select(context, contrast, C, V, mode, place, voicing) %>%
+  dfSummary(style = 'grid', graph.magnif = 0.75, valid.col = FALSE, tmp.img.dir = "/tmp") %>%
+  print(method='render')
+
+preliminary.effect.size <- hyp %>% analyze_contingency_table("V") # contingency table
+model.results <- hyp %>% analyze_binomial(c("V", "C"))
+
+results[2,] <- list("2x2", 2, "size", "large-small", "i-a", "_b_b, _p_p", 
+                    preliminary.effect.size, model.results$test.interaction, model.results$p.value.interaction,
+                    model.results$p.value.target, model.results$p.value.context, model.results$effect.size.target, model.results$effect.size.context)
+```
+
+### Hyp. 3: Fricatives - fish & Plosives - bird
+```{r echo=F, message=F}
+hyp <- expe22 %>% 
+          filter(label %in% c("a_bird", "a_fish")) %>% 
+          filter(contrast == "t-s") %>% 
+          droplevels()
+
+hyp %>%
+  select(context, contrast, C, V, mode, place, voicing) %>%
+  dfSummary(style = 'grid', graph.magnif = 0.75, valid.col = FALSE, tmp.img.dir = "/tmp") %>%
+  print(method='render')
+
+preliminary.effect.size <- hyp %>% analyze_contingency_table("C") # contingency table
+model.results <- hyp %>% analyze_binomial(c("C", "V"))
+
+results[3,] <- list("2x2", 3, "biological class", "bird-fish", "t-s", "a_a_, i_i_", 
+                    preliminary.effect.size, model.results$test.interaction, model.results$p.value.interaction,
+                    model.results$p.value.target, model.results$p.value.context, model.results$effect.size.target, model.results$effect.size.context)
+```
+
+### Hyp. 4: [a] or [u] - fish & [i] - bird
+```{r echo=F, message=F}
+hyp <- expe22 %>% 
+          filter(label %in% c("a_bird", "a_fish")) %>% 
+          filter(contrast == "i-a") %>% 
+          droplevels()
+
+hyp %>%
+  select(context, contrast, C, V, mode, place, voicing) %>%
+  dfSummary(style = 'grid', graph.magnif = 0.75, valid.col = FALSE, tmp.img.dir = "/tmp") %>%
+  print(method='render')
+
+preliminary.effect.size <- hyp %>% analyze_contingency_table("V") # contingency table
+model.results <- hyp %>% analyze_binomial(c("V", "C"))
+
+results[4,] <- list("2x2", 4, "biological class", "bird-fish", "i-a", "_s_s, _t_t", 
+                    preliminary.effect.size, model.results$test.interaction, model.results$p.value.interaction,
+                    model.results$p.value.target, model.results$p.value.context, model.results$effect.size.target, model.results$effect.size.context)
+```
+
+### Hyp. 5: Plosives – repulsive & Sonorants – attractive
+```{r echo=F, message=F}
+hyp <- expe22 %>% 
+          filter(label %in% c("an_attractive_animal", "a_repulsive_animal")) %>% 
+          filter(contrast == "n-k") %>% 
+          droplevels()
+
+hyp %>%
+  select(context, contrast, C, V, mode, place, voicing) %>%
+  dfSummary(style = 'grid', graph.magnif = 0.75, valid.col = FALSE, tmp.img.dir = "/tmp") %>%
+  print(method='render')
+
+preliminary.effect.size <- hyp %>% analyze_contingency_table("C") # contingency table
+model.results <- hyp %>% analyze_binomial(c("C", "V"))
+
+results[5,] <- list("2x2", 5, "attractiveness", "attractive-repulsive", "n-k", "a_a_, #i_i_", 
+                    preliminary.effect.size, model.results$test.interaction, model.results$p.value.interaction,
+                    model.results$p.value.target, model.results$p.value.context, model.results$effect.size.target, model.results$effect.size.context)
+```
+
+### Hyp. 6: [a] - repulsive & [i] - attractive
+```{r echo=F, message=F}
+hyp <- expe22 %>% 
+          filter(label %in% c("an_attractive_animal", "a_repulsive_animal")) %>% 
+          filter(contrast == "i-a") %>% 
+          droplevels()
+
+hyp %>%
+  select(context, contrast, C, V, mode, place, voicing) %>%
+  dfSummary(style = 'grid', graph.magnif = 0.75, valid.col = FALSE, tmp.img.dir = "/tmp") %>%
+  print(method='render')
+
+preliminary.effect.size <- hyp %>% analyze_contingency_table("V") # contingency table
+model.results <- hyp %>% analyze_binomial(c("V", "C"))
+
+results[6,] <- list("2x2", 6, "attractiveness", "attractive-repulsive", "i-a", "_k_k, _n_n", 
+                    preliminary.effect.size, model.results$test.interaction, model.results$p.value.interaction,
+                    model.results$p.value.target, model.results$p.value.context, model.results$effect.size.target, model.results$effect.size.context)
+```
+
+### Hyp. 7: Back V - dangerous & Front V - harmless
+```{r echo=F, message=F}
+hyp <- expe22 %>% 
+          filter(label %in% c("a_dangerous_animal", "a_harmless_animal")) %>% 
+          filter(contrast == "i-u") %>% 
+          droplevels()
+
+
+hyp %>%
+  select(context, contrast, C, V, mode, place, voicing) %>%
+  dfSummary(style = 'grid', graph.magnif = 0.75, valid.col = FALSE, tmp.img.dir = "/tmp") %>%
+  print(method='render')
+
+preliminary.effect.size <- hyp %>% analyze_contingency_table("V") # contingency table
+model.results <- hyp %>% analyze_binomial(c("V", "C"))
+
+results[7,] <- list("2x2", 7, "dangerousness", "dangerous-harmless", "i-u", "_g_g, _m_m", 
+                    preliminary.effect.size, model.results$test.interaction, model.results$p.value.interaction,
+                    model.results$p.value.target, model.results$p.value.context, model.results$effect.size.target, model.results$effect.size.context)
+```
+
+### Hyp. 8: Voiced C - dangerous & Voiceless C - harmless
+```{r echo=F, message=F}
+hyp <- expe22 %>% 
+          filter(label %in% c("a_dangerous_animal", "a_harmless_animal")) %>% 
+          filter(contrast %in% c("p-b", "k-g")) %>% 
+          droplevels()
+
+
+hyp %>%
+  select(context, contrast, C, V, mode, place, voicing) %>%
+  dfSummary(style = 'grid', graph.magnif = 0.75, valid.col = FALSE, tmp.img.dir = "/tmp") %>%
+  print(method='render')
+
+preliminary.effect.size <- hyp %>% analyze_contingency_table("voicing") # contingency table
+model.results <- hyp %>% analyze_binomial(c("voicing", "place"))
+
+results[8,] <- list("2x2", 8, "dangerousness", "dangerous-harmless", "voiced-voiceless", "anterior, posterior", 
+                    preliminary.effect.size, model.results$test.interaction, model.results$p.value.interaction,
+                    model.results$p.value.target, model.results$p.value.context, model.results$effect.size.target, model.results$effect.size.context)
+```
+
+### Hyp. 9: Plosives - dangerous & Sonorants - harmless
+```{r echo=F, message=F}
+hyp <- expe22 %>% 
+          filter(label %in% c("a_dangerous_animal", "a_harmless_animal")) %>% 
+          filter(contrast %in% c("b-m", "l-d")) %>% 
+          droplevels()
+
+hyp %>%
+  select(context, contrast, C, V, mode, place, voicing) %>%
+  dfSummary(style = 'grid', graph.magnif = 0.75, valid.col = FALSE, tmp.img.dir = "/tmp") %>%
+  print(method='render')
+
+preliminary.effect.size <- hyp %>% analyze_contingency_table("mode") # contingency table
+model.results <- hyp %>% analyze_binomial(c("mode", "place"))
+
+results[9,] <- list("2x2", 9, "dangerousness", "dangerous-harmless", "plosive-sonorant", "i_i_, u_u_ / anterior, medium", 
+                    preliminary.effect.size, model.results$test.interaction, model.results$p.value.interaction,
+                    model.results$p.value.target, model.results$p.value.context, model.results$effect.size.target, model.results$effect.size.context)
+```
+
+Context and place are redundant, so we cannot know what is the confounding factor, if any, but that's not a problem.
+
+### Hyp. 10: Back C - dangerous & Front C - harmless
+```{r echo=F, message=F}
+hyp <- expe22 %>% 
+          filter(label %in% c("a_dangerous_animal", "a_harmless_animal")) %>% 
+          filter(contrast == "p-k") %>% 
+          droplevels()
+
+hyp %>%
+  select(context, contrast, C, V, mode, place, voicing) %>%
+  dfSummary(style = 'grid', graph.magnif = 0.75, valid.col = FALSE, tmp.img.dir = "/tmp") %>%
+  print(method='render')
+
+preliminary.effect.size <- hyp %>% analyze_contingency_table("place") # contingency table
+model.results <- hyp %>% analyze_binomial(c("place"))
+
+results[10,] <- list("2x2", 10, "dangerousness", "dangerous-harmless", "place", "u_u_", 
+                    preliminary.effect.size, model.results$test.interaction, model.results$p.value.interaction,
+                    model.results$p.value.target, model.results$p.value.context, model.results$effect.size.target, model.results$effect.size.context)
+```
+
+
+
+# 2. 2x1 data
+
+## 2.1. Preparation of the data
+Reading data:
+```{r}
+expe21 <- read.table("2x1.txt", sep = "\t", header = TRUE, dec = ".", stringsAsFactors = T)
+expe21 <- as_tibble(expe21) # Turning the data frame into a tibble
+```
+
+Discarding training and trials without response (response time larger than 2500ms):
+```{r}
+expe21 <- expe21 %>%
+            filter(trial_nb > 3) %>%
+            filter(response_time < 2500) %>%
+            droplevels()
+```
+
+Turning the variable subject_nr into a categorical variable:
+```{r}
+expe21 <- expe21 %>% mutate(subject_nr = as.factor(subject_nr))
+```
+
+Renaming variables to homogenize variable names across protocols for analysis:
+```{r}
+expe21 <- expe21 %>% rename(label = chosen_label)
+```
+
+## 2.2. Statistical analyses
+
+### Hyp. 1: Voiced C - large & Voiceless C - small
+```{r echo=F, message=F}
+hyp <- expe21 %>% 
+          filter(label %in% c("a_large_animal", "a_small_animal")) %>% 
+          droplevels()
+
+hyp %>%
+  select(C, V, mode, place, voicing) %>%
+  dfSummary(style = 'grid', graph.magnif = 0.75, valid.col = FALSE, tmp.img.dir = "/tmp") %>%
+  print(method='render')
+
+preliminary.effect.size <- hyp %>% analyze_contingency_table("C") # contingency table
+model.results <- hyp %>% analyze_binomial(c("C", "V"))
+
+results[11,] <- list("2x1", 1, "size", "large-small", "p-b", "i_i_, a_a_", 
+                    preliminary.effect.size, model.results$test.interaction, model.results$p.value.interaction,
+                    model.results$p.value.target, model.results$p.value.context, model.results$effect.size.target, model.results$effect.size.context)
+```
+
+
+### Hyp. 2: [i] - small & [a] - large
+```{r echo=F, message=F}
+hyp <- expe21 %>% 
+          filter(label %in% c("a_large_animal", "a_small_animal")) %>% 
+          droplevels()
+
+hyp %>%
+  select(C, V, mode, place, voicing) %>%
+  dfSummary(style = 'grid', graph.magnif = 0.75, valid.col = FALSE, tmp.img.dir = "/tmp") %>%
+  print(method='render')
+
+preliminary.effect.size <- hyp %>% analyze_contingency_table("V") # contingency table
+model.results <- hyp %>% analyze_binomial(c("V", "C"))
+
+results[12,] <- list("2x1", 2, "size", "large-small", "i-a", "_b_b, _p_p", 
+                    preliminary.effect.size, model.results$test.interaction, model.results$p.value.interaction,
+                    model.results$p.value.target, model.results$p.value.context, model.results$effect.size.target, model.results$effect.size.context)
+```
+
+
+### Hyp. 3: Fricatives - fish & Plosives - bird
+```{r echo=F, message=F}
+hyp <- expe21 %>% 
+            filter(label %in% c("a_bird", "a_fish")) %>% 
+            droplevels()
+
+hyp %>%
+  select(C, V, mode, place, voicing) %>%
+  dfSummary(style = 'grid', graph.magnif = 0.75, valid.col = FALSE, tmp.img.dir = "/tmp") %>%
+  print(method='render')
+
+preliminary.effect.size <- hyp %>% analyze_contingency_table("C") # contingency table
+model.results <- hyp %>% analyze_binomial(c("C", "V"))
+
+results[13,] <- list("2x1", 3, "biological class", "bird-fish", "t-s", "a_a_, i_i_", 
+                    preliminary.effect.size, model.results$test.interaction, model.results$p.value.interaction,
+                    model.results$p.value.target, model.results$p.value.context, model.results$effect.size.target, model.results$effect.size.context)
+```
+
+### Hyp. 4: [a] or [u] - fish & [i] - bird
+```{r echo=F, message=F}
+hyp <- expe21 %>% 
+            filter(label %in% c("a_bird", "a_fish")) %>% 
+            droplevels()
+
+hyp %>%
+  select(C, V, mode, place, voicing) %>%
+  dfSummary(style = 'grid', graph.magnif = 0.75, valid.col = FALSE, tmp.img.dir = "/tmp") %>%
+  print(method='render')
+
+preliminary.effect.size <- hyp %>% analyze_contingency_table("V") # contingency table
+model.results <- hyp %>% analyze_binomial(c("V", "C"))
+
+results[14,] <- list("2x1", 4, "biological class", "bird-fish", "i-a", "_s_s, _t_t", 
+                    preliminary.effect.size, model.results$test.interaction, model.results$p.value.interaction,
+                    model.results$p.value.target, model.results$p.value.context, model.results$effect.size.target, model.results$effect.size.context)
+```
+
+### Hyp. 5: Plosives – repulsive & Sonorants – attractive
+```{r echo=F, message=F}
+hyp <- expe21 %>% 
+        filter(label %in% c("an_attractive_animal", "a_repulsive_animal")) %>% 
+        droplevels()
+
+hyp %>%
+  select(C, V, mode, place, voicing) %>%
+  dfSummary(style = 'grid', graph.magnif = 0.75, valid.col = FALSE, tmp.img.dir = "/tmp") %>%
+  print(method='render')
+
+Cramer <- hyp %>% analyze_contingency_table("C") # contingency table
+model.results <- hyp %>% analyze_binomial(c("C", "V"))
+
+results[15,] <- list("2x1", 5, "attractiveness", "attractive-repulsive", "n-k", "a_a_, i_i_", 
+                    preliminary.effect.size, model.results$test.interaction, model.results$p.value.interaction,
+                    model.results$p.value.target, model.results$p.value.context, model.results$effect.size.target, model.results$effect.size.context)
+```
+
+### Hyp. 6: [a] - repulsive & [i] - attractive
+```{r echo=F, message=F}
+hyp <- expe21 %>% 
+        filter(label %in% c("an_attractive_animal", "a_repulsive_animal")) %>% 
+        droplevels()
+
+hyp %>%
+  select(C, V, mode, place, voicing) %>%
+  dfSummary(style = 'grid', graph.magnif = 0.75, valid.col = FALSE, tmp.img.dir = "/tmp") %>%
+  print(method='render')
+
+preliminary.effect.size <- hyp %>% analyze_contingency_table("V") # contingency table
+model.results <- hyp %>% analyze_binomial(c("V", "C"))
+
+results[16,] <- list("2x1", 6, "attractiveness", "attractive-repulsive", "i-a", "_k_k, _n_n", 
+                    preliminary.effect.size, model.results$test.interaction, model.results$p.value.interaction,
+                    model.results$p.value.target, model.results$p.value.context, model.results$effect.size.target, model.results$effect.size.context)
+```
+
+### Hyp. 7: Back V - dangerous & Front V - harmless
+```{r echo=F, message=F}
+hyp <- expe21 %>% 
+          filter(label %in% c("a_dangerous_animal", "a_harmless_animal")) %>% 
+          filter(PW %in% c("ugug", "umum", "igig", "imim")) %>% 
+          droplevels()
+
+hyp %>%
+  select(C, V, mode, place, voicing) %>%
+  dfSummary(style = 'grid', graph.magnif = 0.75, valid.col = FALSE, tmp.img.dir = "/tmp") %>%
+  print(method='render')
+
+preliminary.effect.size <- hyp %>% analyze_contingency_table("V") # contingency table
+model.results <- hyp %>% analyze_binomial(c("V", "C"))
+
+results[17,] <- list("2x1", 7, "dangerousness", "dangerous-harmless", "i-u", "_g_g, _m_m", 
+                    preliminary.effect.size, model.results$test.interaction, model.results$p.value.interaction,
+                    model.results$p.value.target, model.results$p.value.context, model.results$effect.size.target, model.results$effect.size.context)
+```
+
+### Hyp. 8: Voiced C - dangerous & Voiceless C - harmless
+```{r echo=F, message=F}
+hyp <- expe21 %>% 
+          filter(label %in% c("a_dangerous_animal", "a_harmless_animal")) %>% 
+          filter(PW %in% c("ugug", "ubub", "upup", "ukuk")) %>% 
+          droplevels()
+
+hyp %>%
+  select(C, V, mode, place, voicing) %>%
+  dfSummary(style = 'grid', graph.magnif = 0.75, valid.col = FALSE, tmp.img.dir = "/tmp") %>%
+  print(method='render')
+
+preliminary.effect.size <- hyp %>% analyze_contingency_table("voicing") # contingency table
+model.results <- hyp %>% analyze_binomial(c("voicing", "place"))
+
+results[18,] <- list("2x1", 8, "dangerousness", "dangerous-harmless", "voiced-voiceless", "anterior, posterior", 
+                    preliminary.effect.size, model.results$test.interaction, model.results$p.value.interaction,
+                    model.results$p.value.target, model.results$p.value.context, model.results$effect.size.target, model.results$effect.size.context)
+```
+
+### Hyp. 9: Plosives - dangerous & Sonorants - harmless
+```{r echo=F, message=F}
+hyp <- expe21 %>% 
+          filter(label %in% c("a_dangerous_animal", "a_harmless_animal")) %>% 
+          filter(PW %in% c("idid", "ubub", "ilil", "umum")) %>% 
+          droplevels()
+
+hyp %>%
+  select(C, V, mode, place, voicing) %>%
+  dfSummary(style = 'grid', graph.magnif = 0.75, valid.col = FALSE, tmp.img.dir = "/tmp") %>%
+  print(method='render')
+
+preliminary.effect.size <- hyp %>% analyze_contingency_table("mode") # contingency table
+model.results <- hyp %>% analyze_binomial(c("mode", "place"))
+
+results[19,] <- list("2x1", 9, "dangerousness", "dangerous-harmless", "plosive-sonorant", "i_i_, u_u_ / anterior, medium", 
+                    preliminary.effect.size, model.results$test.interaction, model.results$p.value.interaction,
+                    model.results$p.value.target, model.results$p.value.context, model.results$effect.size.target, model.results$effect.size.context)
+```
+
+Context and place are redundant, so we cannot know what is the confounding factor, if any, but that's not a problem.
+
+### Hyp. 10: Back C - dangerous & Front C - harmless
+```{r echo=F, message=F}
+hyp <- expe21 %>% 
+          filter(label %in% c("a_dangerous_animal", "a_harmless_animal")) %>% 
+          filter(PW %in% c("ukuk", "upup")) %>% 
+          droplevels()
+
+hyp %>%
+  select(C, V, mode, place, voicing) %>%
+  dfSummary(style = 'grid', graph.magnif = 0.75, valid.col = FALSE, tmp.img.dir = "/tmp") %>%
+  print(method='render')
+
+preliminary.effect.size <- hyp %>% analyze_contingency_table("place") # contingency table
+model.results <- hyp %>% analyze_binomial(c("place"))
+
+results[20,] <- list("2x1", 10, "dangerousness", "dangerous-harmless", "place", "u_u_", 
+                    preliminary.effect.size, model.results$test.interaction, model.results$p.value.interaction,
+                    model.results$p.value.target, model.results$p.value.context, model.results$effect.size.target, model.results$effect.size.context)
+```
+
+
+# 3. 1x2 data
+## 3.1. Preparation of the data
+Reading data:
+```{r}
+expe12 <- read.table("1x2.txt", sep = "\t", header = TRUE, dec = ".", stringsAsFactors = T)
+expe12 <- as_tibble(expe12) # Turning the data frame into a tibble
+```
+
+Discarding training and trials without response (response time larger than 2500ms):
+```{r}
+expe12 <- expe12 %>% 
+            filter(trial_nb > 3) %>% 
+            filter(response_time < 2500) %>% 
+            droplevels()
+```
+
+Turning the variable subject_nr into a categorical variable:
+```{r}
+expe12 <- expe12 %>% mutate(subject_nr = as.factor(subject_nr))
+```
+
+
+Renaming variables to homogenize variable names across protocols for analysis:
+```{r}
+expe12 <- expe12 %>% rename(PW = chosen_PW)
+```
+
+## 3.2. Statistical analyses
+
+### Hyp. 1: Voiced C - large & Voiceless C - small
+```{r echo=F, message=F}
+hyp <- expe12 %>% 
+          filter(label %in% c("a_large_animal", "a_small_animal")) %>% 
+          filter(contrast == "p-b") %>% 
+          droplevels()
+
+hyp %>%
+  select(context, contrast, C, V, mode, place, voicing) %>%
+  dfSummary(style = 'grid', graph.magnif = 0.75, valid.col = FALSE, tmp.img.dir = "/tmp") %>%
+  print(method='render')
+
+preliminary.effect.size <- hyp %>% analyze_contingency_table("C") # contingency table
+model.results <- hyp %>% analyze_binomial(c("C", "V"))
+
+results[21,] <- list("1x2", 1, "size", "large-small", "p-b", "i_i_, a_a_", 
+                    preliminary.effect.size, model.results$test.interaction, model.results$p.value.interaction,
+                    model.results$p.value.target, model.results$p.value.context, model.results$effect.size.target, model.results$effect.size.context)
+```
+
+
+
+### Hyp. 2: [i] - small & [a] - large
+```{r echo=F, message=F}
+hyp <- expe12 %>% 
+          filter(label %in% c("a_large_animal", "a_small_animal")) %>% 
+          filter(contrast == "i-a") %>% 
+          droplevels()
+
+hyp %>%
+  select(context, contrast, C, V, mode, place, voicing) %>%
+  dfSummary(style = 'grid', graph.magnif = 0.75, valid.col = FALSE, tmp.img.dir = "/tmp") %>%
+  print(method='render')
+
+preliminary.effect.size <- hyp %>% analyze_contingency_table("V") # contingency table
+model.results <- hyp %>% analyze_binomial(c("V", "C"))
+
+results[22,] <- list("1x2", 2, "size", "large-small", "i-a", "_b_b, _p_p", 
+                    preliminary.effect.size, model.results$test.interaction, model.results$p.value.interaction,
+                    model.results$p.value.target, model.results$p.value.context, model.results$effect.size.target, model.results$effect.size.context)
+```
+
+### Hyp. 3: Fricatives - fish & Plosives - bird
+```{r echo=F, message=F}
+hyp <- expe12 %>% 
+          filter(label %in% c("a_bird", "a_fish")) %>% 
+          filter(contrast == "t-s") %>% 
+          droplevels()
+
+hyp %>%
+  select(context, contrast, C, V, mode, place, voicing) %>%
+  dfSummary(style = 'grid', graph.magnif = 0.75, valid.col = FALSE, tmp.img.dir = "/tmp") %>%
+  print(method='render')
+
+preliminary.effect.size <- hyp %>% analyze_contingency_table("C") # contingency table
+model.results <- hyp %>% analyze_binomial(c("C", "V"))
+
+results[23,] <- list("1x2", 3, "biological class", "bird-fish", "t-s", "a_a_, i_i_", 
+                    preliminary.effect.size, model.results$test.interaction, model.results$p.value.interaction,
+                    model.results$p.value.target, model.results$p.value.context, model.results$effect.size.target, model.results$effect.size.context)
+```
+
+### Hyp. 4: [a] or [u] - fish & [i] - bird
+```{r echo=F, message=F}
+hyp <- expe12 %>% 
+          filter(label %in% c("a_bird", "a_fish")) %>% 
+          filter(contrast == "i-a") %>% 
+          droplevels()
+
+hyp %>%
+  select(context, contrast, C, V, mode, place, voicing) %>%
+  dfSummary(style = 'grid', graph.magnif = 0.75, valid.col = FALSE, tmp.img.dir = "/tmp") %>%
+  print(method='render')
+
+preliminary.effect.size <- hyp %>% analyze_contingency_table("V") # contingency table
+model.results <- hyp %>% analyze_binomial(c("V", "C"))
+
+results[24,] <- list("1x2", 4, "biological class", "bird-fish", "i-a", "_s_s, _t_t", 
+                    preliminary.effect.size, model.results$test.interaction, model.results$p.value.interaction,
+                    model.results$p.value.target, model.results$p.value.context, model.results$effect.size.target, model.results$effect.size.context)
+```
+
+### Hyp. 5: Plosives – repulsive & Sonorants – attractive
+```{r echo=F, message=F}
+hyp <- expe12 %>% 
+          filter(label %in% c("an_attractive_animal", "a_repulsive_animal")) %>% 
+          filter(contrast == "n-k") %>% 
+          droplevels()
+
+hyp %>%
+  select(context, contrast, C, V, mode, place, voicing) %>%
+  dfSummary(style = 'grid', graph.magnif = 0.75, valid.col = FALSE, tmp.img.dir = "/tmp") %>%
+  print(method='render')
+
+preliminary.effect.size <- hyp %>% analyze_contingency_table("C") # contingency table
+model.results <- hyp %>% analyze_binomial(c("C", "V"))
+
+results[25,] <- list("1x2", 5, "attractiveness", "attractive-repulsive", "n-k", "a_a_, i_i_", 
+                    preliminary.effect.size, model.results$test.interaction, model.results$p.value.interaction,
+                    model.results$p.value.target, model.results$p.value.context, model.results$effect.size.target, model.results$effect.size.context)
+```
+
+### Hyp. 6: [a] - repulsive & [i] - attractive
+```{r echo=F, message=F}
+hyp <- expe12 %>% 
+          filter(label %in% c("an_attractive_animal", "a_repulsive_animal")) %>% 
+          filter(contrast == "i-a") %>% 
+          droplevels()
+
+
+hyp %>%
+  select(context, contrast, C, V, mode, place, voicing) %>%
+  dfSummary(style = 'grid', graph.magnif = 0.75, valid.col = FALSE, tmp.img.dir = "/tmp") %>%
+  print(method='render')
+
+preliminary.effect.size <- hyp %>% analyze_contingency_table("V") # contingency table
+model.results <- hyp %>% analyze_binomial(c("V", "C"))
+
+results[26,] <- list("1x2", 6, "attractiveness", "attractive-repulsive", "i-a", "_k_k, _n_n", 
+                    preliminary.effect.size, model.results$test.interaction, model.results$p.value.interaction,
+                    model.results$p.value.target, model.results$p.value.context, model.results$effect.size.target, model.results$effect.size.context)
+```
+
+### Hyp. 7: Back V - dangerous & Front V - harmless
+```{r echo=F, message=F}
+hyp <- expe12 %>% 
+          filter(label %in% c("a_dangerous_animal", "a_harmless_animal")) %>% 
+          filter(contrast == "i-u") %>% 
+          droplevels()
+
+hyp %>%
+  select(context, contrast, C, V, mode, place, voicing) %>%
+  dfSummary(style = 'grid', graph.magnif = 0.75, valid.col = FALSE, tmp.img.dir = "/tmp") %>%
+  print(method='render')
+
+preliminary.effect.size <- hyp %>% analyze_contingency_table("V") # contingency table
+model.results <- hyp %>% analyze_binomial(c("V", "C"))
+
+results[27,] <- list("1x2", 7, "dangerousness", "dangerous-harmless", "i-u", "_g_g, _m_m", 
+                    preliminary.effect.size, model.results$test.interaction, model.results$p.value.interaction,
+                    model.results$p.value.target, model.results$p.value.context, model.results$effect.size.target, model.results$effect.size.context)
+```
+
+### Hyp. 8: Voiced C - dangerous & Voiceless C - harmless
+```{r echo=F, message=F}
+hyp <- expe12 %>% 
+          filter(label %in% c("a_dangerous_animal", "a_harmless_animal")) %>% 
+          filter(contrast %in% c("p-b", "k-g")) %>% 
+          droplevels()
+
+hyp %>%
+  select(context, contrast, C, V, mode, place, voicing) %>%
+  dfSummary(style = 'grid', graph.magnif = 0.75, valid.col = FALSE, tmp.img.dir = "/tmp") %>%
+  print(method='render')
+
+preliminary.effect.size <- hyp %>% analyze_contingency_table("voicing") # contingency table
+model.results <- hyp %>% analyze_binomial(c("voicing", "place"))
+
+results[28,] <- list("1x2", 8, "dangerousness", "dangerous-harmless", "voiced-voiceless", "anterior, posterior", 
+                    preliminary.effect.size, model.results$test.interaction, model.results$p.value.interaction,
+                    model.results$p.value.target, model.results$p.value.context, model.results$effect.size.target, model.results$effect.size.context)
+```
+
+### Hyp. 9: Plosives - dangerous & Sonorants - harmless
+```{r echo=F, message=F}
+hyp <- expe12 %>% 
+          filter(label %in% c("a_dangerous_animal", "a_harmless_animal")) %>% 
+          filter(contrast %in% c("b-m", "l-d")) %>% 
+          droplevels()
+
+hyp %>%
+  select(context, contrast, C, V, mode, place, voicing) %>%
+  dfSummary(style = 'grid', graph.magnif = 0.75, valid.col = FALSE, tmp.img.dir = "/tmp") %>%
+  print(method='render')
+
+preliminary.effect.size <- hyp %>% analyze_contingency_table("mode") # contingency table
+model.results <- hyp %>% analyze_binomial(c("mode", "place"))
+
+results[29,] <- list("1x2", 9, "dangerousness", "dangerous-harmless", "plosive-sonorant", "i_i_, u_u_ / anterior, medium", 
+                    preliminary.effect.size, model.results$test.interaction, model.results$p.value.interaction,
+                    model.results$p.value.target, model.results$p.value.context, model.results$effect.size.target, model.results$effect.size.context)
+```
+
+Context and place are redundant, so we cannot know what is the confounding factor, if any, but that's not a problem.
+
+### Hyp. 10: Back C - dangerous & Front C - harmless
+```{r echo=F, message=F}
+hyp <- expe12 %>% 
+          filter(label %in% c("a_dangerous_animal", "a_harmless_animal")) %>% 
+          filter(contrast == "p-k") %>% 
+          droplevels()
+
+hyp %>%
+  select(context, contrast, C, V, mode, place, voicing) %>%
+  dfSummary(style = 'grid', graph.magnif = 0.75, valid.col = FALSE, tmp.img.dir = "/tmp") %>%
+  print(method='render')
+
+preliminary.effect.size <- hyp %>% analyze_contingency_table("place") # contingency table
+model.results <- hyp %>% analyze_binomial(c("place"))
+
+results[30,] <- list("1x2", 10, "dangerousness", "dangerous-harmless", "place", "u_u_", 
+                    preliminary.effect.size, model.results$test.interaction, model.results$p.value.interaction,
+                    model.results$p.value.target, model.results$p.value.context, model.results$effect.size.target, model.results$effect.size.context)
+```
+
+
+# 4. 1x1 data
+## 4.1. Preparation of the data
+
+Reading data:
+```{r}
+expe11 <- read.table("1x1.txt", sep = "\t", header = TRUE, dec = ".", stringsAsFactors = T)
+expe11 <- as_tibble(expe11) # Turning the data frame into a tibble
+```
+
+Training have already been discarded.
+Discarding trials with response time larger than 3500ms:
+```{r}
+expe11 <- expe11 %>% 
+            filter(response_time < 3500) %>% 
+            droplevels()
+```
+
+
+Turning the variable subject_nr into a categorical variable:
+```{r}
+expe11 <- expe11 %>% mutate(subject_nr = as.factor(subject_nr))
+```
+
+Creating a factor variable based on judgment:
+```{r}
+expe11 <- expe11 %>% mutate(response = as.factor(judgment))
+```
+
+
+## 4.2. Statistical analyses
+
+### Hyp. 1: Voiced C - large & Voiceless C - small
+```{r echo=F, message=F}
+hyp <- expe11 %>% 
+          filter(label %in% c("a_large_animal", "a_small_animal")) %>% 
+          droplevels()
+
+hyp %>%
+  select(C, V, mode, place, voicing) %>%
+  dfSummary(style = 'grid', graph.magnif = 0.75, valid.col = FALSE, tmp.img.dir = "/tmp") %>%
+  print(method='render')
+
+preliminary.effect.size <- hyp %>% analyze_means_table("C") # contingency table
+model.results <- hyp %>% analyze_ordered_logistic(c("C", "V"))
+
+results[31,] <- list("1x1", 1, "size", "large-small", "p-b", "i_i_, a_a_", 
+                    preliminary.effect.size, model.results$test.interaction, model.results$p.value.interaction,
+                    model.results$p.value.target, model.results$p.value.context, model.results$effect.size.target, model.results$effect.size.context)
+```
+
+
+### Hyp. 2: [i] - small & [a] - large
+```{r echo=F, message=F}
+hyp <- expe11 %>% 
+          filter(label %in% c("a_large_animal", "a_small_animal")) %>% 
+          droplevels()
+
+hyp %>%
+  select(C, V, mode, place, voicing) %>%
+  dfSummary(style = 'grid', graph.magnif = 0.75, valid.col = FALSE, tmp.img.dir = "/tmp") %>%
+  print(method='render')
+
+preliminary.effect.size <- hyp %>% analyze_means_table("V") # contingency table
+model.results <- hyp %>% analyze_ordered_logistic(c("V", "C"))
+
+results[32,] <- list("1x1", 2, "size", "large-small", "i-a", "_b_b, _p_p", 
+                    preliminary.effect.size, model.results$test.interaction, model.results$p.value.interaction,
+                    model.results$p.value.target, model.results$p.value.context, model.results$effect.size.target, model.results$effect.size.context)
+```
+
+### Hyp. 3: Fricatives - fish & Plosives - bird
+```{r echo=F, message=F}
+hyp <- expe11 %>% 
+          filter(label %in% c("a_bird", "a_fish")) %>% 
+          droplevels()
+
+hyp %>%
+  select(C, V, mode, place, voicing) %>%
+  dfSummary(style = 'grid', graph.magnif = 0.75, valid.col = FALSE, tmp.img.dir = "/tmp") %>%
+  print(method='render')
+
+preliminary.effect.size <- hyp %>% analyze_means_table("C") # contingency table
+model.results <- hyp %>% analyze_ordered_logistic(c("C", "V"))
+
+results[33,] <- list("1x1", 3, "biological class", "bird-fish", "t-s", "a_a_, i_i_", 
+                    preliminary.effect.size, model.results$test.interaction, model.results$p.value.interaction,
+                    model.results$p.value.target, model.results$p.value.context, model.results$effect.size.target, model.results$effect.size.context)
+```
+
+### Hyp. 4: [a] or [u] - fish & [i] - bird
+```{r echo=F, message=F}
+hyp <- expe11 %>% 
+          filter(label %in% c("a_bird", "a_fish")) %>% 
+          droplevels()
+
+hyp %>%
+  select(C, V, mode, place, voicing) %>%
+  dfSummary(style = 'grid', graph.magnif = 0.75, valid.col = FALSE, tmp.img.dir = "/tmp") %>%
+  print(method='render')
+
+preliminary.effect.size <- hyp %>% analyze_means_table("V") # contingency table
+model.results <- hyp %>% analyze_ordered_logistic(c("V", "C"))
+
+results[34,] <- list("1x1", 4, "biological class", "bird-fish", "i-a", "_s_s, _t_t", 
+                    preliminary.effect.size, model.results$test.interaction, model.results$p.value.interaction,
+                    model.results$p.value.target, model.results$p.value.context, model.results$effect.size.target, model.results$effect.size.context)
+```
+
+### Hyp. 5: Plosives – repulsive & Sonorants – attractive
+```{r echo=F, message=F}
+hyp <- expe11 %>% 
+          filter(label %in% c("an_attractive_animal", "a_repulsive_animal")) %>% 
+          droplevels()
+
+hyp %>%
+  select(C, V, mode, place, voicing) %>%
+  dfSummary(style = 'grid', graph.magnif = 0.75, valid.col = FALSE, tmp.img.dir = "/tmp") %>%
+  print(method='render')
+
+preliminary.effect.size <- hyp %>% analyze_means_table("C") # contingency table
+model.results <- hyp %>% analyze_ordered_logistic(c("C", "V"))
+
+results[35,] <- list("1x1", 5, "attractiveness", "attractive-repulsive", "n-k", "a_a_, i_i_", 
+                    preliminary.effect.size, model.results$test.interaction, model.results$p.value.interaction,
+                    model.results$p.value.target, model.results$p.value.context, model.results$effect.size.target, model.results$effect.size.context)
+```
+
+### Hyp. 6: [a] - repulsive & [i] - attractive
+```{r echo=F, message=F}
+hyp <- expe11 %>% 
+          filter(label %in% c("an_attractive_animal", "a_repulsive_animal")) %>% 
+          droplevels()
+
+hyp %>%
+  select(C, V, mode, place, voicing) %>%
+  dfSummary(style = 'grid', graph.magnif = 0.75, valid.col = FALSE, tmp.img.dir = "/tmp") %>%
+  print(method='render')
+
+preliminary.effect.size <- hyp %>% analyze_means_table("V") # contingency table
+model.results <- hyp %>% analyze_ordered_logistic(c("V", "C"))
+
+results[36,] <- list("1x1", 6, "attractiveness", "attractive-repulsive", "i-a", "_k_k, _n_n", 
+                    preliminary.effect.size, model.results$test.interaction, model.results$p.value.interaction,
+                    model.results$p.value.target, model.results$p.value.context, model.results$effect.size.target, model.results$effect.size.context)
+```
+
+### Hyp. 7: Back V - dangerous & Front V - harmless
+```{r echo=F, message=F}
+hyp <- expe11 %>% 
+          filter(label %in% c("a_dangerous_animal", "a_harmless_animal")) %>% 
+          filter(PW %in% c("ugug", "umum", "igig", "imim")) %>% 
+          droplevels()
+
+hyp %>%
+  select(C, V, mode, place, voicing) %>%
+  dfSummary(style = 'grid', graph.magnif = 0.75, valid.col = FALSE, tmp.img.dir = "/tmp") %>%
+  print(method='render')
+
+preliminary.effect.size <- hyp %>% analyze_means_table("V") # contingency table
+model.results <- hyp %>% analyze_ordered_logistic(c("V", "C"))
+
+results[37,] <- list("1x1", 7, "dangerousness", "dangerous-harmless", "i-u", "_g_g, _m_m", 
+                    preliminary.effect.size, model.results$test.interaction, model.results$p.value.interaction,
+                    model.results$p.value.target, model.results$p.value.context, model.results$effect.size.target, model.results$effect.size.context)
+```
+
+### Hyp. 8: Voiced C - dangerous & Voiceless C - harmless
+```{r echo=F, message=F}
+hyp <- expe11 %>% 
+          filter(label %in% c("a_dangerous_animal", "a_harmless_animal")) %>% 
+          filter(PW %in% c("ugug", "ubub", "upup", "ukuk")) %>% 
+          droplevels()
+
+hyp %>%
+  select(C, V, mode, place, voicing) %>%
+  dfSummary(style = 'grid', graph.magnif = 0.75, valid.col = FALSE, tmp.img.dir = "/tmp") %>%
+  print(method='render')
+
+preliminary.effect.size <- hyp %>% analyze_means_table("voicing") # contingency table
+model.results <- hyp %>% analyze_ordered_logistic(c("voicing", "place"))
+
+results[38,] <- list("1x1", 8, "dangerousness", "dangerous-harmless", "voiced-voiceless", "anterior, posterior", 
+                    preliminary.effect.size, model.results$test.interaction, model.results$p.value.interaction,
+                    model.results$p.value.target, model.results$p.value.context, model.results$effect.size.target, model.results$effect.size.context)
+```
+
+### Hyp. 9: Plosives - dangerous & Sonorants - harmless
+```{r echo=F, message=F}
+hyp <- expe11 %>% 
+          filter(label %in% c("a_dangerous_animal", "a_harmless_animal")) %>% 
+          filter(PW %in% c("idid", "ubub", "ilil", "umum")) %>% 
+          droplevels()
+
+hyp %>%
+  select(C, V, mode, place, voicing) %>%
+  dfSummary(style = 'grid', graph.magnif = 0.75, valid.col = FALSE, tmp.img.dir = "/tmp") %>%
+  print(method='render')
+
+preliminary.effect.size <- hyp %>% analyze_means_table("mode") # contingency table
+model.results <- hyp %>% analyze_ordered_logistic(c("mode", "place"))
+
+results[39,] <- list("1x1", 9, "dangerousness", "dangerous-harmless", "plosive-sonorant", "i_i_, u_u_ / anterior, medium", 
+                    preliminary.effect.size, model.results$test.interaction, model.results$p.value.interaction,
+                    model.results$p.value.target, model.results$p.value.context, model.results$effect.size.target, model.results$effect.size.context)
+```
+
+Context and place are redundant, so we cannot know what is the confounding factor, if any, but that's not a problem.
+
+### Hyp. 10: Back C - dangerous & Front C - harmless
+```{r echo=F, message=F}
+hyp <- expe11 %>% 
+          filter(label %in% c("a_dangerous_animal", "a_harmless_animal")) %>% 
+          filter(PW %in% c("ukuk", "upup")) %>% 
+          droplevels()
+
+hyp %>%
+  select(C, V, mode, place, voicing) %>%
+  dfSummary(style = 'grid', graph.magnif = 0.75, valid.col = FALSE, tmp.img.dir = "/tmp") %>%
+  print(method='render')
+
+preliminary.effect.size <- hyp %>% analyze_means_table("place") # contingency table
+model.results <- hyp %>% analyze_ordered_logistic(c("place"))
+
+results[40,] <- list("1x1", 10, "dangerousness", "dangerous-harmless", "place", "u_u_", 
+                    preliminary.effect.size, model.results$test.interaction, model.results$p.value.interaction,
+                    model.results$p.value.target, model.results$p.value.context, model.results$effect.size.target, model.results$effect.size.context)
+```
+
+# 5. Synthesis of results
+
+Adding corrected p-values for the target phonetic contrast:
+```{r}
+
+results <- results %>% 
+                  mutate_if(sapply(results, is.character), as.factor) %>%
+                  mutate(cor.p.value.target = p.adjust(p.value.target, method = "fdr"))
+```
+
+## 5.1 Tables of main results
+
+Visualizing the whole table of results:
+```{r echo=F}
+results %>% kable(digits=4)
+```
+
+Effect sizes for main phonetic contrasts, organized by hypotheses and protocols:
+```{r}
+results %>% select(hypothesis, effect.size.target, protocol) %>% spread(protocol, effect.size.target) %>% kable(digits=3)
+```
+
+Raw p-values of significance tests for main phonetic contrasts, organized by hypotheses and protocols:
+```{r}
+results %>% select(hypothesis, p.value.target, protocol) %>% spread(protocol, p.value.target) %>% kable(digits=3)
+```
+
+Corrected p-values of significance tests for main phonetic contrasts, organized by hypotheses and protocols:
+```{r}
+results %>% select(hypothesis, cor.p.value.target, protocol) %>% spread(protocol, cor.p.value.target) %>% kable(digits=3)
+```
+
+## 5.2 Comparison of effect sizes across protocols
+
+Creating, displaying and saving plots of comparisons of effect sizes for the different pairs of protocols:
+```{r echo=F}
+results %>% 
+    select(hypothesis, effect.size.target, protocol) %>%
+    spread(protocol, effect.size.target) %>%
+    select(2:5) %>%
+    chart.Correlation(histogram=TRUE, method = "spearman", pch="+")
+
+tiff("Comparison of effect sizes between protocols.tiff", width = 8, height = 8, units = 'in', res = 150)
+results %>% 
+    select(hypothesis, effect.size.target, protocol) %>%
+    spread(protocol, effect.size.target) %>%
+    select(2:5) %>%
+    chart.Correlation(histogram=TRUE, method = "spearman", pch="+")
+dev.off()
+```
+
+Computing the p-values (that does not appear in the figure) for the significant correlation:
+```{r echo=F, results='markdown'}
+results.cor.test <- results %>% 
+                        select(hypothesis, effect.size.target, protocol) %>%
+                        spread(protocol, effect.size.target) %>%
+                        select(2:5)
+results.cor.test %>% kable(digits=4)
+
+cor.test(results.cor.test %>% pull(2), results.cor.test %>% pull(3), method = "spearman")
+```
+
+## 5.3 Comparison of within-trial and between-trial conditions in 2x2 and 1x2
+
+Contrasting the occurrence of phonetic contrasts as target contrast and contexts in 2x2 and 1x2 to compare within-trial and between-trial conditions:
+Selecting the subset of data:
+```{r echo=F}
+results.hyp.1to6 <- results %>%
+                      filter(hypothesis %in% 1:6, protocol %in% c("2x2", "1x2")) %>%
+                      select(protocol, hypothesis, contrast, context, effect.size.target, p.value.target, effect.size.context, p.value.context)
+results.hyp.1to6 %>% kable(digits=4)
+```
+
+We need to gather all the p-values together (both for the target contrasts and the contexts) to apply correction (wide to long transformation for the p-values):
+```{r echo=F}
+results.hyp.1to6.long <- results.hyp.1to6 %>% 
+                            gather(condition, p.value, c(p.value.target, p.value.context), factor_key=TRUE) %>%
+                            mutate(p.value.cor = p.adjust(p.value, method = "fdr"))
+results.hyp.1to6.long %>% kable(digits = 4)
+```
+
+Then, we back transform the table from long to wide for the (now corrected) p-values:
+```{r echo=F}
+results.hyp.1to6.cor <- results.hyp.1to6.long %>%
+                          select(-p.value) %>%
+                          spread(condition, p.value.cor)
+results.hyp.1to6.cor %>% kable(digits = 4)
+```
+
+Effect sizes for the target phonetic contrast:
+```{r}
+results.hyp.1to6.cor %>% select(hypothesis, effect.size.target, protocol) %>%
+    spread(protocol, effect.size.target) %>% kable(digits=4)
+```
+
+Effect sizes for the context:
+```{r}
+results.hyp.1to6.cor %>% select(hypothesis, effect.size.context, protocol) %>%
+    spread(protocol, effect.size.context) %>% kable(digits=4)
+```
+
+p-values for the effect of the target phonetic contrast:
+```{r}
+results.hyp.1to6.cor %>% select(hypothesis, p.value.target, protocol) %>%
+    spread(protocol, p.value.target) %>% kable(digits=4)
+```
+
+p-values for the effect of the context:
+```{r}
+results.hyp.1to6.cor %>% select(hypothesis, p.value.context, protocol) %>%
+    spread(protocol, p.value.context) %>% kable(digits=4)
+```
+
+## 5.4 Figures for the interactions between target contrast and context
+
+Creating and saving figures for the detected interactions between target contrast and context:
+
+2x1, Hypotheses 5 and 6
+```{r echo=F, message=F}
+hyp <- expe21 %>% 
+        filter(label %in% c("an_attractive_animal", "a_repulsive_animal")) %>% 
+        droplevels()
+
+table <- hyp %>%
+  group_by(PW, label) %>% 
+  summarise(n = n()) %>% 
+  replace(., is.na(.), 0) %>%
+  mutate(label = recode(label, an_attractive_animal = "attractive", a_repulsive_animal="repulsive")) %>%
+  mutate(label = fct_relevel(label, "attractive")) %>%
+  rename(Concept = label)
+
+p <- table %>% ggplot(aes(x=PW, y=n, fill=Concept)) + 
+                      geom_bar(stat="identity", position=position_dodge(0.7), width=0.6) +
+                      geom_text(aes(label=n), vjust=1.6, color="white", position = position_dodge(0.7), size=3) +
+                      ylab("Number of answers") + xlab("Pseudo-word") +
+                      scale_fill_manual(values = c("grey70","grey10")) +
+                      theme_minimal()
+
+p
+ggsave("Interaction_21_Hyp_5_6.tiff", plot = p, device = 'tiff', path = my_path,
+       scale = 1, width = 8, height = 6, units = "in", dpi = 150)
+```
+
+
+1x2, Hypothesis 6
+```{r echo=F, message=F}
+hyp <- expe12 %>% 
+          filter(label %in% c("an_attractive_animal", "a_repulsive_animal")) %>% 
+          filter(contrast == "i-a") %>% 
+          droplevels()
+
+table <- hyp %>%
+  group_by(PW, label) %>% 
+  summarise(n = n()) %>% 
+  replace(., is.na(.), 0) %>%
+  mutate(label = recode(label, an_attractive_animal = "attractive", a_repulsive_animal="repulsive")) %>%
+  mutate(label = fct_relevel(label, "attractive")) %>%
+  rename(Concept = label)
+
+p <- table %>% ggplot(aes(x=PW, y=n, fill=Concept)) + 
+                      geom_bar(stat="identity", position=position_dodge(0.7), width=0.6) +
+                      geom_text(aes(label=n), vjust=1.6, color="white", position = position_dodge(0.7), size=3) +
+                      ylab("Number of answers") + xlab("Pseudo-word") +
+                      scale_fill_manual(values = c("grey70","grey10")) +
+                      theme_minimal()
+p
+ggsave("Interaction_12_Hyp_6.tiff", plot = p, device = 'tiff', path = my_path,
+       scale = 1, width = 8, height = 6, units = "in", dpi = 150)
+```
+
+2x1, Hypothesis 8
+```{r echo=F, message=F}
+hyp <- expe21 %>% 
+          filter(label %in% c("a_dangerous_animal", "a_harmless_animal")) %>% 
+          filter(PW %in% c("ugug", "ubub", "upup", "ukuk")) %>% 
+          droplevels()
+
+table <- hyp %>%
+  group_by(PW, label) %>% 
+  summarise(n = n()) %>% 
+  replace(., is.na(.), 0) %>%
+  mutate(label = recode(label, a_dangerous_animal="dangerous", a_harmless_animal = "harmless")) %>%
+  rename(Concept = label)
+
+p <- table %>% ggplot(aes(x=PW, y=n, fill=Concept)) + 
+                      geom_bar(stat="identity", position=position_dodge(0.7), width=0.6) +
+                      geom_text(aes(label=n), vjust=1.6, color="white", position = position_dodge(0.7), size=3) +
+                      ylab("Number of answers") + xlab("Pseudo-word") +
+                      scale_fill_manual(values = c("grey70","grey10")) +
+                      theme_minimal()
+p
+ggsave("Interaction_21_Hyp_8.tiff", plot = p, device = 'tiff', path = my_path,
+       scale = 1, width = 8, height = 6, units = "in", dpi = 150)
+```
+
+
+1x1, Hypothesis 7
+```{r echo=F, message=F}
+hyp <- expe11 %>% 
+          filter(label %in% c("a_dangerous_animal", "a_harmless_animal")) %>% 
+          filter(PW %in% c("ugug", "umum", "igig", "imim")) %>% 
+          droplevels()
+
+table <- hyp %>%
+  group_by(PW, label) %>% 
+  summarise(m = mean(judgment)) %>% 
+  replace(., is.na(.), 0) %>%
+  mutate(label = recode(label, an_attractive_animal = "attractive", a_repulsive_animal="repulsive")) %>%
+  rename(Concept = label)
+
+p <- table %>% ggplot(aes(x=PW, y=m, fill=Concept, label=sprintf("%0.2f", round(m, digits = 2)))) + 
+                      geom_bar(stat="identity", position=position_dodge(0.7), width=0.6) +
+                      geom_text(vjust=1.6, color="white", position = position_dodge(0.7), size=3) +
+                      ylab("Mean judgement value") + xlab("Pseudo-word") +
+                      scale_fill_manual(values = c("grey80","grey10")) +
+                      theme_minimal()
+
+p
+ggsave("Interaction_11_Hyp_7.tiff", plot = p, device = 'tiff', path = my_path,
+       scale = 1, width = 8, height = 6, units = "in", dpi = 150)
+
+```
+
+
+## 5.5 Distribution of answers in 1x1
+We display the distribution of answers in 1x1 to assess participants' tendencies to choose average or more extreme values:
+
+```{r}
+p <- expe11 %>% 
+  ggplot(aes(x=judgment)) + 
+  geom_histogram(aes(y = stat(count / sum(count))), binwidth = 0.5) +
+  ylab("Proportion of answers") + xlab("Judgment on the 0-to-10 Likert scale") +
+  scale_y_continuous(labels = percent_format()) +
+  scale_x_continuous(breaks=seq(0,10,1)) + 
+  scale_fill_manual(values = c("grey80","grey10")) +
+  theme_minimal()
+
+p
+ggsave("Distribution_judgments_1x1.tiff", plot = p, device = 'tiff', path = my_path,
+       scale = 1, width = 8, height = 6, units = "in", dpi = 150)
+```
+
+
+
+## 5.6 Comparisons of different measures of effect size
+
+Creating, displaying and saving plots of comparisons of different measures of effect size (Cramer's V and partial McKelvey & Zavoina pseudo-R² for 2x2, 2x1 and 1x2, eta² and partial McKelvey & Zavoina pseudo-R² for 1x1):
+```{r echo=F, message=F}
+p <- results %>%
+  filter(protocol != "1x1") %>%
+  droplevels() %>%
+  ggplot(aes(preliminary.effect.size, effect.size.target)) +
+  geom_point(aes(shape = protocol, colour = protocol)) +
+  ggtitle("Comparison of measures of effect size for 2x2, 2x1 and 1x2") +
+  xlab("Cramer's V") +
+  ylab("Partial McKelvey & Zavoina pseudo-R²")
+
+p
+ggsave("Comparison effect size Cramer's test.tiff", plot = p, device = 'tiff', path = my_path,
+       scale = 1, width = 8, height = 8, units = "in", dpi = 150)
+
+p <- results %>%
+  filter(protocol == "1x1") %>%
+  droplevels() %>%
+  ggplot(aes(preliminary.effect.size, effect.size.target)) +
+  geom_point(aes(shape = protocol, colour = protocol)) +
+  ggtitle("Comparison of measures of effect size for 1x1") +
+  xlab("Eta²") +
+  ylab("Partial McKelvey & Zavoina pseudo-R²")
+p
+ggsave("Comparison effect size eta squared test.tiff", plot = p, device = 'tiff', path = my_path,
+       scale = 1, width = 8, height = 8, units = "in", dpi = 150)
+```
+
+
+
+
