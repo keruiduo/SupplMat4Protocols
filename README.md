@@ -3,7 +3,7 @@ Supplementary information for the scientific article 'Phonetic and conceptual co
 
 These supplementary materials contain:
   - the primary data as four TAB-separated TXT files:
-    - `1x1.txt`: contains the data of the 1x1 protocl as follows:
+    - `1x1.txt`: contains the data of the 1x1 protocol as follows:
       - **subject_nr**: the subject ID
       - **trial_nb**: the position of the trial in the sequence of trials
       - **version**: the version of the protocol assigned to the subject
@@ -31,7 +31,7 @@ These supplementary materials contain:
       - **label_right**: the label shown on the right side of the screen
       - **chosen_label**: the label chosen by the subject
       - **response_time**: the response time for the trial     
-    - `1x2.txt`: contains the data of the 1x2 protocl as follows:
+    - `1x2.txt`: contains the data of the 1x2 protocol as follows:
       - **subject_nr**: the subject ID
       - **trial_nb**: the position of the trial in the sequence of trials
       - **label**: the label shown on screen
@@ -47,7 +47,7 @@ These supplementary materials contain:
       - **place**: the place of the consonant used in the chosen pseudoword
       - **voicing**: the voicing of the consonant used in the chosen pseudoword
       - **response_time**: the response time for the trial
-    - `2x2.txt`: contains the data of the 1x1 protocl as follows:
+    - `2x2.txt`: contains the data of the 2x2 protocol as follows:
       - **subject_nr**: the subject ID
       - **trial_nb**: the position of the trial in the sequence of trials
       - **PW_code_left**: the code/ID of the pseudoword on the left of the screen and played first
