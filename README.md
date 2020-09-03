@@ -1,2 +1,70 @@
 # SupplMat4Protocols
 Supplementary information for the scientific article 'Phonetic and conceptual contrasts in sound symbolism'
+
+These supplementary materials contain:
+  - the primary data as four TAB-separated TXT files:
+    - `1x1.txt`: contains the data of the 1x1 protocl as follows:
+      - **subject_nr**: the subject ID
+      - **trial_nb**: the position of the trial in the sequence of trials
+      - **version**: the version of the protocol assigned to the subject
+      - **label**: the label shown on screen
+      - **PW_code**: the pseudoword ID/code
+      - **PW**: the phonological form of the pseudoword
+      - **C**: the consonant used in the pseudoword
+      - **V**: the vowel used in the pseudoword
+      - **mode**: the mode of the consonant used in the pseudoword
+      - **place**: the place of the consonant used in the pseudoword
+      - **voicing**: the voicing of the consonant used in the pseudoword
+      - **judgment**: the subject's judgment on a scale between 0 and 10
+      - **response_time**: the response time for the trial
+    - `2x1.txt`: contains the data of the 2x1 protocl as follows:
+      - **subject_nr**: the subject ID
+      - **trial_nb**: the position of the trial in the sequence of trials
+      - **PW_code**: the pseudoword ID/code
+      - **PW**: the phonological form of the pseudoword
+      - **V**: the vowel used in the pseudoword
+      - **C**: the consonant used in the pseudoword
+      - **mode**: the mode of the consonant used in the pseudoword
+      - **place**: the place of the consonant used in the pseudoword
+      - **voicing**: the voicing of the consonant used in the pseudoword
+      - **label_left**: the label shown on the left side of the screen
+      - **label_right**: the label shown on the right side of the screen
+      - **chosen_label**: the label chosen by the subject
+      - **response_time**: the response time for the trial     
+    - `1x2.txt`: contains the data of the 1x2 protocl as follows:
+      - **subject_nr**: the subject ID
+      - **trial_nb**: the position of the trial in the sequence of trials
+      - **label**: the label shown on screen
+      - **PW_code_left**: the code/ID of the pseudoword on the left of the screen and played first
+      - **PW_code_right**: the code/ID of the pseudoword on the right of the screen and played second
+      - **chosen_PW_code**: the code/ID of the pseudoword chosen by the subject
+      - **chosen_PW**: the phonological form of the pseudoword chosen by the subject
+      - **context**: the phonetic context of the within-trial target phonetic contrast
+      - **contrast**: the within-trial target phonetic contrast
+      - **C**: the consonant used in the chosen pseudoword
+      - **V**: the vowel used in the chosen pseudoword
+      - **mode**: the mode of the consonant used in the chosen pseudoword
+      - **place**: the place of the consonant used in the chosen pseudoword
+      - **voicing**: the voicing of the consonant used in the chosen pseudoword
+      - **response_time**: the response time for the trial
+    - `2x2.txt`: contains the data of the 1x1 protocl as follows:
+      - **subject_nr**: the subject ID
+      - **trial_nb**: the position of the trial in the sequence of trials
+      - **PW_code_left**: the code/ID of the pseudoword on the left of the screen and played first
+      - **PW_code_right**: the code/ID of the pseudoword on the right of the screen and played second
+      - **label_left**: the label shown on the left side of the screen
+      - **label_right**: the label shown on the right side of the screen
+      - **chosen_label**: the label chosen by the subject
+      - **chosen_PW_code**: the code/ID of the pseudoword chosen by the subject
+      - **chosen_PW**: the phonological form of the pseudoword chosen by the subject
+      - **context**: the phonetic context of the within-trial target phonetic contrast
+      - **contrast**: the within-trial target phonetic contrast
+      - **C**: the consonant used in the chosen pseudoword
+      - **V**: the vowel used in the chosen pseudoword
+      - **mode**: the mode of the consonant used in the chosen pseudoword
+      - **place**: the place of the consonant used in the chosen pseudoword
+      - **voicing**: the voicing of the consonant used in the chosen pseudoword
+      - **response_time**: the response time for the trial
+  - the full Rmarkdown analysis and plotting script `Four_protocols.Rmd`
+  - the resulting HTML output `Four_protocols.html`
+
