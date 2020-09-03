@@ -1,7 +1,7 @@
 # SupplMat4Protocols
 Supplementary information for the scientific article 'Phonetic and conceptual contrasts in sound symbolism'
 
-These supplementary materials contain:
+The supplementary materials contain:
   - the primary data as four TAB-separated TXT files:
     - `1x1.txt`: contains the data of the 1x1 protocol as follows:
       - **subject_nr**: the subject ID
@@ -67,4 +67,6 @@ These supplementary materials contain:
       - **response_time**: the response time for the trial
   - the full Rmarkdown analysis and plotting script `Four_protocols.Rmd`
   - the resulting HTML output `Four_protocols.html`
+  - a .docx file containing additional details and analyses `Supplementary Information.docx` 
+  - a pdf file containing the same additional details and analyses `Supplementary Information.pdf`
 
